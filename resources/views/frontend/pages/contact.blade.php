@@ -33,8 +33,47 @@
     <div class="modern-blob modern-blob-2" style="bottom: -100px; right: -100px; width: 400px; height: 400px; background: rgba(var(--modern-primary-rgb), 0.05);"></div>
 
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-xl-7 col-lg-8 col-md-9">
+        <div class="row g-5">
+            <!-- Left: Contact Details -->
+            <div class="col-xl-4 col-lg-5 d-none d-lg-block">
+                <span class="modern-badge mb-3">{{ __('common.get_in_touch') }}</span>
+                <h3 class="modern-h2 mb-5" style="font-size: 24px; color: var(--text-dark);">We'd love to hear from you</h3>
+
+                <div class="contact-info-cards">
+                    <div class="modern-card p-4 mb-4 border-0 shadow-sm d-flex align-items-start gap-3">
+                        <div class="bg-primary text-white border-0 flex-shrink-0 d-flex align-items-center justify-content-center rounded-3" style="width: 50px; height: 50px; min-width: 50px;">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h6 class="fw-bold mb-2" style="color: var(--text-dark);">{{ __('common.email') }}</h6>
+                            <a href="mailto:{{ $misc['Company Email'] ?? __('common.company_email') }}" class="text-muted text-decoration-none small">{{ $misc['Company Email'] ?? __('common.company_email') }}</a>
+                        </div>
+                    </div>
+
+                    <div class="modern-card p-4 mb-4 border-0 shadow-sm d-flex align-items-start gap-3">
+                        <div class="bg-primary text-white border-0 flex-shrink-0 d-flex align-items-center justify-content-center rounded-3" style="width: 50px; height: 50px; min-width: 50px;">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h6 class="fw-bold mb-2" style="color: var(--text-dark);">{{ __('common.our_location') }}</h6>
+                            <span class="text-muted small">{{ $misc['Company Address'] ?? __('common.company_Address') }}</span>
+                        </div>
+                    </div>
+
+                    <div class="modern-card p-4 mb-4 border-0 shadow-sm d-flex align-items-start gap-3">
+                        <div class="bg-primary text-white border-0 flex-shrink-0 d-flex align-items-center justify-content-center rounded-3" style="width: 50px; height: 50px; min-width: 50px;">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <div>
+                            <h6 class="fw-bold mb-2" style="color: var(--text-dark);">{{ __('common.company') }}</h6>
+                            <span class="text-muted small">{{ $misc['Company Name'] ?? __('common.company_name') }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: Contact Form -->
+            <div class="col-xl-8 col-lg-7 col-md-12">
                 <div class="modern-card contact-card border-0 shadow-xl overflow-hidden" style="background: rgba(255,255,255,0.95); backdrop-filter: blur(20px); border-radius: 20px;">
                     <!-- Header Section with Gradient -->
                     <div class="contact-card-header p-5 text-center" style="background: linear-gradient(135deg, var(--primary-10) 0%, var(--secondary-10) 100%);">
@@ -49,7 +88,7 @@
                     <div class="p-5">
                         <p class="text-muted text-center mb-5" style="font-size: 14px;">
                             <i class="fas fa-info-circle text-primary me-2"></i>
-                            We'd love to hear from you. Send us a message and we'll respond as soon as possible.
+                            Send us a message and we'll respond as soon as possible.
                         </p>
 
                         @if ($errors->any())
@@ -70,7 +109,7 @@
                         <form method="POST" action="{{ route('contact.send') }}" id="contactform">
                             @csrf
                             <div class="row g-4">
-                                <div class="col-12">
+                                <div class="col-md-6">
                                     <label class="small fw-bold text-uppercase opacity-75 mb-2 d-flex align-items-center">
                                         <i class="fas fa-user text-primary me-2" style="font-size: 12px;"></i>
                                         {{ __('common.name') }}
@@ -81,7 +120,7 @@
                                     @enderror
                                 </div>
 
-                                <div class="col-12">
+                                <div class="col-md-6">
                                     <label class="small fw-bold text-uppercase opacity-75 mb-2 d-flex align-items-center">
                                         <i class="fas fa-envelope text-primary me-2" style="font-size: 12px;"></i>
                                         {{ __('common.email') }}
@@ -92,7 +131,7 @@
                                     @enderror
                                 </div>
 
-                                <div class="col-12">
+                                <div class="col-md-6">
                                     <label class="small fw-bold text-uppercase opacity-75 mb-2 d-flex align-items-center">
                                         <i class="fas fa-phone text-primary me-2" style="font-size: 12px;"></i>
                                         {{ __('common.phone') }}
@@ -103,7 +142,7 @@
                                     @enderror
                                 </div>
 
-                                <div class="col-12">
+                                <div class="col-md-6">
                                     <label class="small fw-bold text-uppercase opacity-75 mb-2 d-flex align-items-center">
                                         <i class="fas fa-tag text-primary me-2" style="font-size: 12px;"></i>
                                         {{ __('common.your_subject') }}
