@@ -2,7 +2,7 @@
 @section('title','About Us')
 @section('main-content')
 
-<div class="tl-breadcrumb about-banner pt-120 pb-120">
+<div class="tl-breadcrumb about-banner pt-60 pb-60">
     <video autoplay muted loop playsinline>
         <source src="{{ asset('images/breadcrumb.mp4') }}" type="video/mp4">
     </video>
