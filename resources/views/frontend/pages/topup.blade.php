@@ -46,95 +46,214 @@
         <div class="row align-items-center g-5 mb-5">
             <!-- Left: Tier Table -->
             <div class="col-xl-6 col-lg-6">
-                <div class="p-4 rounded-5 bg-white shadow-sm" style="border-radius: 40px;">
-                    <h4 class="fw-800 text-dark mb-2 px-3">Bonus Multipliers</h4>
+                <div class="bonus-multipliers-card">
+                    <div class="bonus-header">
+                        <div class="bonus-icon-wrapper">
+                            <i class="fas fa-star-of-life"></i>
+                        </div>
+                        <div class="bonus-title-group">
+                            <h4 class="bonus-title">Bonus Multipliers</h4>
+                            <p class="bonus-subtitle">Earn more with every tier</p>
+                        </div>
+                    </div>
+
                     @if(session('currency') == 'JPY')
-                        <p class="text-muted small px-3 mb-4">*160 JPY = 1 Credit</p>
-                        <div class="table-responsive">
-                            <table class="table modern-table">
-                                <thead>
-                                    <tr>
-                                        <th>JPY Range</th>
-                                        <th>Bonus</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>1 - 79,999</td>
-                                        <td><span class="badge bg-light text-dark px-3 py-2 rounded-pill">None</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>80,000 - 159,999</td>
-                                        <td><span class="badge bg-primary px-3 py-2 rounded-pill">x 2</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>160,000 - 239,999</td>
-                                        <td><span class="badge bg-primary px-3 py-2 rounded-pill">x 2.5</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>240,000 and above</td>
-                                        <td><span class="badge bg-success px-3 py-2 rounded-pill">x 3</span></td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                    <div class="bonus-note">*160 JPY = 1 Credit</div>
+                    <div class="tiers-grid">
+                        <!-- Tier 1 -->
+                        <div class="tier-card tier-1">
+                            <div class="tier-badge">Tier 1</div>
+                            <div class="tier-range">1 - 79,999 ¥</div>
+                            <div class="tier-bonus">
+                                <span class="bonus-label">Bonus</span>
+                                <span class="bonus-value">None</span>
+                            </div>
+                            <div class="tier-progress">
+                                <div class="progress-bar" style="width: 0%"></div>
+                            </div>
                         </div>
+
+                        <!-- Tier 2 -->
+                        <div class="tier-card tier-2">
+                            <div class="tier-badge premium">Premium</div>
+                            <div class="tier-range">80,000 - 159,999 ¥</div>
+                            <div class="tier-bonus">
+                                <span class="bonus-label">Bonus</span>
+                                <span class="bonus-value bonus-multiplier">×2</span>
+                            </div>
+                            <div class="tier-progress">
+                                <div class="progress-bar" style="width: 50%"></div>
+                            </div>
+                        </div>
+
+                        <!-- Tier 3 -->
+                        <div class="tier-card tier-3">
+                            <div class="tier-badge elite">Elite</div>
+                            <div class="tier-range">160,000 - 239,999 ¥</div>
+                            <div class="tier-bonus">
+                                <span class="bonus-label">Bonus</span>
+                                <span class="bonus-value bonus-multiplier">×2.5</span>
+                            </div>
+                            <div class="tier-progress">
+                                <div class="progress-bar" style="width: 75%"></div>
+                            </div>
+                        </div>
+
+                        <!-- Tier 4 -->
+                        <div class="tier-card tier-4">
+                            <div class="tier-badge vip">VIP</div>
+                            <div class="tier-range">240,000+ ¥</div>
+                            <div class="tier-bonus">
+                                <span class="bonus-label">Bonus</span>
+                                <span class="bonus-value bonus-multiplier">×3</span>
+                            </div>
+                            <div class="tier-progress">
+                                <div class="progress-bar" style="width: 100%"></div>
+                            </div>
+                        </div>
+                    </div>
                     @else
-                        <p class="text-muted small px-3 mb-4">*1 USD = 1 Credit</p>
-                        <div class="table-responsive">
-                            <table class="table modern-table">
-                                <thead>
-                                    <tr>
-                                        <th>USD Range</th>
-                                        <th>Bonus</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>$1 - $499</td>
-                                        <td><span class="badge bg-light text-dark px-3 py-2 rounded-pill">None</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>$500 - $999</td>
-                                        <td><span class="badge bg-primary px-3 py-2 rounded-pill">x 2</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>$1,000 - $1,499</td>
-                                        <td><span class="badge bg-primary px-3 py-2 rounded-pill">x 2.5</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>$1,500 and above</td>
-                                        <td><span class="badge bg-success px-3 py-2 rounded-pill">x 3</span></td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                    <div class="bonus-note">*1 USD = 1 Credit</div>
+                    <div class="tiers-grid">
+                        <!-- Tier 1 -->
+                        <div class="tier-card tier-1">
+                            <div class="tier-badge">Tier 1</div>
+                            <div class="tier-range">$1 - $499</div>
+                            <div class="tier-bonus">
+                                <span class="bonus-label">Bonus</span>
+                                <span class="bonus-value">None</span>
+                            </div>
+                            <div class="tier-progress">
+                                <div class="progress-bar" style="width: 0%"></div>
+                            </div>
                         </div>
+
+                        <!-- Tier 2 -->
+                        <div class="tier-card tier-2">
+                            <div class="tier-badge premium">Premium</div>
+                            <div class="tier-range">$500 - $999</div>
+                            <div class="tier-bonus">
+                                <span class="bonus-label">Bonus</span>
+                                <span class="bonus-value bonus-multiplier">×2</span>
+                            </div>
+                            <div class="tier-progress">
+                                <div class="progress-bar" style="width: 50%"></div>
+                            </div>
+                        </div>
+
+                        <!-- Tier 3 -->
+                        <div class="tier-card tier-3">
+                            <div class="tier-badge elite">Elite</div>
+                            <div class="tier-range">$1,000 - $1,499</div>
+                            <div class="tier-bonus">
+                                <span class="bonus-label">Bonus</span>
+                                <span class="bonus-value bonus-multiplier">×2.5</span>
+                            </div>
+                            <div class="tier-progress">
+                                <div class="progress-bar" style="width: 75%"></div>
+                            </div>
+                        </div>
+
+                        <!-- Tier 4 -->
+                        <div class="tier-card tier-4">
+                            <div class="tier-badge vip">VIP</div>
+                            <div class="tier-range">$1,500+</div>
+                            <div class="tier-bonus">
+                                <span class="bonus-label">Bonus</span>
+                                <span class="bonus-value bonus-multiplier">×3</span>
+                            </div>
+                            <div class="tier-progress">
+                                <div class="progress-bar" style="width: 100%"></div>
+                            </div>
+                        </div>
+                    </div>
                     @endif
                 </div>
             </div>
 
-            <!-- Right: Calculator -->
+            <!-- Right: Recharge Calculator -->
             <div class="col-xl-6 col-lg-6">
-                <div class="calculator-card p-5 shadow-lg">
-                    <h3 class="mb-5 text-white">Recharge Now</h3>
-                    
-                    <form action="{{ route('points.add-to-cart') }}" method="POST">
-                        @csrf
-                        <div class="mb-5">
-                            <label class="calc-label">Enter Amount ({{ session('currency') == 'JPY' ? '¥' : '$' }})</label>
-                            <div class="calc-input-group">
-                                <input type="number" name="amount" id="topup_amount" class="calc-input" placeholder="0.00" min="1" required>
+                <div class="recharge-calculator">
+                    <div class="calculator-glow"></div>
+
+                    <div class="calculator-content">
+                        <div class="calculator-header">
+                            <h3 class="calculator-title">Recharge Now</h3>
+                            <p class="calculator-subtitle">Instant points. Instant rewards.</p>
+                        </div>
+
+                        <form action="{{ route('points.add-to-cart') }}" method="POST" class="recharge-form">
+                            @csrf
+
+                            <!-- Amount Input -->
+                            <div class="calc-input-wrapper">
+                                <label class="calc-input-label">
+                                    <span class="label-text">Amount to Add</span>
+                                    <span class="currency-symbol">{{ session('currency') == 'JPY' ? '¥' : '$' }}</span>
+                                </label>
+                                <div class="calc-input-field">
+                                    <input
+                                        type="number"
+                                        name="amount"
+                                        id="topup_amount"
+                                        class="calc-number-input"
+                                        placeholder="0"
+                                        min="1"
+                                        required
+                                    >
+                                    <div class="input-focus-line"></div>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="mb-5 text-center">
-                            <label class="calc-label mb-3">Estimated Total Points</label>
-                            <div class="points-display-val" id="total_points" style="font-size: 64px; font-weight: 900; color: #fff;">0</div>
-                        </div>
+                            <!-- Points Calculation Display -->
+                            <div class="points-calculation-section">
+                                <div class="calculation-row">
+                                    <span class="calc-label">Base Points</span>
+                                    <span class="calc-value" id="base_points">0</span>
+                                </div>
+                                <div class="calculation-row">
+                                    <span class="calc-label">Multiplier Bonus</span>
+                                    <span class="calc-value multiplier-badge" id="multiplier_display">×1.0</span>
+                                </div>
+                                <div class="calculation-divider"></div>
+                                <div class="calculation-row total">
+                                    <span class="calc-label">Total Points You'll Get</span>
+                                    <span class="calc-value total-value" id="total_points">0</span>
+                                </div>
+                            </div>
 
-                        <button type="submit" class="modern-btn modern-btn-solid w-100 py-4 shadow-lg">
-                            <i class="fas fa-shopping-cart me-2"></i> Add to Cart
-                        </button>
-                    </form>
+                            <!-- Visual Points Display -->
+                            <div class="points-display-container">
+                                <div class="points-large-display">
+                                    <span id="total_points_large">0</span>
+                                    <span class="points-label">PTS</span>
+                                </div>
+                            </div>
+
+                            <!-- Features List -->
+                            <div class="features-list">
+                                <div class="feature-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Instant delivery</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-lock"></i>
+                                    <span>Secure payment</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-redo"></i>
+                                    <span>No expiration</span>
+                                </div>
+                            </div>
+
+                            <!-- Submit Button -->
+                            <button type="submit" class="recharge-submit-btn">
+                                <span class="btn-icon"><i class="fas fa-shopping-cart"></i></span>
+                                <span class="btn-text">Add to Cart</span>
+                                <span class="btn-arrow"><i class="fas fa-arrow-right"></i></span>
+                            </button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
@@ -179,6 +298,520 @@
 
 @push('styles')
 <style>
+    /* ============================================
+       BONUS MULTIPLIERS - PREMIUM CARD DESIGN
+       ============================================ */
+
+    .bonus-multipliers-card {
+        background: #ffffff;
+        border-radius: 24px;
+        padding: 40px;
+        box-shadow: 0 8px 32px rgba(21, 145, 220, 0.08);
+        border: 1px solid rgba(21, 145, 220, 0.1);
+        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        backdrop-filter: blur(10px);
+    }
+
+    .bonus-multipliers-card:hover {
+        box-shadow: 0 16px 48px rgba(21, 145, 220, 0.15);
+        transform: translateY(-2px);
+    }
+
+    .bonus-header {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: 32px;
+    }
+
+    .bonus-icon-wrapper {
+        width: 56px;
+        height: 56px;
+        border-radius: 16px;
+        background: linear-gradient(135deg, #1591DC 0%, #2C5EAD 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 24px;
+        flex-shrink: 0;
+        box-shadow: 0 8px 20px rgba(21, 145, 220, 0.25);
+    }
+
+    .bonus-title-group h4 {
+        font-size: 22px;
+        font-weight: 800;
+        color: #111;
+        margin: 0;
+        letter-spacing: -0.5px;
+    }
+
+    .bonus-subtitle {
+        font-size: 13px;
+        color: #888;
+        margin: 4px 0 0 0;
+        font-weight: 500;
+    }
+
+    .bonus-note {
+        font-size: 12px;
+        color: #1591DC;
+        font-weight: 600;
+        margin-bottom: 24px;
+        padding: 8px 12px;
+        background: rgba(21, 145, 220, 0.06);
+        border-radius: 8px;
+        display: inline-block;
+    }
+
+    .tiers-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 16px;
+    }
+
+    .tier-card {
+        background: #f8f9fb;
+        border: 2px solid #e8eef8;
+        border-radius: 16px;
+        padding: 20px;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .tier-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, #1591DC 0%, #2C5EAD 100%);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.3s ease;
+    }
+
+    .tier-card:hover {
+        border-color: #1591DC;
+        background: linear-gradient(135deg, rgba(21, 145, 220, 0.04) 0%, rgba(44, 94, 173, 0.02) 100%);
+    }
+
+    .tier-card:hover::before {
+        transform: scaleX(1);
+    }
+
+    .tier-badge {
+        display: inline-block;
+        font-size: 10px;
+        font-weight: 700;
+        text-transform: uppercase;
+        padding: 4px 10px;
+        background: #e8eef8;
+        color: #2C5EAD;
+        border-radius: 6px;
+        margin-bottom: 12px;
+        letter-spacing: 0.5px;
+    }
+
+    .tier-badge.premium {
+        background: rgba(21, 145, 220, 0.15);
+        color: #1591DC;
+    }
+
+    .tier-badge.elite {
+        background: rgba(21, 145, 220, 0.2);
+        color: #0066B2;
+    }
+
+    .tier-badge.vip {
+        background: linear-gradient(135deg, rgba(21, 145, 220, 0.25), rgba(44, 94, 173, 0.15));
+        color: #0066B2;
+    }
+
+    .tier-range {
+        font-size: 13px;
+        font-weight: 700;
+        color: #222;
+        margin-bottom: 12px;
+    }
+
+    .tier-bonus {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 12px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid rgba(21, 145, 220, 0.1);
+    }
+
+    .bonus-label {
+        font-size: 11px;
+        color: #888;
+        font-weight: 600;
+        text-transform: uppercase;
+    }
+
+    .bonus-value {
+        font-size: 14px;
+        font-weight: 700;
+        color: #888;
+    }
+
+    .bonus-multiplier {
+        background: linear-gradient(135deg, #1591DC 0%, #2C5EAD 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        font-size: 16px;
+    }
+
+    .tier-progress {
+        width: 100%;
+        height: 3px;
+        background: #e8eef8;
+        border-radius: 2px;
+        overflow: hidden;
+    }
+
+    .progress-bar {
+        height: 100%;
+        background: linear-gradient(90deg, #1591DC 0%, #2C5EAD 100%);
+        border-radius: 2px;
+        transition: width 0.4s ease;
+    }
+
+    /* ============================================
+       RECHARGE CALCULATOR - PREMIUM DESIGN
+       ============================================ */
+
+    .recharge-calculator {
+        position: relative;
+        height: 100%;
+    }
+
+    .calculator-glow {
+        position: absolute;
+        top: -50%;
+        right: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(21, 145, 220, 0.15) 0%, transparent 70%);
+        pointer-events: none;
+        animation: glow-pulse 8s ease-in-out infinite;
+    }
+
+    @keyframes glow-pulse {
+        0%, 100% { opacity: 0.5; }
+        50% { opacity: 1; }
+    }
+
+    .calculator-content {
+        position: relative;
+        z-index: 2;
+        background: linear-gradient(135deg, #ffffff 0%, #f8fbff 100%);
+        border: 2px solid rgba(21, 145, 220, 0.15);
+        border-radius: 24px;
+        padding: 40px;
+        backdrop-filter: blur(20px);
+        box-shadow: 0 20px 60px rgba(21, 145, 220, 0.1);
+        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .calculator-content:hover {
+        box-shadow: 0 30px 80px rgba(21, 145, 220, 0.15);
+        border-color: rgba(21, 145, 220, 0.25);
+    }
+
+    .calculator-header {
+        margin-bottom: 32px;
+    }
+
+    .calculator-title {
+        font-size: 28px;
+        font-weight: 800;
+        color: #111;
+        margin: 0;
+        letter-spacing: -0.5px;
+    }
+
+    .calculator-subtitle {
+        font-size: 14px;
+        color: #888;
+        margin: 8px 0 0 0;
+        font-weight: 500;
+    }
+
+    .recharge-form {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .calc-input-wrapper {
+        margin-bottom: 28px;
+    }
+
+    .calc-input-label {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 12px;
+        cursor: text;
+    }
+
+    .label-text {
+        font-size: 13px;
+        font-weight: 700;
+        color: #444;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .currency-symbol {
+        font-size: 14px;
+        font-weight: 700;
+        color: #1591DC;
+        background: rgba(21, 145, 220, 0.1);
+        padding: 4px 10px;
+        border-radius: 6px;
+    }
+
+    .calc-input-field {
+        position: relative;
+    }
+
+    .calc-number-input {
+        width: 100%;
+        font-size: 36px;
+        font-weight: 800;
+        color: #111;
+        background: transparent;
+        border: none;
+        border-bottom: 2px solid #e8eef8;
+        padding: 12px 0 8px 0;
+        text-align: center;
+        transition: all 0.3s ease;
+        outline: none;
+        letter-spacing: -1px;
+    }
+
+    .calc-number-input:focus {
+        border-bottom-color: #1591DC;
+    }
+
+    .input-focus-line {
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        height: 2px;
+        background: linear-gradient(90deg, #1591DC 0%, #2C5EAD 100%);
+        width: 0;
+        transition: width 0.3s ease;
+    }
+
+    .calc-number-input:focus ~ .input-focus-line {
+        width: 100%;
+    }
+
+    /* Calculation Display */
+    .points-calculation-section {
+        background: #f8f9fb;
+        border-radius: 16px;
+        padding: 20px;
+        margin-bottom: 24px;
+        border: 1px solid #e8eef8;
+    }
+
+    .calculation-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 12px;
+        font-size: 13px;
+    }
+
+    .calculation-row.total {
+        margin-bottom: 0;
+    }
+
+    .calc-label {
+        color: #888;
+        font-weight: 600;
+    }
+
+    .calc-value {
+        font-weight: 700;
+        color: #444;
+    }
+
+    .multiplier-badge {
+        background: linear-gradient(135deg, #1591DC 0%, #2C5EAD 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        font-size: 14px;
+    }
+
+    .calculation-divider {
+        height: 1px;
+        background: linear-gradient(90deg, transparent 0%, #1591DC 50%, transparent 100%);
+        margin: 12px 0;
+    }
+
+    .calculation-row.total .calc-label {
+        color: #111;
+        font-weight: 700;
+    }
+
+    .calculation-row.total .total-value {
+        font-size: 18px;
+        background: linear-gradient(135deg, #1591DC 0%, #2C5EAD 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    /* Large Points Display */
+    .points-display-container {
+        text-align: center;
+        margin-bottom: 28px;
+        padding: 20px;
+        background: linear-gradient(135deg, rgba(21, 145, 220, 0.05) 0%, rgba(44, 94, 173, 0.02) 100%);
+        border-radius: 16px;
+        border: 2px dashed rgba(21, 145, 220, 0.2);
+    }
+
+    .points-large-display {
+        display: flex;
+        align-items: baseline;
+        justify-content: center;
+        gap: 8px;
+    }
+
+    #total_points_large {
+        font-size: 48px;
+        font-weight: 900;
+        background: linear-gradient(135deg, #1591DC 0%, #2C5EAD 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        letter-spacing: -2px;
+    }
+
+    .points-label {
+        font-size: 16px;
+        font-weight: 700;
+        color: #888;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    /* Features List */
+    .features-list {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 28px;
+        padding: 16px 0;
+    }
+
+    .feature-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 13px;
+        color: #666;
+        font-weight: 500;
+    }
+
+    .feature-item i {
+        color: #1591DC;
+        font-size: 14px;
+    }
+
+    /* Submit Button */
+    .recharge-submit-btn {
+        width: 100%;
+        padding: 16px 24px;
+        background: linear-gradient(135deg, #1591DC 0%, #2C5EAD 100%);
+        color: white;
+        border: none;
+        border-radius: 12px;
+        font-size: 15px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 8px 24px rgba(21, 145, 220, 0.3);
+        letter-spacing: 0.5px;
+        margin-top: auto;
+    }
+
+    .recharge-submit-btn::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        transition: width 0.6s ease, height 0.6s ease;
+    }
+
+    .recharge-submit-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 40px rgba(21, 145, 220, 0.4);
+    }
+
+    .recharge-submit-btn:hover::before {
+        width: 300px;
+        height: 300px;
+    }
+
+    .recharge-submit-btn:active {
+        transform: translateY(0);
+    }
+
+    .btn-icon {
+        display: flex;
+        align-items: center;
+        font-size: 16px;
+        transition: transform 0.3s ease;
+    }
+
+    .recharge-submit-btn:hover .btn-icon {
+        transform: scale(1.1);
+    }
+
+    .btn-text {
+        font-weight: 700;
+    }
+
+    .btn-arrow {
+        opacity: 0;
+        transform: translateX(-8px);
+        transition: all 0.3s ease;
+        font-size: 14px;
+    }
+
+    .recharge-submit-btn:hover .btn-arrow {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    /* Bundle Cards Styling */
     .transition-up {
         transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
     }
@@ -188,37 +821,69 @@
     }
     .fw-900 { font-weight: 900; }
     .tiny { font-size: 0.7rem; }
-    
-    /* Ensure calculator styles are inherited if not in main CSS */
-    .calculator-card {
-        background: #111;
-        border-radius: 40px;
-        position: relative;
-        overflow: hidden;
+
+    /* ============================================
+       RESPONSIVE DESIGN
+       ============================================ */
+
+    @media (max-width: 768px) {
+        .bonus-multipliers-card,
+        .calculator-content {
+            padding: 28px 20px;
+        }
+
+        .calculator-title {
+            font-size: 24px;
+        }
+
+        .calc-number-input {
+            font-size: 28px;
+        }
+
+        #total_points_large {
+            font-size: 36px;
+        }
+
+        .bonus-header {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .tiers-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
     }
-    .calc-label {
-        color: rgba(255,255,255,0.6);
-        font-size: 14px;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        display: block;
-    }
-    .calc-input {
-        background: transparent;
-        border: none;
-        border-bottom: 2px solid rgba(255,255,255,0.1);
-        color: #fff;
-        font-size: 32px;
-        font-weight: 700;
-        width: 100%;
-        padding: 15px 0;
-        text-align: center;
-        transition: all 0.3s ease;
-    }
-    .calc-input:focus {
-        outline: none;
-        border-bottom-color: var(--primary-color, #6366f1);
+
+    @media (max-width: 480px) {
+        .bonus-multipliers-card,
+        .calculator-content {
+            padding: 20px 16px;
+        }
+
+        .calculator-title {
+            font-size: 20px;
+        }
+
+        .calc-number-input {
+            font-size: 24px;
+        }
+
+        #total_points_large {
+            font-size: 32px;
+        }
+
+        .tiers-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .recharge-submit-btn {
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .btn-arrow {
+            display: none;
+        }
     }
 </style>
 @endpush
@@ -227,29 +892,43 @@
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         const amountInput = document.getElementById('topup_amount');
-        const totalPointsDisp = document.getElementById('total_points');
+        const totalPointsDisplay = document.getElementById('total_points');
+        const totalPointsLarge = document.getElementById('total_points_large');
+        const basePointsDisplay = document.getElementById('base_points');
+        const multiplierDisplay = document.getElementById('multiplier_display');
 
-        amountInput.addEventListener('input', function() {
-            const amount = parseFloat(this.value) || 0;
+        function calculatePoints() {
+            const amount = parseFloat(amountInput.value) || 0;
             let multiplier = 1;
             const isJPY = {{ session('currency') == 'JPY' ? 'true' : 'false' }};
 
+            let basePoints = 0;
+
             if (isJPY) {
+                basePoints = Math.floor(amount / 160);
+
                 if (amount >= 240000) multiplier = 3;
                 else if (amount >= 160000) multiplier = 2.5;
                 else if (amount >= 80000) multiplier = 2;
-
-                const totalPoints = Math.round((amount / 160) * multiplier);
-                totalPointsDisp.innerText = totalPoints.toLocaleString();
             } else {
+                basePoints = Math.floor(amount);
+
                 if (amount >= 1500) multiplier = 3;
                 else if (amount >= 1000) multiplier = 2.5;
                 else if (amount >= 500) multiplier = 2;
-
-                const totalPoints = Math.round(amount * multiplier);
-                totalPointsDisp.innerText = totalPoints.toLocaleString();
             }
-        });
+
+            const totalPoints = Math.round(basePoints * multiplier);
+
+            // Update displays with animation
+            basePointsDisplay.textContent = basePoints.toLocaleString();
+            multiplierDisplay.textContent = '×' + multiplier.toFixed(1);
+            totalPointsDisplay.textContent = totalPoints.toLocaleString();
+            totalPointsLarge.textContent = totalPoints.toLocaleString();
+        }
+
+        amountInput.addEventListener('input', calculatePoints);
+        amountInput.addEventListener('change', calculatePoints);
     });
 </script>
 @endpush

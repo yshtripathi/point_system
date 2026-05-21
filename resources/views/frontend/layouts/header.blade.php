@@ -42,6 +42,28 @@
                 background: black !important;
                 border: none !important;
             }
+
+            /* Sticky Header Styling */
+            header.main-header.sticky-top {
+                background: linear-gradient(135deg, #ffffff 0%, #f8fbff 100%);
+                backdrop-filter: blur(10px);
+                box-shadow: 0 4px 20px rgba(21, 145, 220, 0.1);
+                z-index: 1030;
+                transition: all 0.3s ease;
+            }
+
+            header.main-header.sticky-top:hover {
+                box-shadow: 0 8px 30px rgba(21, 145, 220, 0.15);
+            }
+
+            header.main-header.sticky-top .auto-container {
+                padding: 12px 0;
+            }
+
+            /* Smooth scroll behavior */
+            html {
+                scroll-behavior: smooth;
+            }
         </style>
 </head>
 
@@ -56,7 +78,7 @@
         </div>
     </div>
 	<!-- Main Header-->
-	<header class="main-header modern-header">
+	<header class="main-header modern-header sticky-top">
 		<div class="auto-container">
 			<div class="header-inner d-flex align-items-center justify-content-between">
 				<!-- Logo -->
