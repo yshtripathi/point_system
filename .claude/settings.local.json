@@ -14,7 +14,12 @@
       "Bash(netstat -tuln)",
       "Bash(php artisan *)",
       "Bash(curl -s \"http://127.0.0.1:8000/\")",
-      "Bash(Start-Process *)"
+      "Bash(Start-Process *)",
+      "Bash(Start-Sleep -Seconds 3)",
+      "Bash(curl -s http://127.0.0.1:8000)",
+      "Bash(Select-Object -First 1)",
+      "PowerShell(Start-Sleep -Seconds 3; \\(Invoke-WebRequest -Uri \"http://127.0.0.1:8000\" -UseBasicParsing\\).StatusCode)",
+      "Bash(start *)"
     ]
   }
 }

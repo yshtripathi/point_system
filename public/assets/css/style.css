@@ -13578,9 +13578,6 @@ ul.tl-breadcrumb-nav.d-flex {
     background: rgba(255, 255, 255, 0.05); /* Subtle background for contrast */
 }
 
-.page-wrapper {
-    margin-top: 80px;
-}
 
 .modern-header.sticky {
     padding: 12px 0;
@@ -13726,7 +13723,7 @@ ul.tl-breadcrumb-nav.d-flex {
 /* HERO REFINEMENTS */
 .modern-hero {
     background: var(--modern-bg-gradient);
-    padding: 180px 0 100px; /* Increased top padding to fix overlap */
+    padding: 40px 0 100px; /* Increased top padding to fix overlap */
     position: relative;
     z-index: 1;
     min-height: 100vh;
