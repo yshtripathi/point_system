@@ -3,6 +3,7 @@
 <style>
     #delivery-error::before, #privacy-error::before, #terms-error::before, #refund-error::before { display:none; }
     .checkout-page__payment__button label { font-size: 14px; padding-left: 10px; cursor: pointer; color: var(--text-light); }
+    .checkout-section > .container { padding-top: 0 !important; padding-bottom: 0 !important; }
 </style>
 
 <div class="tl-breadcrumb about-banner pt-60 pb-60">
