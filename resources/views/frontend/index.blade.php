@@ -240,8 +240,9 @@
         <div class="row align-items-center g-5">
             <!-- Left: Tier Table -->
             <div class="col-xl-6 col-lg-6">
+                <div style="padding: 20px; background: var(--white); border-radius: var(--radius-xl); box-shadow: var(--shadow-md);">
                 @if(session('currency') == 'JPY')
-                    <p class="text-muted small mb-3">*160 JPY = 1 Credit</p>
+                    <p class="text-muted small mb-4" style="font-weight: 600;">💡 *160 JPY = 1 Credit</p>
                     <div class="table-responsive">
                         <table class="table modern-table">
                             <thead>
@@ -271,7 +272,7 @@
                         </table>
                     </div>
                 @else
-                    <p class="text-muted small mb-3">*1 USD = 1 Credit</p>
+                    <p class="text-muted small mb-4" style="font-weight: 600;">💡 *1 USD = 1 Credit</p>
                     <div class="table-responsive">
                         <table class="table modern-table">
                             <thead>
@@ -301,12 +302,13 @@
                         </table>
                     </div>
                 @endif
+                </div>
             </div>
 
             <!-- Right: Calculator -->
             <div class="col-xl-6 col-lg-6">
                 <div class="calculator-card">
-                    <h3 class="mb-5 text-white">Recharge Now</h3>
+                    <h3 class="mb-5">💰 Recharge Now</h3>
                     
                     <form action="{{ route('points.add-to-cart') }}" method="POST">
                         @csrf
@@ -318,8 +320,8 @@
                         </div>
 
                         <div class="mb-5 text-center">
-                            <label class="calc-label mb-3">Estimated Total Points</label>
-                            <div class="points-display-val" id="total_points" style="color: #4BB8FA; font-weight: 900; font-size: 64px;">0</div>
+                            <label class="calc-label mb-3">📊 Estimated Total Points</label>
+                            <div class="points-display-val" id="total_points">0</div>
                         </div>
 
                         <button type="submit" class="modern-btn modern-btn-solid w-100 py-4 shadow-lg">
