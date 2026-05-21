@@ -29,29 +29,30 @@
     </div>
 </div>
 
-<section class="product-details-section pt-120 pb-120 bg-light">
+<section class="product-details-section pt-60 pb-80 bg-light">
     <div class="container">
-        <div class="row g-5">
+        <div class="row g-4">
             <!-- Left: Course Levels & Enrollment -->
             <div class="col-xl-7">
-                <div class="modern-card p-5 border-0 shadow-lg bg-white h-100" style="border-radius: 40px;">
-                    <div class="d-flex align-items-center justify-content-between mb-5">
-                        <h3 class="fw-800 text-dark mb-0" style="font-weight: 800; letter-spacing: -1px;">Select Your Level</h3>
-                        <div class="badge bg-soft-primary px-3 py-2 rounded-pill">
-                            <i class="fas fa-signal me-2"></i> Professional Tiers
+                <div class="p-0">
+                    <div class="d-flex align-items-center gap-3 mb-5" style="margin-bottom: 2rem !important;">
+                        <h2 class="fw-900 text-dark mb-0" style="font-size: 28px; color: #0a0e27;">Select Your Level</h2>
+                        <div class="badge px-3 py-2 rounded-pill" style="background: linear-gradient(135deg, rgba(21, 145, 220, 0.1) 0%, rgba(44, 94, 173, 0.1) 100%); border: 1px solid rgba(21, 145, 220, 0.2); color: #1591DC;">
+                            <i class="fas fa-graduation-cap me-2" style="font-size: 12px;"></i> Professional
                         </div>
                     </div>
 
                     <div class="level-tabs-container">
                         <!-- Navigation Pills for Levels -->
-                        <ul class="nav nav-pills modern-pills mb-5 p-2 bg-light rounded-pill d-inline-flex" id="levelTabs" role="tablist">
+                        <ul class="nav nav-pills modern-pills mb-4 p-0 d-flex gap-2" id="levelTabs" role="tablist" style="flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch;">
                             @foreach($product_detail->levels as $key => $level)
                                 <li class="nav-item" role="presentation">
-                                    <button class="nav-link rounded-pill px-4 py-2 fw-bold @if($loop->first) active @endif" 
-                                            id="level-tab-{{ $level->id }}" 
-                                            data-bs-toggle="pill" 
-                                            data-bs-target="#level-content-{{ $level->id }}" 
-                                            type="button" role="tab">
+                                    <button class="nav-link level-tab-btn rounded-3 fw-bold border-0 @if($loop->first) active @endif"
+                                            id="level-tab-{{ $level->id }}"
+                                            data-bs-toggle="pill"
+                                            data-bs-target="#level-content-{{ $level->id }}"
+                                            type="button" role="tab"
+                                            style="padding: 8px 18px; font-size: 13px; letter-spacing: 0.3px; white-space: nowrap; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); @if($loop->first) background: linear-gradient(135deg, #1591DC 0%, #2C5EAD 100%); color: white; box-shadow: 0 8px 20px rgba(21, 145, 220, 0.25); @else background: rgba(21, 145, 220, 0.08); color: #1591DC; @endif">
                                         {{ $level->skill_level }}
                                     </button>
                                 </li>
@@ -65,33 +66,33 @@
                                      id="level-content-{{ $level->id }}" 
                                      role="tabpanel">
                                     
-                                    <div class="level-info-grid mb-5">
-                                        <div class="row g-4">
+                                    <div class="level-info-grid mb-4">
+                                        <div class="row g-3">
                                             <div class="col-md-6">
-                                                <div class="p-4 rounded-4 bg-light h-100 border border-white shadow-sm">
-                                                    <h6 class="text-uppercase small fw-bold opacity-50 mb-3">{{__('common.purpose')}}</h6>
-                                                    <p class="text-dark fw-bold mb-0">{{ $level->purpose }}</p>
+                                                <div class="p-4 rounded-3 h-100 transition-all" style="background: linear-gradient(135deg, rgba(21, 145, 220, 0.08) 0%, rgba(21, 145, 220, 0.04) 100%); border: 1.5px solid rgba(21, 145, 220, 0.15); cursor: pointer;">
+                                                    <h6 class="text-uppercase fw-bold mb-2" style="color: #1591DC; font-size: 12px; letter-spacing: 0.6px;">{{__('common.purpose')}}</h6>
+                                                    <p class="text-dark fw-bold mb-0" style="font-size: 14px; line-height: 1.5;">{{ $level->purpose }}</p>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
-                                                <div class="p-4 rounded-4 bg-soft-primary h-100 border border-white shadow-sm" style="background: var(--secondary-20);">
-                                                    <h6 class="text-uppercase small fw-bold opacity-50 mb-3">{{__('common.outcome')}}</h6>
-                                                    <p class="text-dark fw-bold mb-0">{{ $level->outcome }}</p>
+                                                <div class="p-4 rounded-3 h-100 transition-all" style="background: linear-gradient(135deg, rgba(21, 145, 220, 0.1) 0%, rgba(21, 145, 220, 0.06) 100%); border: 1.5px solid rgba(21, 145, 220, 0.18); cursor: pointer;">
+                                                    <h6 class="text-uppercase fw-bold mb-2" style="color: #1591DC; font-size: 12px; letter-spacing: 0.6px;">{{__('common.outcome')}}</h6>
+                                                    <p class="text-dark fw-bold mb-0" style="font-size: 14px; line-height: 1.5;">{{ $level->outcome }}</p>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
 
-                                    <div class="learn-list mb-5">
-                                        <h6 class="fw-bold text-dark mb-4"><i class="fas fa-check-circle text-success me-2"></i> {{__('common.what_learn')}}</h6>
-                                        <div class="row g-3">
+                                    <div class="learn-list mb-4">
+                                        <h6 class="fw-bold text-dark mb-3" style="font-size: 16px;"><i class="fas fa-check-circle me-2" style="color: #1591DC;"></i> {{__('common.what_learn')}}</h6>
+                                        <div class="row g-2">
                                             @php $items = explode('.', $level->learn_info); @endphp
                                             @foreach($items as $item)
                                                 @if(trim($item) != '')
                                                     <div class="col-md-6">
-                                                        <div class="d-flex gap-3 align-items-center p-3 rounded-3 bg-white border border-light">
-                                                            <i class="fas fa-chevron-right text-primary small"></i>
-                                                            <span class="small text-muted">{{ trim($item) }}</span>
+                                                        <div class="d-flex gap-2 align-items-start p-3 rounded-2" style="background: rgba(21, 145, 220, 0.04); border: 1px solid rgba(21, 145, 220, 0.08);">
+                                                            <i class="fas fa-check" style="color: #1591DC; font-size: 14px; margin-top: 2px; flex-shrink: 0;"></i>
+                                                            <span class="small text-muted" style="font-size: 13px;">{{ trim($item) }}</span>
                                                         </div>
                                                     </div>
                                                 @endif
@@ -99,14 +100,14 @@
                                         </div>
                                     </div>
 
-                                    <div class="enrollment-footer d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-4 pt-5 border-top">
+                                    <div class="enrollment-footer d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3 pt-4" style="border-top: 1.5px solid rgba(21, 145, 220, 0.1);">
                                         <div class="price-display">
-                                            <div class="text-muted small fw-bold text-uppercase mb-1">Required Points</div>
-                                            <h2 class="fw-800 text-primary mb-0" style="font-weight: 800;">
-                                                <i class="fas fa-coins me-2"></i>{{ number_format($level->price_in_points) }} <span class="fs-6 opacity-50">PTS</span>
-                                            </h2>
+                                            <div class="text-muted small fw-bold text-uppercase mb-1" style="font-size: 11px; letter-spacing: 0.5px;">Points</div>
+                                            <h3 class="fw-900 mb-0" style="color: #1591DC; font-size: 24px;">
+                                                {{ number_format($level->price_in_points) }} <span class="fs-6 opacity-60" style="font-weight: 600;">PTS</span>
+                                            </h3>
                                         </div>
-                                        
+
                                         <form action="{{route('single-add-to-cart')}}" method="POST" class="flex-grow-1 flex-md-grow-0">
                                             @csrf
                                             <input type="hidden" name="quant[1]" value="1">
@@ -115,7 +116,7 @@
                                             <input type="hidden" name="price_jp" value="{{$level->price_jp}}">
                                             <input type="hidden" name="price_hk" value="{{$level->price_hk}}">
                                             <input type="hidden" name="level_id" value="{{$level->id}}">
-                                            <button type="submit" class="modern-btn modern-btn-solid w-100 px-5 py-3 shadow-lg">
+                                            <button type="submit" class="btn w-100 px-4 py-3 fw-bold rounded-3" style="background: linear-gradient(135deg, #1591DC 0%, #2C5EAD 100%); color: white; border: none; font-size: 14px; transition: all 0.3s ease;">
                                                 Enroll Now <i class="fas fa-arrow-right ms-2"></i>
                                             </button>
                                         </form>
@@ -129,24 +130,25 @@
 
             <!-- Right: Media & Description -->
             <div class="col-xl-5">
-                <div class="sticky-top" style="top: 120px;">
-                    <div class="modern-card p-4 border-0 shadow-lg bg-white mb-4 overflow-hidden" style="border-radius: 40px;">
-                        @php $photo = explode(',', $product_detail->photo); @endphp
-                        <div class="rounded-4 overflow-hidden shadow-sm mb-4">
-                            <img src="{{ asset($photo[0]) }}" class="w-100 object-fit-cover" style="height: 300px;">
-                        </div>
-                        <div class="p-2">
-                            <h5 class="fw-bold text-dark mb-3">Course Overview</h5>
-                            <p class="text-muted mb-0 lh-lg" style="font-size: 0.95rem;">{{$product_detail->description}}</p>
-                        </div>
+                <div class="sticky-top" style="top: 100px;">
+                    @php $photo = explode(',', $product_detail->photo); @endphp
+                    <div class="overflow-hidden mb-4" style="border-radius: 16px; border: 1px solid rgba(21, 145, 220, 0.12); box-shadow: 0 4px 20px rgba(21, 145, 220, 0.08);">
+                        <img src="{{ asset($photo[0]) }}" class="w-100 object-fit-cover d-block" style="height: 280px; transition: transform 0.5s ease;">
                     </div>
 
-                    <div class="modern-card p-4 border-0 shadow-sm bg-white" style="border-radius: 30px;">
-                        <div class="d-flex align-items-center gap-3 text-primary">
-                            <i class="fas fa-shield-alt fs-4"></i>
+                    <div class="bg-white p-4 rounded-3 mb-3" style="border: 1px solid rgba(21, 145, 220, 0.12); box-shadow: 0 4px 16px rgba(21, 145, 220, 0.06);">
+                        <h6 class="fw-bold text-dark mb-3" style="font-size: 16px;">Course Overview</h6>
+                        <p class="text-muted mb-0" style="font-size: 14px; line-height: 1.6;">{{$product_detail->description}}</p>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-3" style="border: 1px solid rgba(21, 145, 220, 0.12); box-shadow: 0 4px 16px rgba(21, 145, 220, 0.06);">
+                        <div class="d-flex align-items-center gap-3">
+                            <div style="width: 44px; height: 44px; background: rgba(21, 145, 220, 0.1); border-radius: 10px; display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-certificate" style="color: #1591DC; font-size: 20px;"></i>
+                            </div>
                             <div>
-                                <div class="fw-bold small">Lifetime Enrollment</div>
-                                <div class="text-muted tiny">Secure your future learning</div>
+                                <div class="fw-bold small text-dark">Lifetime Access</div>
+                                <div class="text-muted tiny">Learn at your own pace</div>
                             </div>
                         </div>
                     </div>
@@ -160,17 +162,52 @@
 
 @push('styles')
 <style>
-    .modern-pills .nav-link {
-        color: var(--text-light);
-        transition: var(--transition-base);
-        border: 2px solid transparent;
-        background: transparent !important;
+    .product-details-section {
+        padding-top: 60px !important;
+        padding-bottom: 80px !important;
+        background: #f8fafc;
     }
-    .modern-pills .nav-link.active {
-        background: var(--white) !important;
-        color: var(--primary) !important;
-        box-shadow: var(--shadow-sm);
+
+    .level-tab-btn {
+        color: #1591DC !important;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        border: none;
+        background: rgba(21, 145, 220, 0.08) !important;
+        font-weight: 600;
     }
+
+    .level-tab-btn:hover:not(.active) {
+        background: rgba(21, 145, 220, 0.15) !important;
+        color: #1591DC !important;
+        transform: translateY(-2px);
+    }
+
+    .level-tab-btn.active {
+        background: linear-gradient(135deg, #1591DC 0%, #2C5EAD 100%) !important;
+        color: white !important;
+        box-shadow: 0 12px 32px rgba(21, 145, 220, 0.28) !important;
+    }
+
+    .level-info-grid > .row > .col-md-6 > div {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .level-info-grid > .row > .col-md-6 > div:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 32px rgba(21, 145, 220, 0.15);
+        border-color: rgba(21, 145, 220, 0.3) !important;
+    }
+
     .tiny { font-size: 0.75rem; }
+
+    .sticky-top {
+        transition: all 0.3s ease;
+    }
+
+    @media (max-width: 992px) {
+        .col-xl-7, .col-xl-5 {
+            margin-bottom: 1.5rem;
+        }
+    }
 </style>
 @endpush

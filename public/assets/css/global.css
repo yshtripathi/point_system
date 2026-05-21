@@ -439,6 +439,10 @@ body {
   box-shadow: var(--shadow-lg) !important;
   top: 100% !important;
   z-index: 1000 !important;
+  transform: translate(0, 0);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
 .animated-dropdown .dropdown-item {
@@ -456,6 +460,18 @@ body {
   background: var(--primary-10) !important;
   color: var(--text-dark) !important;
   transform: translateX(4px);
+}
+
+.animated-dropdown.show {
+  transform: translate(-100px, 5px) !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.currency-dropdown.show {
+  transform: translate(-60px, 5px) !important;
+  opacity: 1 !important;
+  visibility: visible !important;
 }
 
 .animated-dropdown .dropdown-item.active {

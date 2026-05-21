@@ -64,41 +64,53 @@
         <div class="row g-4">
             @foreach($products as $course)
                 <div class="col-lg-4 col-md-6 col-sm-12">
-                    <div class="modern-card h-100 border-0 bg-white overflow-hidden catalog-card" style="border-radius: 20px; box-shadow: 0 4px 20px rgba(21, 145, 220, 0.08); border: 1px solid rgba(21, 145, 220, 0.1); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);">
-                        <!-- Image Container -->
-                        <div class="position-relative overflow-hidden" style="height: 280px; background: linear-gradient(135deg, #f0f4ff 0%, #e8f1f9 100%);">
+                    <div class="modern-card h-100 border-0 bg-white overflow-hidden catalog-card premium-card" style="border-radius: 24px; box-shadow: 0 8px 32px rgba(21, 145, 220, 0.1); border: 1.5px solid rgba(21, 145, 220, 0.12); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);">
+                        <!-- Image Container with Overlay -->
+                        <div class="position-relative overflow-hidden" style="height: 300px; background: linear-gradient(135deg, #f0f4ff 0%, #e8f1f9 100%);">
                             <a href="{{route('product-detail',$course->slug)}}" class="d-block h-100">
-                                <img src="{{url($course->photo)}}" class="w-100 h-100 object-fit-cover catalog-card-img" style="transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);">
+                                <img src="{{url($course->photo)}}" class="w-100 h-100 object-fit-cover catalog-card-img" style="transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);">
                             </a>
-                            <!-- Category Badge -->
-                            <div class="position-absolute top-0 end-0 m-3">
-                                <span class="badge px-3 py-2 text-white fw-bold" style="backdrop-filter: blur(10px); background: rgba(0,0,0,0.4); border-radius: 8px; font-size: 11px; letter-spacing: 0.5px;">
+
+                            <!-- Overlay Gradient -->
+                            <div class="position-absolute bottom-0 start-0 w-100" style="height: 100px; background: linear-gradient(to top, rgba(10, 14, 39, 0.3) 0%, transparent 100%);"></div>
+
+                            <!-- Category Badge - Top Right -->
+                            <div class="position-absolute top-0 end-0 m-4">
+                                <span class="badge px-3 py-2 text-white fw-bold" style="backdrop-filter: blur(10px); background: rgba(0,0,0,0.5); border-radius: 10px; font-size: 11px; letter-spacing: 0.6px; border: 1px solid rgba(255,255,255,0.2);">
                                     {{$course->condition ?? 'SELF-PACED'}}
                                 </span>
                             </div>
                         </div>
 
                         <!-- Content Container -->
-                        <div class="p-5 d-flex flex-column h-100">
+                        <div class="p-6 d-flex flex-column" style="padding: 1.75rem !important;">
                             <!-- Level Badge -->
                             <div class="d-inline-flex align-items-center gap-2 mb-3" style="width: fit-content;">
-                                <div style="width: 24px; height: 24px; background: linear-gradient(135deg, #1591DC 0%, #2C5EAD 100%); border-radius: 6px; display: flex; align-items: center; justify-content: center;">
-                                    <i class="fas fa-layer-group text-white" style="font-size: 12px;"></i>
+                                <div style="width: 28px; height: 28px; background: linear-gradient(135deg, #1591DC 0%, #2C5EAD 100%); border-radius: 8px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(21, 145, 220, 0.3);">
+                                    <i class="fas fa-graduation-cap text-white" style="font-size: 13px;"></i>
                                 </div>
-                                <span class="text-uppercase fw-bold" style="font-size: 11px; color: #1591DC; letter-spacing: 0.5px;">Professional</span>
+                                <span class="text-uppercase fw-bold" style="font-size: 12px; color: #1591DC; letter-spacing: 0.8px;">Professional</span>
                             </div>
 
                             <!-- Title -->
-                            <h5 class="fw-bold text-dark mb-auto line-clamp-2" style="font-size: 18px; line-height: 1.4; color: #0a0e27; margin-bottom: 1.5rem;">
-                                <a href="{{route('product-detail',$course->slug)}}" class="text-dark text-decoration-none hover-primary" style="transition: color 0.3s ease;">
+                            <h5 class="fw-900 text-dark line-clamp-2" style="font-size: 20px; line-height: 1.35; color: #0a0e27; margin-bottom: 0.75rem; font-weight: 900;">
+                                <a href="{{route('product-detail',$course->slug)}}" class="text-dark text-decoration-none" style="transition: color 0.3s ease;">
                                     {{$course->title}}
                                 </a>
                             </h5>
 
-                            <!-- Footer with Arrow -->
-                            <div class="pt-4 border-top d-flex align-items-center justify-content-end" style="border-color: rgba(21, 145, 220, 0.12);">
-                                <a href="{{route('product-detail',$course->slug)}}" class="btn rounded-circle border-0 d-flex align-items-center justify-content-center catalog-card-btn" style="width: 48px; height: 48px; background: linear-gradient(135deg, rgba(21, 145, 220, 0.1) 0%, rgba(21, 145, 220, 0.05) 100%); transition: all 0.3s ease;">
-                                    <i class="fas fa-arrow-right" style="color: #1591DC; font-size: 18px;"></i>
+                            <!-- Summary/Description -->
+                            <p class="text-muted line-clamp-3 flex-grow-1" style="font-size: 14px; line-height: 1.5; color: #666; margin-bottom: 1.25rem;">
+                                {{$course->summary}}
+                            </p>
+
+                            <!-- Footer Section -->
+                            <div class="d-flex align-items-center gap-3 mt-auto" style="border-top: 1.5px solid rgba(21, 145, 220, 0.1); padding-top: 1rem;">
+                                <a href="{{route('product-detail',$course->slug)}}" class="btn btn-sm flex-grow-1" style="background: linear-gradient(135deg, #1591DC 0%, #2C5EAD 100%); color: white; border: none; border-radius: 10px; font-weight: 600; font-size: 14px; padding: 10px 16px; transition: all 0.3s ease; letter-spacing: 0.5px;">
+                                    View More
+                                </a>
+                                <a href="{{route('product-detail',$course->slug)}}" class="catalog-card-btn d-flex align-items-center justify-content-center" style="width: 44px; height: 44px; background: linear-gradient(135deg, rgba(21, 145, 220, 0.12) 0%, rgba(21, 145, 220, 0.06) 100%); border-radius: 12px; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); text-decoration: none;">
+                                    <i class="fas fa-arrow-right" style="color: #1591DC; font-size: 18px; transition: transform 0.3s ease;"></i>
                                 </a>
                             </div>
                         </div>
@@ -119,39 +131,69 @@
 
 @push('styles')
 <style>
+    .catalog-section > .container {
+        padding-top: 60px !important;
+        padding-bottom: 60px !important;
+    }
+
+    .premium-card {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .premium-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, rgba(21, 145, 220, 0.05) 0%, transparent 100%);
+        opacity: 0;
+        transition: opacity 0.4s ease;
+        pointer-events: none;
+    }
+
     .catalog-card {
         position: relative;
     }
 
     .catalog-card:hover {
-        transform: translateY(-12px);
-        box-shadow: 0 24px 48px rgba(21, 145, 220, 0.15) !important;
-        border-color: rgba(21, 145, 220, 0.3) !important;
+        transform: translateY(-16px);
+        box-shadow: 0 32px 64px rgba(21, 145, 220, 0.18) !important;
+        border-color: rgba(21, 145, 220, 0.25) !important;
+    }
+
+    .catalog-card:hover::before {
+        opacity: 1;
     }
 
     .catalog-card-img {
-        transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .catalog-card:hover .catalog-card-img {
-        transform: scale(1.08);
+        transform: scale(1.1);
     }
 
     .catalog-card-btn {
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .catalog-card:hover .btn {
+        box-shadow: 0 12px 28px rgba(21, 145, 220, 0.3) !important;
+        transform: translateY(-2px);
     }
 
     .catalog-card:hover .catalog-card-btn {
         background: linear-gradient(135deg, #1591DC 0%, #2C5EAD 100%) !important;
-        transform: translateX(4px);
+        box-shadow: 0 12px 28px rgba(21, 145, 220, 0.3) !important;
+        transform: scale(1.12);
     }
 
     .catalog-card:hover .catalog-card-btn i {
         color: white !important;
-    }
-
-    .hover-primary:hover {
-        color: #1591DC !important;
+        transform: translateX(2px);
     }
 
     .line-clamp-2 {
@@ -159,6 +201,19 @@
         -webkit-line-clamp: 2;
         -webkit-box-orient: vertical;
         overflow: hidden;
+    }
+
+    .line-clamp-3 {
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    @media (max-width: 768px) {
+        .catalog-card:hover {
+            transform: translateY(-8px);
+        }
     }
 </style>
 @endpush

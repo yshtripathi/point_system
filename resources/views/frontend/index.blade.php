@@ -746,7 +746,7 @@
 
     .input-currency {
         position: absolute;
-        right: 8px;
+        right: 18px;
         font-size: 24px;
         font-weight: 700;
         color: #1591DC;
@@ -811,28 +811,28 @@
 
     /* Large Points Display */
     .points-display-premium {
-        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
         margin-bottom: 16px;
-        padding: 16px;
+        padding: 8px 12px;
         background: #f8fafc;
         border-radius: 12px;
         border: 1px dashed #e8eef8;
     }
 
     .points-number {
-        display: block;
-        font-size: 48px;
+        font-size: 32px;
         font-weight: 900;
         background: linear-gradient(135deg, #1591DC 0%, #2C5EAD 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
         letter-spacing: -1px;
-        margin-bottom: 4px;
     }
 
     .points-unit {
-        display: block;
         font-size: 11px;
         color: #666;
         font-weight: 700;

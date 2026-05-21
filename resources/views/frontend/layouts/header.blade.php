@@ -131,7 +131,7 @@
 							<span class="fw-bold text-primary">{{ Helper::getCurrencySymbol($currentCurrency) }}</span> 
 							<span>{{ $currentCurrency }}</span>
 						</a>
-						<ul class="dropdown-menu dropdown-menu-end animated-dropdown" style="min-width: 160px;">
+						<ul class="dropdown-menu dropdown-menu-end animated-dropdown currency-dropdown" style="min-width: 160px;">
 							@foreach($currencies as $cur)
 								<li>
 									<a class="dropdown-item d-flex align-items-center justify-content-between gap-3 py-2 px-3 rounded-3 {{ $currentCurrency == $cur->code ? 'active bg-primary text-white' : '' }}" href="{{ route('change.currency', $cur->code) }}">
