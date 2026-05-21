@@ -167,9 +167,27 @@ body {
   z-index: 0;
 }
 
+.tl-breadcrumb video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.tl-breadcrumb::before {
+  z-index: 1;
+}
+
+.tl-breadcrumb::after {
+  z-index: 1;
+}
+
 .tl-breadcrumb > * {
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 
 .banner-txt {

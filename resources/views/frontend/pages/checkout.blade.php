@@ -9,6 +9,9 @@
 </style>
 
 <div class="tl-breadcrumb cart-banner pt-120 pb-120">
+    <video autoplay muted loop playsinline>
+        <source src="{{ asset('images/breadcrumb.mp4') }}" type="video/mp4">
+    </video>
     <div class="container">
         <div class="row align-items-end">
             <div class="col-md-6">
