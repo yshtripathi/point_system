@@ -12,7 +12,7 @@ function smoothWheelScroll(event) {
   const deltaY = event.deltaY || -event.wheelDelta || event.detail;
 
   // Adjust scroll speed for smoother feel
-  const scrollSpeed = 1.5;
+  const scrollSpeed = 1;
   targetScrollPosition = currentScrollPosition + (deltaY * scrollSpeed);
 
   // Clamp target position to valid range
@@ -28,8 +28,8 @@ function smoothWheelScroll(event) {
 function animateScroll(currentPosition) {
   const difference = targetScrollPosition - currentPosition;
 
-  // Linear scroll for responsive, direct feel
-  const duration = 300; // milliseconds
+  // Linear scroll for smooth, continuous feel
+  const duration = 800; // milliseconds - longer duration for smoother feel
   let startTime = null;
 
   function scroll(timestamp) {
