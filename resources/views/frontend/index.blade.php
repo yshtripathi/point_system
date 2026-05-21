@@ -76,32 +76,41 @@
     </div>
 </section>
 
-<section class="about-info pt-120 pb-120 bg-white">
+<section class="about-info pt-120 pb-120" style="background: linear-gradient(135deg, #f0f4ff 0%, #ffffff 100%);">
     <div class="auto-container">
-        <div class="row align-items-center">
+        <div class="row align-items-center g-5">
             <!-- LEFT: Images -->
             <div class="col-xl-6 col-lg-6 col-md-12">
-                <div class="modern-img-wrapper" style="box-shadow: 0 30px 60px rgba(0,0,0,0.08);">
-                    <img src="{{ asset('assets/images/about-student.png') }}" alt="About" class="w-100">
+                <div class="modern-img-wrapper" style="border-radius: 20px; overflow: hidden; box-shadow: 0 30px 80px rgba(21, 145, 220, 0.15); border: 2px solid rgba(21, 145, 220, 0.1);">
+                    <img src="{{ asset('assets/images/about-student.png') }}" alt="About" class="w-100" style="display: block; transition: transform 0.4s ease;">
                 </div>
             </div>
 
             <!-- RIGHT: Content -->
             <div class="col-xl-6 col-lg-6 col-md-12 ps-xl-5">
-                <span class="modern-badge">{{ __('common.about_us') }}</span>
-                <h2 class="modern-h2 mb-4">{{ __('common.building_practical_skills') }}</h2>
-                <p class="mb-4 text-muted">{{ __('common.platform_overview') }}</p>
-                <div class="row">
-                    <div class="col-md-6 mb-3">
-                        <div class="d-flex align-items-center gap-3">
-                            <div class="modern-cart-btn bg-light text-primary border-0"><i class="fas fa-check"></i></div>
-                            <p class="mb-0 fw-bold">{{ __('common.course_structure_focus') }}</p>
+                <span class="modern-badge mb-3" style="font-size: 11px; font-weight: 700; color: #1591DC; background: rgba(21, 145, 220, 0.08); padding: 8px 14px; border-radius: 6px; text-transform: uppercase; letter-spacing: 0.5px; display: inline-block;">{{ __('common.about_us') }}</span>
+                <h2 class="modern-h2 mb-4" style="font-size: 36px; font-weight: 900; color: #0a0e27; line-height: 1.3;">{{ __('common.building_practical_skills') }}</h2>
+                <p class="mb-5 text-muted" style="font-size: 15px; color: #666; font-weight: 500; line-height: 1.8;">{{ __('common.platform_overview') }}</p>
+
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <div class="d-flex align-items-start gap-3 p-4 rounded-3" style="background: white; border: 1px solid rgba(21, 145, 220, 0.12); transition: all 0.3s ease;">
+                            <div style="width: 44px; height: 44px; background: linear-gradient(135deg, #1591DC 0%, #2C5EAD 100%); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-size: 20px; flex-shrink: 0;">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <div>
+                                <p class="mb-0 fw-bold" style="font-size: 14px; color: #0a0e27;">{{ __('common.course_structure_focus') }}</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md-6 mb-3">
-                        <div class="d-flex align-items-center gap-3">
-                            <div class="modern-cart-btn bg-light text-primary border-0"><i class="fas fa-check"></i></div>
-                            <p class="mb-0 fw-bold">{{ __('common.learner_support_all_levels') }}</p>
+                    <div class="col-md-6">
+                        <div class="d-flex align-items-start gap-3 p-4 rounded-3" style="background: white; border: 1px solid rgba(21, 145, 220, 0.12); transition: all 0.3s ease;">
+                            <div style="width: 44px; height: 44px; background: linear-gradient(135deg, #1591DC 0%, #2C5EAD 100%); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-size: 20px; flex-shrink: 0;">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div>
+                                <p class="mb-0 fw-bold" style="font-size: 14px; color: #0a0e27;">{{ __('common.learner_support_all_levels') }}</p>
+                            </div>
                         </div>
                     </div>
                 </div>
