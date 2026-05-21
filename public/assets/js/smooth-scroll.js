@@ -1,5 +1,67 @@
 /* Smooth Scroll Enhancement */
 
+// Smooth Wheel Scroll Implementation
+let isScrolling = false;
+let scrollVelocity = 0;
+let targetScrollPosition = 0;
+
+function smoothWheelScroll(event) {
+  event.preventDefault();
+
+  const currentScrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+  const deltaY = event.deltaY || -event.wheelDelta || event.detail;
+
+  // Adjust scroll speed for smoother feel
+  const scrollSpeed = 1.5;
+  targetScrollPosition = currentScrollPosition + (deltaY * scrollSpeed);
+
+  // Clamp target position to valid range
+  const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+  targetScrollPosition = Math.max(0, Math.min(targetScrollPosition, maxScroll));
+
+  if (!isScrolling) {
+    isScrolling = true;
+    animateScroll(currentScrollPosition);
+  }
+}
+
+function animateScroll(currentPosition) {
+  const difference = targetScrollPosition - currentPosition;
+
+  // Use easing function for smooth deceleration
+  const easeOutQuad = (t) => t * (2 - t);
+  const duration = 500; // milliseconds
+  let startTime = null;
+
+  function scroll(timestamp) {
+    if (!startTime) startTime = timestamp;
+    const elapsed = timestamp - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    const ease = easeOutQuad(progress);
+
+    const newPosition = currentPosition + (difference * ease);
+    window.scrollTo(0, newPosition);
+
+    if (progress < 1) {
+      requestAnimationFrame(scroll);
+    } else {
+      isScrolling = false;
+      // Check if there's a new scroll request
+      if (Math.abs(targetScrollPosition - window.pageYOffset) > 1) {
+        targetScrollPosition = window.pageYOffset;
+      }
+    }
+  }
+
+  requestAnimationFrame(scroll);
+}
+
+// Add wheel event listener with passive: false to allow preventDefault
+window.addEventListener('wheel', smoothWheelScroll, { passive: false });
+
+// Also handle touchpad scrolling on macOS
+window.addEventListener('mousewheel', smoothWheelScroll, { passive: false });
+
 document.addEventListener('DOMContentLoaded', function() {
   // Get all scroll-to-top buttons
   const scrollToTopBtns = document.querySelectorAll('.scroll-to-top, .scroll-to-target');
