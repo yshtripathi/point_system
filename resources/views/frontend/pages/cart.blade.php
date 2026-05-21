@@ -62,7 +62,7 @@
                                                     </div>
                                                     <div>
                                                         <a href="{{ $item_link }}" class="fw-bold text-dark text-decoration-none hover-primary d-block mb-1">{{ $item_title }}</a>
-                                                        <span class="badge bg-soft-primary small" style="background: rgba(21, 145, 220, 0.1); color: #1591DC;">Learning Path</span>
+                                                        <span class="badge bg-soft-primary small" style="background: var(--secondary-10); color: var(--secondary);">Learning Path</span>
                                                     </div>
                                                 </div>
                                             </td>
@@ -161,7 +161,7 @@
 
 @push('styles')
 <style>
-    .hover-primary:hover { color: var(--modern-primary) !important; }
-    .bg-soft-primary { background: rgba(99, 102, 241, 0.1); color: #6366f1; }
+    .hover-primary:hover { color: var(--primary) !important; }
+    .bg-soft-primary { background: var(--primary-10); color: var(--primary); }
 </style>
 @endpush

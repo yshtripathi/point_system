@@ -23,8 +23,8 @@
 
 <section class="auth-section pt-120 pb-120 bg-light" style="position: relative; overflow: hidden;">
     <!-- Decorative Blobs -->
-    <div class="modern-blob modern-blob-1" style="top: -100px; left: -100px; width: 400px; height: 400px; background: rgba(var(--modern-primary-rgb), 0.05);"></div>
-    <div class="modern-blob modern-blob-2" style="bottom: -100px; right: -100px; width: 400px; height: 400px; background: rgba(var(--modern-primary-rgb), 0.05);"></div>
+    <div class="modern-blob modern-blob-1" style="top: -100px; left: -100px; width: 400px; height: 400px; background: var(--primary-10);"></div>
+    <div class="modern-blob modern-blob-2" style="bottom: -100px; right: -100px; width: 400px; height: 400px; background: var(--primary-10);"></div>
 
     <div class="container">
         <div class="row justify-content-center">
@@ -111,8 +111,8 @@
 @push('styles')
 <style>
     .error { color: #dc3545 !important; font-size: 13px; margin-top: 5px; font-weight: 500; }
-    .form-control:focus { background-color: #fff !important; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-    .cpatcha-imgs img { border-radius: 12px; }
+    .form-control:focus { background-color: var(--white) !important; box-shadow: 0 0 0 4px var(--primary-10); }
+    .cpatcha-imgs img { border-radius: var(--radius-lg); }
 </style>
 @endpush
 

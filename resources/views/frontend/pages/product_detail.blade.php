@@ -68,7 +68,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
-                                                <div class="p-4 rounded-4 bg-soft-primary h-100 border border-white shadow-sm" style="background: rgba(21, 145, 220, 0.08);">
+                                                <div class="p-4 rounded-4 bg-soft-primary h-100 border border-white shadow-sm" style="background: var(--secondary-20);">
                                                     <h6 class="text-uppercase small fw-bold opacity-50 mb-3">{{__('common.outcome')}}</h6>
                                                     <p class="text-dark fw-bold mb-0">{{ $level->outcome }}</p>
                                                 </div>
@@ -155,15 +155,15 @@
 @push('styles')
 <style>
     .modern-pills .nav-link {
-        color: #4a5568;
-        transition: all 0.3s ease;
+        color: var(--text-light);
+        transition: var(--transition-base);
         border: 2px solid transparent;
         background: transparent !important;
     }
     .modern-pills .nav-link.active {
-        background: #fff !important;
-        color: var(--modern-primary) !important;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        background: var(--white) !important;
+        color: var(--primary) !important;
+        box-shadow: var(--shadow-sm);
     }
     .tiny { font-size: 0.75rem; }
 </style>

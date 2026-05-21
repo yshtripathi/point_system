@@ -2,9 +2,9 @@
 @section('main-content')
 <style>
     #delivery-error::before, #privacy-error::before, #terms-error::before, #refund-error::before { display:none; }
-    .checkout-page__payment__button label { font-size: 14px; padding-left: 10px; cursor: pointer; color: #4a5568; }
-    .form-control { border-radius: 12px; border: 1px solid #e2e8f0; padding: 12px 20px; }
-    .form-control:focus { box-shadow: 0 0 0 4px rgba(21, 145, 220, 0.1); border-color: #1591DC; }
+    .checkout-page__payment__button label { font-size: 14px; padding-left: 10px; cursor: pointer; color: var(--text-light); }
+    .form-control { border-radius: var(--radius-md); border: 1px solid var(--border-light); padding: 12px 20px; }
+    .form-control:focus { box-shadow: 0 0 0 4px var(--secondary-10); border-color: var(--secondary); }
     .checkout-page__title { font-weight: 800; letter-spacing: -0.5px; }
 </style>
 
@@ -115,7 +115,7 @@
                         @if(!$is_points_bundle)
                             <!-- Pay with Points -->
                             <div class="points-payment-section">
-                                <div class="p-3 rounded-4 bg-soft-primary mb-4" style="background: rgba(99, 102, 241, 0.05);">
+                                <div class="p-3 rounded-4 bg-soft-primary mb-4" style="background: var(--primary-10);">
                                     <div class="d-flex justify-content-between mb-2">
                                         <span class="small fw-bold text-muted">Balance</span>
                                         <span class="small fw-800 text-dark">{{ number_format(auth()->user() ? auth()->user()->points_balance : 0) }} PTS</span>

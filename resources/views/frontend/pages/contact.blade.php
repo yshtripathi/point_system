@@ -135,7 +135,7 @@
 @push('styles')
 <style>
     .error { color: #dc3545 !important; font-size: 13px; margin-top: 5px; font-weight: 500; }
-    .form-control:focus { background-color: #fff !important; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+    .form-control:focus { background-color: var(--white) !important; box-shadow: 0 0 0 4px var(--primary-10); }
 </style>
 @endpush
 
