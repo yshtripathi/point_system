@@ -15,6 +15,11 @@
 </style>
 
 <div class="tl-breadcrumb pt-120 pb-120">
+    <!-- Animated bubble elements -->
+    <div class="breadcrumb-float-element float-element-1"></div>
+    <div class="breadcrumb-float-element float-element-2"></div>
+    <div class="breadcrumb-float-element float-element-3"></div>
+
     <div class="container">
         <div class="row align-items-end">
             <div class="col-md-6">

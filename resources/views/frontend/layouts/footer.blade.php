@@ -55,7 +55,7 @@
                             <form>
                                 <div class="form-group">
                                     <input type="email" name="email" class="email" placeholder="Your email address" required>
-                                    <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                                    <button type="submit" class="theme-btn"><i class="fas fa-paper-plane"></i></button>
                                 </div>
                             </form>
                             <p class="text-success suces_rinfo mt-3" style="display: none;">{{ __('common.thanks_for_subscribing') }}</p>

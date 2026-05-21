@@ -234,7 +234,7 @@ body {
 /* Animated Breadcrumb Elements */
 .breadcrumb-float-element {
   position: absolute;
-  opacity: 0.15;
+  opacity: 0.25;
   pointer-events: none;
   z-index: 0;
 }
@@ -242,7 +242,7 @@ body {
 .float-element-1 {
   width: 120px;
   height: 120px;
-  background: rgba(var(--primary-rgb), 0.3);
+  background: rgba(255, 255, 255, 0.4);
   border-radius: 50%;
   top: 10%;
   left: 5%;
@@ -252,7 +252,7 @@ body {
 .float-element-2 {
   width: 90px;
   height: 90px;
-  background: rgba(var(--primary-rgb), 0.2);
+  background: rgba(255, 255, 255, 0.3);
   border-radius: 45%;
   top: 60%;
   right: 8%;
@@ -263,7 +263,7 @@ body {
 .float-element-3 {
   width: 100px;
   height: 100px;
-  background: rgba(var(--primary-rgb), 0.25);
+  background: rgba(255, 255, 255, 0.35);
   border-radius: 40% 60% 70% 30%;
   bottom: 15%;
   left: 12%;

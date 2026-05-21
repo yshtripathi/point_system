@@ -408,7 +408,9 @@ Why Our UI/UX Design Stands Out:',
 'dont_have_account' => "Don’t have an account?",
 'remember_me' => "Remember me",
 'nice_to_see_you_again' => "Nice to see you again",
+'welcome_back' => "Welcome Back",
 'sign_up' => "Sign Up",
+'sign_up_now' => "Sign Up Now",
     'signup_promotion' => __('Sign up for early sale access plus tailored new arrivals, trends, and promotions.'),
 //Cart page contents starts here 
 
@@ -728,7 +730,8 @@ Why Our UI/UX Design Stands Out:',
     'advanced' => 'Advanced',
     'expert' => 'Expert',
     'currency_changed'=> 'Currency changed to ',
-    'platform_overview' => 'We build accessible, high-impact technical courses that help learners develop real, job-ready skills for today’s digital roles. Our platform is designed for individuals and teams who want practical knowledge they can apply immediately—not just theory.',
+    'join_community' => 'Join Our Community',
+    'platform_overview' => 'We build accessible, high-impact technical courses that help learners develop real, job-ready skills for today’s digital roles. Our platform is designed for individuals and teams who want practical knowledge they can apply immediately—not just theory ',
 
     'course_structure_focus' => 'Each course is carefully structured to make complex topics clear and approachable, guiding learners from core foundations to advanced, professional-level practices. We emphasize hands-on learning, real-world tools, and industry-relevant workflows that reflect how technology is actually used on the job.',
 

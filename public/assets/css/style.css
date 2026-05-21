@@ -823,7 +823,7 @@ Scroll To Top style
   position: fixed;
   right: 20px;
   bottom: 20px;
-  width: 40px;
+  width: 50px;
   font-size: 16px;
   line-height: 40px;
   color: #ffffff;
@@ -11484,19 +11484,19 @@ Sidebar
   transition: all 300ms ease;
 }
 .subscribe-form .form-group .theme-btn {
-  position: absolute;
-  right: 12px;
-  top: 12px;
-  display: block;
-  text-align: center;
-  height: 40px;
-  width: 40px;
-  padding: 0;
-  color: #ffffff;
-  font-weight: 700;
-  line-height: 40px;
-  background-color: var(--bg-theme-color2);
-  border-radius: 50%;
+    position: absolute;
+    right: 12px;
+    top: 13px;
+    display: block;
+    text-align: center;
+    height: 50px;
+    width: 50px;
+    padding: 0;
+    color: #ffffff;
+    font-weight: 700;
+    line-height: 40px;
+    background-color: var(--bg-theme-color2);
+    border-radius: 50%;
 }
 
 /*=== Footer Bottom ===*/
@@ -12786,7 +12786,7 @@ ul.mb-3 li {
     border: none;
     border-radius: 14px;
     padding: 8px;
-    margin-top: 10px !important;
+    margin-top: 0 !important;
     box-shadow: var(--hd-shadow-md), 0 0 0 1px rgba(0, 0, 0, 0.04);
     background: #fff;
     min-width: 220px;
@@ -13137,8 +13137,8 @@ section.chse_secton.abt-in-abts {
 
 .main-header .ui-btn-outer .ui-btn:hover .cart-count {
     transform: scale(1.18) rotate(-6deg);
-    background: #fff;
-    color: var(--hd-brand);
+    background: #1a1a1a;
+    color: #fff;
 }
 
 /* ----- Sticky header ----- */
@@ -13592,7 +13592,6 @@ ul.tl-breadcrumb-nav.d-flex {
     border: 1px solid var(--modern-glass-border);
     border-radius: var(--modern-radius-pill);
     padding: 6px 12px;
-    box-shadow: var(--modern-shadow);
 }
 
 .modern-nav {
@@ -13643,7 +13642,7 @@ ul.tl-breadcrumb-nav.d-flex {
     border-radius: 20px;
     box-shadow: 0 20px 50px rgba(0,0,0,0.1);
     padding: 10px;
-    margin-top: 15px !important;
+    margin-top: 0 !important;
     background: rgba(255,255,255,0.95);
     backdrop-filter: blur(15px);
     border: 1px solid rgba(255,255,255,0.5);
@@ -13934,12 +13933,12 @@ ul.tl-breadcrumb-nav.d-flex {
 }
 
 .modern-btn-solid {
-    background: var(--modern-text-dark);
+    background: var(--primary);
     color: #fff !important;
 }
 
 .modern-btn-solid:hover {
-    background: #000;
+    background: var(--secondary);
     transform: translateY(-2px);
 }
 
@@ -14277,10 +14276,8 @@ ul.tl-breadcrumb-nav.d-flex {
 
 .subscribe-form .form-group {
     position: relative;
-    background: #f8faff;
     border-radius: 15px;
     padding: 8px;
-    border: 1px solid rgba(0,0,0,0.03);
 }
 
 .subscribe-form input {
