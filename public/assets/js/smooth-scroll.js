@@ -28,18 +28,16 @@ function smoothWheelScroll(event) {
 function animateScroll(currentPosition) {
   const difference = targetScrollPosition - currentPosition;
 
-  // Use easing function for smooth deceleration
-  const easeOutQuad = (t) => t * (2 - t);
-  const duration = 500; // milliseconds
+  // Linear scroll for responsive, direct feel
+  const duration = 300; // milliseconds
   let startTime = null;
 
   function scroll(timestamp) {
     if (!startTime) startTime = timestamp;
     const elapsed = timestamp - startTime;
     const progress = Math.min(elapsed / duration, 1);
-    const ease = easeOutQuad(progress);
 
-    const newPosition = currentPosition + (difference * ease);
+    const newPosition = currentPosition + (difference * progress);
     window.scrollTo(0, newPosition);
 
     if (progress < 1) {
