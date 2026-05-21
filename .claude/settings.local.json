@@ -10,7 +10,11 @@
       "Bash(rm -rf .git)",
       "Bash(git init *)",
       "Bash(git remote *)",
-      "Bash(git branch *)"
+      "Bash(git branch *)",
+      "Bash(netstat -tuln)",
+      "Bash(php artisan *)",
+      "Bash(curl -s \"http://127.0.0.1:8000/\")",
+      "Bash(Start-Process *)"
     ]
   }
 }
