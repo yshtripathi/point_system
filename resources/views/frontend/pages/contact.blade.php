@@ -2,7 +2,7 @@
 @section('title','Contact Us | '.env('APP_NAME'))
 @section('main-content')
 
-<div class="tl-breadcrumb pt-120 pb-120">
+<div class="tl-breadcrumb contact-banner pt-120 pb-120">
     <div class="container">
         <div class="row align-items-end">
             <div class="col-md-6">
