@@ -13610,11 +13610,16 @@ ul.tl-breadcrumb-nav.d-flex {
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.modern-nav li.active a,
 .modern-nav li a:hover {
     background: #fff;
     color: var(--modern-primary);
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.modern-nav li.active a {
+    background: var(--primary);
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(var(--primary-rgb), 0.25);
 }
 
 /* Logo & Actions */
