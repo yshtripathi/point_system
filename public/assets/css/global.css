@@ -231,6 +231,73 @@ body {
   color: rgba(255, 255, 255, 0.7);
 }
 
+/* Animated Breadcrumb Elements */
+.breadcrumb-float-element {
+  position: absolute;
+  opacity: 0.15;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.float-element-1 {
+  width: 120px;
+  height: 120px;
+  background: rgba(var(--primary-rgb), 0.3);
+  border-radius: 50%;
+  top: 10%;
+  left: 5%;
+  animation: float-up-down 6s ease-in-out infinite;
+}
+
+.float-element-2 {
+  width: 90px;
+  height: 90px;
+  background: rgba(var(--primary-rgb), 0.2);
+  border-radius: 45%;
+  top: 60%;
+  right: 8%;
+  animation: float-up-down-reverse 7s ease-in-out infinite;
+  animation-delay: 1s;
+}
+
+.float-element-3 {
+  width: 100px;
+  height: 100px;
+  background: rgba(var(--primary-rgb), 0.25);
+  border-radius: 40% 60% 70% 30%;
+  bottom: 15%;
+  left: 12%;
+  animation: float-side-to-side 8s ease-in-out infinite;
+  animation-delay: 0.5s;
+}
+
+@keyframes float-up-down {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-30px);
+  }
+}
+
+@keyframes float-up-down-reverse {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(30px);
+  }
+}
+
+@keyframes float-side-to-side {
+  0%, 100% {
+    transform: translateX(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateX(20px) rotate(10deg);
+  }
+}
+
 .dvdr {
   color: rgba(255, 255, 255, 0.5);
   display: inline-flex;

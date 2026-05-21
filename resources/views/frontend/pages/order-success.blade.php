@@ -9,6 +9,9 @@ $order = Order::where('trans_id', $transaction_id)->first();
     <video autoplay muted loop playsinline>
         <source src="{{ asset('images/breadcrumb.mp4') }}" type="video/mp4">
     </video>
+    <div class="breadcrumb-float-element float-element-1"></div>
+    <div class="breadcrumb-float-element float-element-2"></div>
+    <div class="breadcrumb-float-element float-element-3"></div>
     <div class="container">
         <div class="row align-items-end">
             <div class="col-md-6">
