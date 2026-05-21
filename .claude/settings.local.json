@@ -9,7 +9,8 @@
       "PowerShell(git credential *)",
       "Bash(rm -rf .git)",
       "Bash(git init *)",
-      "Bash(git remote *)"
+      "Bash(git remote *)",
+      "Bash(git branch *)"
     ]
   }
 }
