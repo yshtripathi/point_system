@@ -113,6 +113,7 @@
 <script src="{{url('assets/js/swiper.min.js')}}"></script>
 <script src="{{url('assets/js/owl.js')}}"></script>
 <script src="{{url('assets/js/script.js')}}"></script>
+<script src="{{url('assets/js/smooth-scroll.js')}}"></script>
 <script>
     setTimeout(function() {   
      $('.alert').slideUp();    

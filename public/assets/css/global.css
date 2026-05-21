@@ -109,6 +109,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 80px;
 }
 
 body {
@@ -448,6 +449,52 @@ a:hover {
 }
 
 /* ========================================
+   SCROLL TO TOP BUTTON
+   ======================================== */
+
+.scroll-to-top,
+.scroll-to-target {
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  width: 50px;
+  height: 50px;
+  background: var(--primary);
+  color: var(--white);
+  border: none;
+  border-radius: var(--radius-full);
+  font-size: 20px;
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 99;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-lg);
+}
+
+.scroll-to-top.show,
+.scroll-to-target.show {
+  display: flex;
+  opacity: 1;
+  visibility: visible;
+}
+
+.scroll-to-top:hover,
+.scroll-to-target:hover {
+  background: var(--secondary);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-xl);
+}
+
+.scroll-to-top:active,
+.scroll-to-target:active {
+  transform: translateY(0);
+}
+
+/* ========================================
    RESPONSIVE
    ======================================== */
 
@@ -462,5 +509,14 @@ a:hover {
   .modern-btn-outline {
     padding: 10px 20px;
     font-size: 14px;
+  }
+
+  .scroll-to-top,
+  .scroll-to-target {
+    right: 20px;
+    bottom: 20px;
+    width: 45px;
+    height: 45px;
+    font-size: 18px;
   }
 }
