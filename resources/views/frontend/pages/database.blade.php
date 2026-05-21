@@ -2,110 +2,94 @@
 @extends('frontend.layouts.main')
 @section('main-content')
 
-<div class="nk-gap-1"></div>
-<div class="breadcr-info">
-   <div class="container">
-                <ul class="nk-breadcrumbs">
-                    <li><a href="{{ route('home') }}">{{ __('common.home') }}</a></li>
-                    <li><i class="fa fa-angle-right"></i></li>
-                    <li><a href="">Database</a></li>
-                    <li><i class="fa fa-angle-right"></i></li>                
-                    <li><span>Database</span></li>
+<div class="tl-breadcrumb catalog-banner pt-120 pb-120">
+    <div class="container">
+        <div class="row align-items-end">
+            <div class="col-md-6">
+                <div class="banner-txt"><h1 class="tl-breadcrumb-title">Database</h1></div>
+            </div>
+            <div class="col-md-6">
+                <ul class="tl-breadcrumb-nav d-flex justify-content-md-end">
+                    <li><a href="/">{{ __('common.home') }}</a></li>
+                    <li class="current-page">
+                        <span class="dvdr"><i class="fas fa-chevron-right mx-2"></i></span>
+                        <span>Database</span>
+                    </li>
                 </ul>
-
-                
-               
-             
             </div>
- </div>
-
-<div class="nk-gap-3"></div>
-<div class="srvce-lst">
-  <div class="container">
-      <div class="row">
-        
-        <div class="col-md-12 col-12">          
-        <div id="content" class="tab-content srvcetb-cntnt" role="tablist" >            
-        <div id="pane-all" class="tab-pane fade show active" role="tabpanel" aria-labelledby="tab-all" data-aos="fade-up">
-            <div role="tab" id="heading-A">
-                <h5>
-                    <!-- Note: `data-parent` removed from here -->
-                    <a data-toggle="collapse" href="#collapse-A" aria-expanded="true" aria-controls="collapse-A">
-                    Discount Bundles
-                    </a>
-                </h5>
-            </div>
-            <!-- Note: New place of `data-parent` -->
-            <div id="collapse-A" class="collapse show" data-parent="#content" role="tabpanel" aria-labelledby="heading-A">
-                     <div class="gmessv-lst">
-                       <h3 class="nk-decorated-h"><span>Database</span></h3>
-                     <div class="nk-gap-1"></div>
-
-                        <div class="row m-0 mb-3">
-                          @php                        
-
-                          if(isset($_GET['page']))
-                          {
-                          $page=$_GET['page']*40;
-                          $skip=($_GET['page']-1)*40;
-                          }
-                          else {$page=40;$skip=0;}
-                          
-                  $products = Helper::getRandomProduct(320);
-                          @endphp
-                          
-                           @if(count($products))
-         @foreach($products as $product)
-
-                            <div class="col-md-3 col-12">
-                              <div class="nk-gap-1"></div>
-                            <div class="single-product-box">
-        <div class="product-img">
-                      @php 
-                                        $photo=explode(',',$product->photo);
-                                    @endphp
-    <img src="{{ asset($photo[0]) }}" class="img-fluid">
-       </div>
-       <div class="info-area">
-          
-          
-<a href="{{route('product-detail', $product->slug)}}"><h4 class="mb-5">{{$product->title}}</h4></a>
-         
-         
-           <p>{{ Str::limit($product->summary,120) }}</p>
-          <div class="nk-product-price mb-5" style="float:left;">
-            {{ $product->getCurrencySymbol() }} {{number_format($product->price,2)}}</div>
-         
-         <form action="{{route('single-add-to-cart')}}" method="POST">
-                                          @csrf
-                                          <input type="hidden" name="quant[1]" class="qty-input"  data-min="1" data-max="1000" value="1" id="quantity">
-                                          <input type="hidden" name="slug" value="{{$product->slug}}">
-<button name='submit' class="nk-btn nk-btn-rounded nk-btn-color-main-1 w-50 float-right">Add to Cart</button>
-                                    </form>
-        </div>
-      </div>
-    </div>
-@endforeach
-                    @else
-                        <h4 class="text-warning" style="margin:100px auto;">There are no products.</h4>
-                    @endif 
-                               </div>
-                               <!-- end row section -->
-                       
-                             </div>
-                           </div>             
-                </div>
-              
-         
-        </div>
-        </div>
         </div>
     </div>
-    <!-- end row section -->
-   </div>
-   <div class="nk-gap-3"></div>
 </div>
-<div class="nk-gap-4"></div>
+
+<section class="catalog-section pt-120 pb-120 bg-light">
+  <div class="container">
+        <div class="row mb-5 align-items-center">
+            <div class="col-md-6">
+                <h4 class="fw-bold text-dark mb-0">
+                    <span class="text-primary">Database</span> Products
+                </h4>
+            </div>
+        </div>
+
+        <div class="row g-4">
+            @php
+                $products = Helper::getRandomProduct(320);
+            @endphp
+
+            @if(count($products))
+                @foreach($products as $product)
+                    @php
+                        $photo = explode(',', $product->photo);
+                    @endphp
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <div class="modern-card h-100 border-0 shadow-sm bg-white overflow-hidden" style="border-radius: 24px; transition: transform 0.3s ease;">
+                            <div class="position-relative">
+                                <a href="{{route('product-detail', $product->slug)}}" class="d-block overflow-hidden">
+                                    <img src="{{ asset($photo[0]) }}" class="w-100 object-fit-cover catalog-card-img" style="height:280px; transition: transform 0.5s ease;">
+                                </a>
+                                <div class="position-absolute top-0 end-0 m-3">
+                                    <span class="badge bg-blur px-3 py-2 text-white" style="backdrop-filter: blur(10px); background: rgba(0,0,0,0.3); border-radius: 10px;">
+                                        Professional
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="p-4 p-xl-5">
+                                <div class="d-flex align-items-center gap-2 mb-3">
+                                    <i class="fas fa-layer-group text-primary small"></i>
+                                    <span class="text-uppercase small fw-bold opacity-50 letter-spacing-1">Database</span>
+                                </div>
+                                <h5 class="fw-bold text-dark mb-4 line-clamp-2" style="min-height: 3rem;">
+                                    <a href="{{route('product-detail', $product->slug)}}" class="text-dark text-decoration-none hover-primary">
+                                        {{$product->title}}
+                                    </a>
+                                </h5>
+
+                                <p class="text-muted small mb-4">{{ Str::limit($product->summary, 80) }}</p>
+
+                                <div class="pt-4 border-top d-flex align-items-center justify-content-between">
+                                    <span class="fw-bold text-primary">{{ $product->getCurrencySymbol() }}{{ number_format($product->price, 2) }}</span>
+                                    <form action="{{route('single-add-to-cart')}}" method="POST" class="d-inline">
+                                        @csrf
+                                        <input type="hidden" name="quant[1]" value="1">
+                                        <input type="hidden" name="slug" value="{{$product->slug}}">
+                                        <button type="submit" class="btn btn-light rounded-circle shadow-sm border-0 d-flex align-items-center justify-content-center" style="width: 45px; height: 45px;">
+                                            <i class="fas fa-arrow-right text-primary"></i>
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            @else
+                <div class="col-12 text-center py-5">
+                    <div class="opacity-20 mb-3"><i class="fas fa-inbox fa-4x"></i></div>
+                    <h4 class="text-muted fw-bold">There are no products available.</h4>
+                </div>
+            @endif
+        </div>
+    </div>
+</section>
 
 
 @endsection

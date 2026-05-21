@@ -1,55 +1,45 @@
 @extends('frontend.layouts.main')
-@section('title','New Courses|| Instructor')
+@section('title', $instructor_data->instructor_name)
 @section('main-content')
 
-<section class="page-header">
-  <div class="container">
-    <div class="page-header__content">
-      <ul class="eduhive-breadcrumb list-unstyled">
-        <li>
-          <span class="eduhive-breadcrumb__icon">
-            <i class="icon-home"></i>
-          </span>
-          <a href="{{ route('home') }}">{{ __('common.home') }}</a>
-        </li>
-        <li>
-          <span>{{ __('common.instructors') }} </span>
-        </li>
-      </ul>
-      <h2 class="page-header__title">{{ $instructor_data->instructor_name }}</h2>
-    </div>
-  </div>
-<img src="{{url('assets/images/shapes/page-header-shape-1.png')}}" alt="shape" class="page-header__shape-one">
-<img src="{{url('assets/images/shapes/page-header-shape-2.png')}}" alt="shape" class="page-header__shape-two">
-  <div class="page-header__shape-three"></div>
-  <div class="page-header__shape-four"></div>
-</section>
-
- 
-      <!-- course-detailes-area-start -->
-      <div class="course-details-area pt-120 pb-100">
-         <div class="container">
-            <div class="row">
-               <div class="col-xl-3 col-lg-3">
-                  <div class="course-instructors-img mb-30">
-                     <!--<img class="mb-20" src="{{ $instructor_data->instructor_pic }}" alt="instructors-img">-->
-                     <div class="course-details-tittle mb-30">
-                        <h3>{{ $instructor_data->instructor_name }}</h3>
-                        <span class="d-block mb-15">{{ $instructor_data->instructor_designation }}</span>
-                     </div>
-                  </div>
-               </div>
-               <div class="col-xl-8 col-lg-9">
-                  <div class="course-details-wrapper">
-                     <div class="course-bio-text pt-45 pb-20">
-                        <p>{!! $instructor_data->instructor_desc !!}</p>
-                     </div>
-                  </div>
-               </div>
+<div class="tl-breadcrumb about-banner pt-120 pb-120">
+    <div class="container">
+        <div class="row align-items-end">
+            <div class="col-md-6">
+                <div class="banner-txt"><h1 class="tl-breadcrumb-title">{{ $instructor_data->instructor_name }}</h1></div>
             </div>
-         </div>
-      </div>
-      <!-- course-detailes-area- end -->
+            <div class="col-md-6">
+                <ul class="tl-breadcrumb-nav d-flex justify-content-md-end">
+                    <li><a href="/">{{ __('common.home') }}</a></li>
+                    <li class="current-page">
+                        <span class="dvdr"><i class="fas fa-chevron-right mx-2"></i></span>
+                        <span>{{ __('common.instructors') }}</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="instructor-detail-section pt-120 pb-120 bg-light">
+    <div class="container">
+        <div class="row g-5">
+            <div class="col-xl-4 col-lg-4">
+                <div class="modern-card border-0 shadow-sm bg-white p-5" style="border-radius: 30px;">
+                    <h3 class="fw-800 text-dark mb-2">{{ $instructor_data->instructor_name }}</h3>
+                    <p class="text-primary fw-bold mb-4">{{ $instructor_data->instructor_designation }}</p>
+                </div>
+            </div>
+            <div class="col-xl-8 col-lg-8">
+                <div class="modern-card border-0 shadow-sm bg-white p-5 p-lg-6" style="border-radius: 30px;">
+                    <div class="instructor-bio">
+                        {!! $instructor_data->instructor_desc !!}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 
 
