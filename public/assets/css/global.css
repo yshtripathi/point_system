@@ -394,7 +394,7 @@ body {
 
 .animated-dropdown .dropdown-item:hover {
   background: var(--primary-10) !important;
-  color: var(--primary) !important;
+  color: var(--text-dark) !important;
   transform: translateX(4px);
 }
 
@@ -406,7 +406,7 @@ body {
 .animated-dropdown .dropdown-item:focus {
   outline: none;
   background: var(--primary-10) !important;
-  color: var(--primary) !important;
+  color: var(--text-dark) !important;
 }
 
 /* Ensure dropdown visibility when parent button is hovered */
@@ -416,7 +416,7 @@ body {
 }
 
 .header-actions .dropdown:hover .animated-dropdown .dropdown-item:hover {
-  color: var(--primary) !important;
+  color: var(--text-dark) !important;
   background: var(--primary-10) !important;
 }
 
