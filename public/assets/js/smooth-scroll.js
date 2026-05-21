@@ -11,7 +11,7 @@ function smoothWheelScroll(event) {
   const deltaY = event.deltaY || -event.wheelDelta || event.detail;
 
   // Constant scroll speed (pixels per millisecond)
-  const pixelsPerMs = 0.5; // Adjust this for faster/slower scroll
+  const pixelsPerMs = 0.8; // Increased for faster, smooth scrolling
   targetScrollPosition = currentScrollPosition + (deltaY * 1);
 
   // Clamp target position to valid range
