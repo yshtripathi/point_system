@@ -131,6 +131,102 @@ body {
 }
 
 /* ========================================
+   BREADCRUMB BANNER STYLES
+   ======================================== */
+
+.tl-breadcrumb {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  padding: 80px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.tl-breadcrumb::before {
+  content: '';
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 300px;
+  height: 300px;
+  background: var(--accent);
+  border-radius: 50%;
+  opacity: 0.1;
+  z-index: 0;
+}
+
+.tl-breadcrumb::after {
+  content: '';
+  position: absolute;
+  bottom: -80px;
+  left: -80px;
+  width: 250px;
+  height: 250px;
+  background: var(--white);
+  border-radius: 50%;
+  opacity: 0.05;
+  z-index: 0;
+}
+
+.tl-breadcrumb > * {
+  position: relative;
+  z-index: 1;
+}
+
+.banner-txt {
+  margin-bottom: 0;
+}
+
+.tl-breadcrumb-title {
+  font-size: 48px;
+  font-weight: 800;
+  color: var(--white);
+  margin: 0;
+  line-height: 1.2;
+  letter-spacing: -1px;
+}
+
+.tl-breadcrumb-nav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 10px;
+}
+
+.tl-breadcrumb-nav li {
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.tl-breadcrumb-nav li a {
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  transition: var(--transition-fast);
+}
+
+.tl-breadcrumb-nav li a:hover {
+  color: var(--white);
+  text-decoration: underline;
+}
+
+.tl-breadcrumb-nav li.current-page {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.dvdr {
+  color: rgba(255, 255, 255, 0.5);
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Breadcrumb Variants (for backward compatibility) */
+.tl-breadcrumb.about-banner,
+.tl-breadcrumb.catalog-banner,
+.tl-breadcrumb.cart-banner {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+}
+
+/* ========================================
    NAVBAR & HEADER STYLES
    ======================================== */
 
@@ -901,6 +997,63 @@ a:hover {
 /* ========================================
    RESPONSIVE BREAKPOINTS
    ======================================== */
+
+/* Breadcrumb Responsive */
+@media (max-width: 1024px) {
+  .tl-breadcrumb {
+    padding: 60px 0;
+  }
+
+  .tl-breadcrumb-title {
+    font-size: 36px;
+  }
+
+  .tl-breadcrumb-nav {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 768px) {
+  .tl-breadcrumb {
+    padding: 50px 0;
+  }
+
+  .tl-breadcrumb-title {
+    font-size: 28px;
+  }
+
+  .tl-breadcrumb-nav {
+    font-size: 12px;
+  }
+
+  .tl-breadcrumb-nav li a {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .tl-breadcrumb {
+    padding: 40px 0;
+  }
+
+  .tl-breadcrumb-title {
+    font-size: 24px;
+    letter-spacing: 0;
+  }
+
+  .tl-breadcrumb-nav {
+    font-size: 11px;
+    gap: 5px;
+  }
+
+  .tl-breadcrumb-nav li a {
+    font-size: 11px;
+  }
+
+  .tl-breadcrumb-nav span.dvdr {
+    margin: 0 3px;
+  }
+}
 
 /* Tablet Screens (768px - 1024px) */
 @media (max-width: 1024px) {
