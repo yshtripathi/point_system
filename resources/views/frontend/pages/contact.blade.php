@@ -91,21 +91,6 @@
                             Send us a message and we'll respond as soon as possible.
                         </p>
 
-                        @if ($errors->any())
-                            <div class="alert alert-danger border-0 shadow-sm rounded-3 mb-4">
-                                <ul class="mb-0 small">
-                                    @foreach ($errors->all() as $error)
-                                        <li><i class="fas fa-info-circle me-1"></i>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        @endif
-                        @if(session('success'))
-                            <div class="alert alert-success border-0 shadow-sm rounded-3 mb-4">
-                                <i class="fas fa-check-circle me-2"></i>{{ session('success') }}
-                            </div>
-                        @endif
-
                         <form method="POST" action="{{ route('contact.send') }}" id="contactform">
                             @csrf
                             <div class="row g-4">

@@ -47,20 +47,6 @@
 
                     <!-- Content Section -->
                     <div class="p-5">
-                        @if (session('success'))
-                            <div class="alert alert-success border-0 shadow-sm rounded-4 mb-4 d-flex align-items-center">
-                                <i class="fas fa-check-circle text-success me-3"></i>
-                                {{ session('success') }}
-                            </div>
-                        @endif
-
-                        @if (session('loginerror'))
-                            <div class="alert alert-danger border-0 shadow-sm rounded-4 mb-4 d-flex align-items-center">
-                                <i class="fas fa-exclamation-circle text-danger me-3"></i>
-                                {{ session('loginerror') }}
-                            </div>
-                        @endif
-
                         <form name="frmLogin" id="frmLogin" action="{{route('login.submit')}}" method="post">
                             @csrf
 

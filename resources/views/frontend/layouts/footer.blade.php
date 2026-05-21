@@ -115,9 +115,13 @@
 <script src="{{url('assets/js/script.js')}}"></script>
 <script src="{{url('assets/js/smooth-scroll.js')}}"></script>
 <script>
-    setTimeout(function() {   
-     $('.alert').slideUp();    
- }, 3000);
+    // Auto-dismiss alerts after 5 seconds
+    setTimeout(function() {
+     $('.alert:not(.alert-dismissible)').slideUp();
+     $('.modern-alert').fadeOut(function() {
+       $(this).remove();
+     });
+ }, 5000);
 $(".suces_rinfo").hide();
 
 $(".subscribe-form").on('submit', function(event){
@@ -127,10 +131,10 @@ $(".subscribe-form").on('submit', function(event){
     // reset form
     $(".subscribe-form form")[0].reset();
 
-    // hide success message after 3 seconds
-    setTimeout(function(){   
-        $(".suces_rinfo").fadeOut();    
-    }, 3000); 
+    // hide success message after 5 seconds
+    setTimeout(function(){
+        $(".suces_rinfo").fadeOut();
+    }, 5000); 
 });
 </script>
 

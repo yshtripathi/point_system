@@ -1,7 +1,7 @@
 @extends('frontend.layouts.main')
 @section('main-content')
 
-<div class="tl-breadcrumb cart-banner pt-120 pb-120">
+<div class="tl-breadcrumb about-banner pt-60 pb-60">
     <video autoplay muted loop playsinline>
         <source src="{{ asset('images/breadcrumb.mp4') }}" type="video/mp4">
     </video>
@@ -26,21 +26,21 @@
     </div>
 </div>
 
-<section class="cart-section pt-120 pb-120 bg-light">
+<section class="cart-section bg-light">
     <div class="container">
         <div class="row g-5">
             <!-- Left: Cart Items -->
             <div class="col-xl-8">
-                <div class="modern-card p-4 p-md-5 border-0 shadow-sm bg-white" style="border-radius: 30px;">
-                    <h5 class="fw-bold text-dark mb-5 d-flex align-items-center gap-3">
-                        <i class="fas fa-shopping-cart text-primary"></i>
+                <div class="modern-card p-4 p-md-5 border-0 shadow-sm bg-white" style="border-radius: 24px; border: 1px solid rgba(21, 145, 220, 0.1);">
+                    <h5 class="fw-bold text-dark mb-5 d-flex align-items-center gap-3" style="color: #0a0e27;">
+                        <i class="fas fa-shopping-cart" style="color: #1591DC;"></i>
                         {{ __('common.item') }} Summary
                     </h5>
 
                     <div class="table-responsive">
                         <table class="table align-middle">
                             <thead>
-                                <tr class="text-uppercase small fw-bold opacity-50">
+                                <tr class="text-uppercase small fw-bold" style="color: #1591DC; border-bottom: 2px solid rgba(21, 145, 220, 0.15);">
                                     <th class="border-0 pb-4">Product</th>
                                     <th class="border-0 pb-4 text-center">{{ __('common.price') }}</th>
                                     <th class="border-0 pb-4 text-end">{{ __('common.remove') }}</th>
@@ -50,44 +50,36 @@
                                 @if(Helper::cartCount())
                                     @foreach(Helper::getAllProductFromCart() as $key=>$cart)
                                         @php
-                                            $item_photo = asset('assets/images/placeholder.jpg');
                                             $item_title = "Points Top Up";
                                             $item_link = "#";
                                             if($cart->product) {
-                                                $photo_arr = explode(',', $cart->product->photo);
-                                                $item_photo = $photo_arr[0];
                                                 $item_title = $cart->product->title;
                                                 $item_link = route('product-detail', $cart->product->slug);
                                             }
                                         @endphp
-                                        <tr class="border-bottom border-light">
+                                        <tr class="border-bottom" style="border-color: rgba(21, 145, 220, 0.1);">
                                             <td class="py-4">
-                                                <div class="d-flex align-items-center gap-4">
-                                                    <div class="rounded-4 overflow-hidden shadow-sm" style="width: 80px; height: 80px; flex-shrink: 0;">
-                                                        <img src="{{ $item_photo }}" class="w-100 h-100 object-fit-cover" alt="{{ $item_title }}">
-                                                    </div>
-                                                    <div>
-                                                        <a href="{{ $item_link }}" class="fw-bold text-dark text-decoration-none hover-primary d-block mb-1">{{ $item_title }}</a>
-                                                        <span class="badge bg-soft-primary small" style="background: var(--secondary-10); color: var(--secondary);">Learning Path</span>
-                                                    </div>
+                                                <div class="d-flex flex-column gap-2">
+                                                    <a href="{{ $item_link }}" class="fw-bold text-decoration-none" style="color: #0a0e27; font-size: 15px;">{{ $item_title }}</a>
+                                                    <span class="badge rounded-2" style="background: rgba(21, 145, 220, 0.1); color: #1591DC; width: fit-content; font-size: 11px; font-weight: 600;">Learning Path</span>
                                                 </div>
                                             </td>
                                             <td class="py-4 text-center">
-                                                <span class="fw-800 text-dark" style="font-weight: 800;">
+                                                <span class="fw-800" style="font-weight: 800; color: #0a0e27;">
                                                     @if($cart->product_id < 1000 && $cart->points > 0)
-                                                        <i class="fas fa-coins me-1 text-primary"></i> {{ number_format($cart->points) }} PTS
+                                                        <i class="fas fa-coins me-1" style="color: #1591DC;"></i> {{ number_format($cart->points) }} PTS
                                                     @elseif($cart->product_id >= 1000)
                                                         {{ Helper::getCurrencySymbol(session('currency')) }}{{ number_format($cart['price'], session('currency')=='JPY' ? 0 : 2) }}
-                                                        <div class="text-primary tiny fw-bold mt-1">({{ number_format($cart->points) }} PTS)</div>
+                                                        <div style="color: #1591DC; font-size: 12px; font-weight: 600; margin-top: 4px;">({{ number_format($cart->points) }} PTS)</div>
                                                     @else
-                                                        {{ Helper::getCurrencySymbol(session('currency')) }} 
+                                                        {{ Helper::getCurrencySymbol(session('currency')) }}
                                                         {{ number_format($cart['price'], session('currency')=='JPY' ? 0 : 2) }}
                                                     @endif
                                                 </span>
                                             </td>
                                             <td class="py-4 text-end">
-                                                <a href="{{ route('cart-delete',$cart->id) }}" class="btn btn-light rounded-circle border-0 shadow-sm" style="width: 45px; height: 45px; line-height: 33px;">
-                                                    <i class="fas fa-trash-alt text-danger"></i>
+                                                <a href="{{ route('cart-delete',$cart->id) }}" class="btn rounded-2 border-0" style="width: 40px; height: 40px; background: rgba(220, 53, 69, 0.1); transition: all 0.3s ease;">
+                                                    <i class="fas fa-trash-alt" style="color: #dc3545; font-size: 16px;"></i>
                                                 </a>
                                             </td>
                                         </tr>
@@ -96,9 +88,9 @@
                                     <tr>
                                         <td colspan="3" class="text-center py-5">
                                             <div class="py-5">
-                                                <i class="fas fa-shopping-basket fa-4x text-light mb-4"></i>
-                                                <h4 class="text-dark fw-bold mb-3">{{ __('common.no_cart_available') }}</h4>
-                                                <a href="{{route('product-lists')}}" class="modern-btn modern-btn-solid">{{ __('common.continue_shopping') }}</a>
+                                                <i class="fas fa-shopping-basket fa-4x mb-4" style="color: rgba(21, 145, 220, 0.2);"></i>
+                                                <h4 class="text-dark fw-bold mb-3" style="color: #0a0e27;">{{ __('common.no_cart_available') }}</h4>
+                                                <a href="{{route('product-lists')}}" class="modern-btn modern-btn-solid" style="background: linear-gradient(135deg, #1591DC 0%, #2C5EAD 100%); color: white; border: none; border-radius: 10px; padding: 10px 24px; font-weight: 600;">{{ __('common.continue_shopping') }}</a>
                                             </div>
                                         </td>
                                     </tr>
@@ -111,8 +103,8 @@
 
             <!-- Right: Order Summary -->
             <div class="col-xl-4">
-                <div class="modern-card p-5 border-0 shadow-lg bg-white sticky-top" style="border-radius: 40px; top: 120px; z-index: 10;">
-                    <h5 class="fw-bold text-dark mb-5">Order Summary</h5>
+                <div class="modern-card p-5 border-0 shadow-sm bg-white sticky-top" style="border-radius: 24px; border: 1px solid rgba(21, 145, 220, 0.1); top: 120px; z-index: 10;">
+                    <h5 class="fw-bold mb-5" style="color: #0a0e27; font-size: 18px;">Order Summary</h5>
 
                     @if(Helper::cartCount())
                         @php
@@ -122,20 +114,11 @@
                             }
                         @endphp
                         
-                        <div class="mb-4 d-flex justify-content-between align-items-center">
-                            <span class="text-muted">Subtotal</span>
-                            <span class="fw-bold text-dark">
-                                @if(Helper::totalCartPoints() > 0)
-                                    <i class="fas fa-coins me-1 text-primary"></i> {{ number_format(Helper::totalCartPoints()) }} PTS
-                                @else
-                                    {{ Helper::getCurrencySymbol(session('currency')) }} {{ number_format(Helper::totalCartPrice(), session('currency')=='JPY' ? 0 : 2) }}
-                                @endif
-                            </span>
-                        </div>
+                        
 
-                        <div class="mb-5 d-flex justify-content-between align-items-center pt-4 border-top">
-                            <h5 class="fw-bold text-dark mb-0">Total</h5>
-                            <h4 class="fw-800 text-primary mb-0" style="font-weight: 800;">
+                        <div class="mb-5 d-flex justify-content-between align-items-center pt-4 border-top" style="border-color: rgba(21, 145, 220, 0.1) !important;">
+                            <h5 class="fw-bold mb-0" style="color: #0a0e27;">Total</h5>
+                            <h4 class="fw-800 mb-0" style="font-weight: 800; color: #1591DC;">
                                 @if(Helper::totalCartPoints() > 0)
                                     <i class="fas fa-coins me-1"></i> {{ number_format(Helper::totalCartPoints()) }} PTS
                                 @else
@@ -145,7 +128,7 @@
                             </h4>
                         </div>
 
-                        <a href="{{ route('checkout') }}" class="modern-btn modern-btn-solid w-100 py-3 shadow-lg text-center mb-4">
+                        <a href="{{ route('checkout') }}" class="modern-btn w-100 py-3 text-center mb-4 rounded-3" style="background: linear-gradient(135deg, #1591DC 0%, #2C5EAD 100%); color: white; border: none; font-weight: 600; box-shadow: 0 4px 12px rgba(21, 145, 220, 0.3); transition: all 0.3s ease;">
                             {{ __('common.checkout') }} <i class="fas fa-arrow-right ms-2"></i>
                         </a>
 
@@ -153,8 +136,8 @@
                             <img src="{{ asset('assets/images/pay.png') }}" alt="Payments" class="img-fluid opacity-50" style="max-height: 30px;">
                         </div>
                     @else
-                        <div class="alert alert-light border-0 rounded-4 p-4 text-center mb-0">
-                            <p class="text-muted mb-0">Your summary will appear once you add items to the cart.</p>
+                        <div class="border-0 rounded-3 p-4 text-center mb-0" style="background: rgba(21, 145, 220, 0.05); border: 1px solid rgba(21, 145, 220, 0.1);">
+                            <p class="mb-0" style="color: #666; font-size: 14px;">Your summary will appear once you add items to the cart.</p>
                         </div>
                     @endif
                 </div>

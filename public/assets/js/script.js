@@ -845,16 +845,29 @@ var THEMEMASCOT = {};
   });
 });
 $(function(){
-  $(".cartcanvas__close,.offcanvas__overlay").on("click",function()
-         {
-               $(".cartcanvas__info").removeClass("info-open"); 
-                $(".offcanvas__overlay").removeClass("overlay-open");
-         });
-       $('.ui-btn').on("click",function()
-       { 
-         $(".cartcanvas__info").addClass("info-open");
-          $(".offcanvas__overlay").addClass("overlay-open");
-       });
+  // Close cart drawer
+  $(".cartcanvas__close,.offcanvas__overlay").on("click", function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    $(".cartcanvas__info").removeClass("info-open");
+    $(".offcanvas__overlay").removeClass("overlay-open");
+  });
+
+  // Open cart drawer on any ui-btn click (cart button)
+  $('.ui-btn').on("click", function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    $(".cartcanvas__info").addClass("info-open");
+    $(".offcanvas__overlay").addClass("overlay-open");
+  });
+
+  // Also specifically handle the cart button
+  $(".modern-cart-btn").on("click", function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    $(".cartcanvas__info").addClass("info-open");
+    $(".offcanvas__overlay").addClass("overlay-open");
+  });
 });
 			function equalizeBoxHeights() {
   const boxes = document.querySelectorAll('.box');

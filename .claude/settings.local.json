@@ -19,7 +19,9 @@
       "Bash(curl -s http://127.0.0.1:8000)",
       "Bash(Select-Object -First 1)",
       "PowerShell(Start-Sleep -Seconds 3; \\(Invoke-WebRequest -Uri \"http://127.0.0.1:8000\" -UseBasicParsing\\).StatusCode)",
-      "Bash(start *)"
+      "Bash(start *)",
+      "Bash(curl -s http://127.0.0.1:8000/user/login)",
+      "Bash(curl -s http://127.0.0.1:8000/assets/css/global.css)"
     ]
   }
 }

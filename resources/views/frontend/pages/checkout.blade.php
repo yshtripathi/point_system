@@ -58,9 +58,6 @@
                             <i class="fas fa-id-card text-primary fs-3"></i>
                         </div>
 
-                        @if (session('success')) <div class="alert alert-success rounded-4 border-0 shadow-sm mb-4">{{ session('success') }}</div> @endif
-                        @if (session('error')) <div class="alert alert-danger rounded-4 border-0 shadow-sm mb-4">{{ session('error') }}</div> @endif
-
                         <div class="row g-4">
                             <div class="col-md-6">
                                 <label class="small fw-bold text-uppercase opacity-50 mb-2">{{ __('common.first_name') }}*</label>

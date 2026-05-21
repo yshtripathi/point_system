@@ -238,11 +238,11 @@
         <div class="cartfix-area modern-cart-drawer">
             <div class="cartcanvas__info">
                 <div class="offcanvas__wrapper">
-                    <div class="cartcanvas__content p-4">
-                        <div class="mb-4 d-flex justify-content-between align-items-center border-bottom pb-4">
-                            <h4 class="fw-800 text-dark mb-0" style="font-weight: 800; letter-spacing: -0.5px;">{{ __('common.shopping_cart') }}</h4>
-                            <div class="cartcanvas__close rounded-circle bg-light d-flex align-items-center justify-content-center shadow-sm" style="width: 40px; height: 40px; cursor: pointer;">
-                                <i class="fas fa-times text-dark small"></i>
+                    <div class="cartcanvas__content">
+                        <div class="mb-4 d-flex justify-content-between align-items-center border-bottom pb-4" style="border-color: rgba(21, 145, 220, 0.1) !important;">
+                            <h4 class="fw-800 text-dark mb-0" style="font-weight: 800; letter-spacing: -0.5px; color: #0a0e27;">{{ __('common.shopping_cart') }}</h4>
+                            <div class="cartcanvas__close rounded-circle d-flex align-items-center justify-content-center" style="width: 40px; height: 40px; cursor: pointer; background: linear-gradient(135deg, rgba(21, 145, 220, 0.1) 0%, rgba(21, 145, 220, 0.05) 100%); border: 1px solid rgba(21, 145, 220, 0.2); transition: all 0.3s ease;">
+                                <i class="fas fa-times" style="color: #1591DC; font-size: 16px; font-weight: 600;"></i>
                             </div>
                         </div>
 
@@ -264,11 +264,7 @@
                                                 $item_link = route('product-detail', $cart->product->slug);
                                             }
                                         @endphp
-                                        <div class="rounded-3 overflow-hidden me-3 shadow-sm" style="width: 70px; height: 70px; flex-shrink: 0;">
-                                            <a href="{{ $item_link }}">
-                                                <img src="{{ url($item_photo) }}" class="w-100 h-100 object-fit-cover">
-                                            </a>
-                                        </div>
+                                        
                                         <div class="cart-info pe-4">
                                             <a href="{{ $item_link }}" class="fw-bold text-dark text-decoration-none small d-block mb-1 line-clamp-1">{{ $item_title }}</a>
                                             <p class="mb-0 small text-muted">
@@ -299,10 +295,10 @@
                                 $total_amount = Helper::totalCartPrice();
                                 if(session()->has('coupon')) { $total_amount -= Session::get('coupon')['value']; }
                             @endphp
-                            <div class="cart-footer border-top mt-5 pt-4">
+                            <div class="cart-footer border-top mt-5 pt-4" style="border-color: rgba(21, 145, 220, 0.1) !important;">
                                 <div class="d-flex justify-content-between align-items-center mb-4">
-                                    <h5 class="fw-bold text-dark mb-0">{{ __('common.total') }}</h5>
-                                    <h4 class="fw-800 text-primary mb-0" style="font-weight: 800;">
+                                    <h5 class="fw-bold text-dark mb-0" style="color: #0a0e27;">{{ __('common.total') }}</h5>
+                                    <h4 class="fw-800 mb-0" style="font-weight: 800; color: #1591DC;">
                                         @if(Helper::totalCartPoints() > 0)
                                             <i class="fas fa-coins me-1"></i> {{ number_format(Helper::totalCartPoints()) }} PTS
                                         @else
@@ -310,9 +306,9 @@
                                         @endif
                                     </h4>
                                 </div>
-                                <div class="cart-btn d-grid gap-3">
-                                    <a href="{{ route('cart') }}" class="modern-btn modern-btn-outline text-center py-3 w-100">{{ __('common.view_cart') }}</a>
-                                    <a href="{{ Auth::check() ? route('checkout') : route('login.form') }}" class="modern-btn modern-btn-solid text-center py-3 w-100 shadow-lg">{{ __('common.checkout') }}</a>
+                                <div class="cart-btn d-flex gap-2">
+                                    <a href="{{ route('cart') }}" class="modern-btn modern-btn-outline text-center py-2 px-3 flex-grow-1" style="background: transparent; border: 2px solid #1591DC; color: #1591DC; border-radius: 10px; font-weight: 600; font-size: 13px; transition: all 0.3s ease;">{{ __('common.view_cart') }}</a>
+                                    <a href="{{ Auth::check() ? route('checkout') : route('login.form') }}" class="modern-btn modern-btn-solid text-center py-2 px-3 flex-grow-1" style="background: linear-gradient(135deg, #1591DC 0%, #2C5EAD 100%); color: white; border: none; border-radius: 10px; font-weight: 600; font-size: 13px; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(21, 145, 220, 0.3);">{{ __('common.checkout') }}</a>
                                 </div>
                             </div>
                         @endif
@@ -325,14 +321,32 @@
 	</header>
 @cookieconsentview		
         @if (session('success'))
-    <div class="alert alert-success">
-        {{ session('success') }}
+    <div class="alert alert-success alert-dismissible fade show modern-alert modern-alert-success" role="alert">
+        <div class="d-flex align-items-center gap-3">
+            <i class="fas fa-check-circle" style="font-size: 20px; flex-shrink: 0; color: #4BB8FA;"></i>
+            <div style="color: white;">{{ session('success') }}</div>
+        </div>
+        <button type="button" class="btn-close modern-alert-close" data-bs-dismiss="alert" aria-label="Close" style="filter: brightness(0) invert(1);"></button>
     </div>
 @endif
 
 @if (session('error'))
-    <div class="alert alert-danger">
-        {{ session('error') }}
+    <div class="alert alert-danger alert-dismissible fade show modern-alert modern-alert-danger" role="alert">
+        <div class="d-flex align-items-center gap-3">
+            <i class="fas fa-exclamation-circle" style="font-size: 20px; flex-shrink: 0; color: #ff6b6b;"></i>
+            <div style="color: white;">{{ session('error') }}</div>
+        </div>
+        <button type="button" class="btn-close modern-alert-close" data-bs-dismiss="alert" aria-label="Close" style="filter: brightness(0) invert(1);"></button>
+    </div>
+@endif
+
+@if (session('loginerror'))
+    <div class="alert alert-danger alert-dismissible fade show modern-alert modern-alert-danger" role="alert">
+        <div class="d-flex align-items-center gap-3">
+            <i class="fas fa-exclamation-circle" style="font-size: 20px; flex-shrink: 0; color: #ff6b6b;"></i>
+            <div style="color: white;">{{ session('loginerror') }}</div>
+        </div>
+        <button type="button" class="btn-close modern-alert-close" data-bs-dismiss="alert" aria-label="Close" style="filter: brightness(0) invert(1);"></button>
     </div>
 @endif
 	<!--End Main Header -->

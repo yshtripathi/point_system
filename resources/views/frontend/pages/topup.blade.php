@@ -36,13 +36,6 @@
             <p class="text-muted mx-auto mt-3" style="max-width: 600px;">Unlock premium courses and elite training sessions. Our tier-based system rewards you more as you grow.</p>
         </div>
 
-        @if (session('error'))
-            <div class="alert alert-danger border-0 rounded-4 shadow-sm p-4 mb-5 d-flex align-items-center">
-                <i class="fas fa-exclamation-triangle fs-4 me-3"></i>
-                <div class="fw-bold">{{ session('error') }}</div>
-            </div>
-        @endif
-
         <div class="row align-items-center g-5 mb-5">
             <!-- Left: Tier Table -->
             <div class="col-xl-6 col-lg-6">
