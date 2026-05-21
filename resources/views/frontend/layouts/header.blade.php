@@ -43,6 +43,37 @@
                 border: none !important;
             }
 
+            /* Global Smooth Scroll and Scrollbar Styling */
+            html {
+                scroll-behavior: smooth;
+                /* Firefox scrollbar styling */
+                scrollbar-width: thin;
+                scrollbar-color: #1591DC #f8fbff;
+            }
+
+            /* Chrome, Safari, and Edge scrollbar styling */
+            ::-webkit-scrollbar {
+                width: 10px;
+                height: 10px;
+            }
+
+            ::-webkit-scrollbar-track {
+                background: linear-gradient(180deg, #f8fbff 0%, #ffffff 100%);
+                border-radius: 5px;
+            }
+
+            ::-webkit-scrollbar-thumb {
+                background: linear-gradient(180deg, #1591DC 0%, #2C5EAD 100%);
+                border-radius: 5px;
+                border: 2px solid #f8fbff;
+                transition: all 0.3s ease;
+            }
+
+            ::-webkit-scrollbar-thumb:hover {
+                background: linear-gradient(180deg, #2C5EAD 0%, #0066B2 100%);
+                box-shadow: 0 0 8px rgba(21, 145, 220, 0.4);
+            }
+
             /* Sticky Header Styling */
             header.main-header {
                 position: sticky !important;
@@ -75,11 +106,6 @@
                 header.main-header .auto-container {
                     padding: 8px 10px;
                 }
-            }
-
-            /* Smooth scroll behavior */
-            html {
-                scroll-behavior: smooth;
             }
         </style>
 </head>
