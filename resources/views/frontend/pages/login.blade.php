@@ -2,7 +2,7 @@
 @section('title','Login | '.env('APP_NAME'))
 @section('main-content')
 
-<div class="tl-breadcrumb about-banner pt-120 pb-120">
+<div class="tl-breadcrumb about-banner pt-60 pb-60">
     <video autoplay muted loop playsinline>
         <source src="{{ asset('images/breadcrumb.mp4') }}" type="video/mp4">
     </video>
@@ -24,14 +24,14 @@
     </div>
 </div>
 
-<section class="auth-section pt-120 pb-120 bg-light" style="position: relative; overflow: hidden;">
+<section class="auth-section pt-60 pb-80 bg-light" style="position: relative; overflow: hidden;">
     <!-- Decorative Blobs -->
     <div class="modern-blob modern-blob-1" style="top: -100px; left: -100px; width: 400px; height: 400px; background: var(--primary-10);"></div>
     <div class="modern-blob modern-blob-2" style="bottom: -100px; right: -100px; width: 400px; height: 400px; background: var(--primary-10);"></div>
 
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-xl-5 col-lg-6 col-md-8">
+            <div class="col-xl-6 col-lg-7 col-md-9">
                 <div class="modern-card auth-card border-0 shadow-xl overflow-hidden" style="background: rgba(255,255,255,0.95); backdrop-filter: blur(20px); border-radius: 20px;">
                     <!-- Header Section with Gradient -->
                     <div class="auth-card-header p-5 text-center" style="background: linear-gradient(135deg, var(--primary-10) 0%, var(--secondary-10) 100%);">
