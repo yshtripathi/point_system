@@ -77,15 +77,15 @@
 				<!-- Right Actions -->
 				<div class="header-actions d-flex align-items-center">
 					<!-- Language Switcher -->
-					<div class="dropdown me-2">
-						<a href="javascript:void(0)" class="modern-btn modern-btn-outline dropdown-toggle d-flex align-items-center gap-2" data-bs-toggle="dropdown" aria-expanded="false" style="padding: 10px 16px; font-size: 14px; font-weight: 600; border-radius: 12px;">
+					<div class="dropdown">
+						<a href="javascript:void(0)" class="modern-btn modern-btn-outline dropdown-toggle d-flex align-items-center gap-2" data-bs-toggle="dropdown" aria-expanded="false">
 							@if(session('app_locale') == 'ja' || app()->getLocale() == 'ja')
 								<span>🇯🇵</span> <span class="d-none d-sm-inline">日本語</span>
 							@else
 								<span>🇬🇧</span> <span class="d-none d-sm-inline">English</span>
 							@endif
 						</a>
-						<ul class="dropdown-menu dropdown-menu-end animated-dropdown shadow border-0" style="border-radius: 16px; padding: 8px;">
+						<ul class="dropdown-menu dropdown-menu-end animated-dropdown">
 							<li>
 								<a class="dropdown-item d-flex align-items-center gap-2 py-2 px-3 rounded-3 {{ (session('app_locale') != 'ja' && app()->getLocale() != 'ja') ? 'active bg-primary text-white' : '' }}" href="{{ route('change.language', 'en') }}">
 									<span>🇬🇧</span> English
@@ -100,16 +100,16 @@
 					</div>
 
 					<!-- Currency Switcher -->
-					<div class="dropdown me-3">
+					<div class="dropdown">
 						@php
 							$currentCurrency = session('currency', 'USD');
 							$currencies = Helper::CurrenciesList();
 						@endphp
-						<a href="javascript:void(0)" class="modern-btn modern-btn-outline dropdown-toggle d-flex align-items-center gap-2" data-bs-toggle="dropdown" aria-expanded="false" style="padding: 10px 16px; font-size: 14px; font-weight: 600; border-radius: 12px;">
+						<a href="javascript:void(0)" class="modern-btn modern-btn-outline dropdown-toggle d-flex align-items-center gap-2" data-bs-toggle="dropdown" aria-expanded="false">
 							<span class="fw-bold text-primary">{{ Helper::getCurrencySymbol($currentCurrency) }}</span> 
 							<span>{{ $currentCurrency }}</span>
 						</a>
-						<ul class="dropdown-menu dropdown-menu-end animated-dropdown shadow border-0" style="border-radius: 16px; padding: 8px; min-width: 160px;">
+						<ul class="dropdown-menu dropdown-menu-end animated-dropdown" style="min-width: 160px;">
 							@foreach($currencies as $cur)
 								<li>
 									<a class="dropdown-item d-flex align-items-center justify-content-between gap-3 py-2 px-3 rounded-3 {{ $currentCurrency == $cur->code ? 'active bg-primary text-white' : '' }}" href="{{ route('change.currency', $cur->code) }}">
@@ -122,9 +122,10 @@
 					</div>
 
 					@if(Auth::check())
-						<div class="dropdown me-3">
+						<div class="dropdown">
 							<a href="javascript:void(0)" class="modern-btn modern-btn-outline dropdown-toggle" data-bs-toggle="dropdown">
-								{{Auth::user()->name}}
+								<span class="d-none d-sm-inline">{{Auth::user()->name}}</span>
+								<span class="d-sm-none"><i class="fas fa-user"></i></span>
 							</a>
 							<ul class="dropdown-menu dropdown-menu-end animated-dropdown">
 								<li><a class="dropdown-item" href="{{ route('user') }}">{{ __('common.account') }}</a></li>
@@ -134,13 +135,13 @@
 							</ul>
 						</div>
 					@else
-						<a href="{{ route('login.form') }}" class="modern-btn modern-btn-outline me-2">{{ __('common.login') }}</a>
+						<a href="{{ route('login.form') }}" class="modern-btn modern-btn-outline">{{ __('common.login') }}</a>
 						<a href="{{ route('register.form') }}" class="modern-btn modern-btn-solid">{{ __('common.register') }}</a>
 					@endif
-					
-					<div class="ui-btn-outer ms-3">						
+
+					<div class="ui-btn-outer">
 						<a href="javascript:void(0)" class="ui-btn modern-cart-btn">
-							<i class="lnr-icon-cart1"></i>					  
+							<i class="lnr-icon-cart1"></i>
 							<span class="cart-count">
 								{{ Helper::totalCartQuantity() }}
 							</span>
