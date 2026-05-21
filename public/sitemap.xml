@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://www.knowledgecademy.com/</loc>
+  <lastmod>2026-02-06T11:39:49+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://www.knowledgecademy.com/product-lists</loc>
+  <lastmod>2026-02-06T11:39:49+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.knowledgecademy.com/product-cat/it-infrastructure-cloud-security</loc>
+  <lastmod>2026-02-06T11:39:49+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.knowledgecademy.com/product-cat/data-automation-ai</loc>
+  <lastmod>2026-02-06T11:39:49+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.knowledgecademy.com/product-cat/software-development-engineering</loc>
+  <lastmod>2026-02-06T11:39:49+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.knowledgecademy.com/about-us</loc>
+  <lastmod>2026-02-06T11:39:49+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.knowledgecademy.com/contact</loc>
+  <lastmod>2026-02-06T11:39:49+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.knowledgecademy.com/user/login</loc>
+  <lastmod>2026-02-06T11:39:49+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.knowledgecademy.com/user/register</loc>
+  <lastmod>2026-02-06T11:39:49+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.knowledgecademy.com/product-detail/programming-fundamentals</loc>
+  <lastmod>2026-02-06T11:39:49+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.knowledgecademy.com/product-detail/web-application-development</loc>
+  <lastmod>2026-02-06T11:39:49+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.knowledgecademy.com/product-detail/software-testing-code-quality</loc>
+  <lastmod>2026-02-06T11:39:49+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.knowledgecademy.com/product-detail/data-analysis-fundamentals</loc>
+  <lastmod>2026-02-06T11:39:49+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.knowledgecademy.com/product-detail/business-automation-scripting</loc>
+  <lastmod>2026-02-06T11:39:49+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.knowledgecademy.com/product-detail/ai-tools-practical-applications</loc>
+  <lastmod>2026-02-06T11:39:49+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.knowledgecademy.com/privacy-policy</loc>
+  <lastmod>2026-02-06T11:39:49+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.knowledgecademy.com/terms-conditions</loc>
+  <lastmod>2026-02-06T11:39:49+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.knowledgecademy.com/refund-policy</loc>
+  <lastmod>2026-02-06T11:39:49+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.knowledgecademy.com/delivery-policy</loc>
+  <lastmod>2026-02-06T11:39:49+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.knowledgecademy.com/product-detail/it-infrastructure-fundamentals</loc>
+  <lastmod>2026-02-06T11:39:49+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.knowledgecademy.com/product-detail/cloud-computing-essentials</loc>
+  <lastmod>2026-02-06T11:39:49+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.knowledgecademy.com/product-detail/devops-cicd-foundations</loc>
+  <lastmod>2026-02-06T11:39:49+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.knowledgecademy.com/product-detail/cybersecurity-risk-management</loc>
+  <lastmod>2026-02-06T11:39:49+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.knowledgecademy.com/user/forgetpassword</loc>
+  <lastmod>2026-02-06T11:39:49+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+
+
+</urlset>

@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>@yield('title','RiseBeyondGrowth – Online Courses for Skills, Careers & Growth')</title>
+<meta name="title" content="RiseBeyondGrowth – Learn Skills That Accelerate Your Career">
+<meta name="description" content="RiseBeyondGrowth offers expert-led online courses to build in-demand skills, advance careers, and support lifelong learning.">
+<meta name="keywords" content="online courses, e-learning platform, skill development, career growth, professional courses, upskilling, certification programs">
+<meta name="author" content="RiseBeyondGrowth">
+<!-- Stylesheets -->
+<link href="{{url('assets/css/bootstrap.min.css')}}" rel="stylesheet">
+<link href="{{url('assets/plugins/revolution/css/settings.css')}}" rel="stylesheet" type="text/css">
+<link href="{{url('assets/plugins/revolution/css/layers.css')}}" rel="stylesheet" type="text/css">
+<link href="{{url('assets/plugins/revolution/css/navigation.css')}}" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
+<link href="{{url('assets/css/style.css')}}" rel="stylesheet">
+<link href="{{url('assets/css/responsive.css')}}" rel="stylesheet">
+<link href="{{url('assets/css/color-utilities.css')}}" rel="stylesheet">
+<link rel="shortcut icon" href="{{url('assets/images/favicon.ico')}}" type="image/x-icon">
+<link rel="icon" href="{{url('assets/images/favicon.ico')}}" type="image/x-icon">
+<!-- Open Graph / Facebook Meta Tags -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="@yield('title', 'RiseBeyondGrowth – Online Courses for Skill Development')">
+<meta property="og:description" content="Learn in-demand skills with industry-focused online courses designed for career and professional growth.">
+<meta property="og:image" content="@yield('og_image', url('assets/images/bg2.png'))">
+<meta property="og:url" content="{{ url()->current() }}">
+<meta property="og:site_name" content="RiseBeyondGrowth">
+<meta property="og:locale" content="en_US"> 
+<!-- Google tag (gtag.js) --> <script async src="https://www.googletagmanager.com/gtag/js?id=G-718PNX8SQ6"></script> 
+ <script> window.dataLayer = window.dataLayer || []; 
+ function gtag(){dataLayer.push(arguments);} gtag('js', new Date());
+  gtag('config', 'G-718PNX8SQ6'); 
+
+</script>
+ <!-- Responsive -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	     @cookieconsentscripts
+        <style>
+            .cookiesBtn__link {
+                background: black !important;
+                border: none !important;
+            }
+        </style>
+</head>
+
+<body>
+
+<div class="page-wrapper">
+	<!-- Preloader -->
+   <div id="preloader" >
+        <div class="preloader">
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+	<!-- Main Header-->
+	<header class="main-header modern-header">
+		<div class="auto-container">
+			<div class="header-inner d-flex align-items-center justify-content-between">
+				<!-- Logo -->
+				<div class="logo-box">
+					<a href="{{route('home')}}"><img src="{{url('assets/images/logo.png')}}" alt="header-logo" style="height: 32px;"></a>  
+				</div>
+
+				<!-- Centered Nav -->
+				<nav class="modern-nav-wrapper d-none d-lg-block">
+					<ul class="modern-nav list-unstyled mb-0 d-flex align-items-center">
+						<li class="{{ Route::is('home') ? 'active' : '' }}"><a href="{{route('home')}}">{{ __('common.home')}}</a></li>
+						<li class="{{ Route::is('product-lists') ? 'active' : '' }}"><a href="{{route('product-lists')}}">{{ __('common.catalog') }}</a></li>
+						<li class="{{ Route::is('about-us') ? 'active' : '' }}"><a href="{{route('about-us')}}">{{ __('common.about')}}</a></li>
+						<li class="{{ Route::is('contact') ? 'active' : '' }}"><a href="{{route('contact')}}">{{ __('common.contact') }}</a></li>
+					</ul>
+				</nav>
+
+				<!-- Right Actions -->
+				<div class="header-actions d-flex align-items-center">
+					<!-- Language Switcher -->
+					<div class="dropdown me-2">
+						<a href="javascript:void(0)" class="modern-btn modern-btn-outline dropdown-toggle d-flex align-items-center gap-2" data-bs-toggle="dropdown" aria-expanded="false" style="padding: 10px 16px; font-size: 14px; font-weight: 600; border-radius: 12px;">
+							@if(session('app_locale') == 'ja' || app()->getLocale() == 'ja')
+								<span>🇯🇵</span> <span class="d-none d-sm-inline">日本語</span>
+							@else
+								<span>🇬🇧</span> <span class="d-none d-sm-inline">English</span>
+							@endif
+						</a>
+						<ul class="dropdown-menu dropdown-menu-end animated-dropdown shadow border-0" style="border-radius: 16px; padding: 8px;">
+							<li>
+								<a class="dropdown-item d-flex align-items-center gap-2 py-2 px-3 rounded-3 {{ (session('app_locale') != 'ja' && app()->getLocale() != 'ja') ? 'active bg-primary text-white' : '' }}" href="{{ route('change.language', 'en') }}">
+									<span>🇬🇧</span> English
+								</a>
+							</li>
+							<li>
+								<a class="dropdown-item d-flex align-items-center gap-2 py-2 px-3 rounded-3 {{ (session('app_locale') == 'ja' || app()->getLocale() == 'ja') ? 'active bg-primary text-white' : '' }}" href="{{ route('change.language', 'ja') }}">
+									<span>🇯🇵</span> 日本語
+								</a>
+							</li>
+						</ul>
+					</div>
+
+					<!-- Currency Switcher -->
+					<div class="dropdown me-3">
+						@php
+							$currentCurrency = session('currency', 'USD');
+							$currencies = Helper::CurrenciesList();
+						@endphp
+						<a href="javascript:void(0)" class="modern-btn modern-btn-outline dropdown-toggle d-flex align-items-center gap-2" data-bs-toggle="dropdown" aria-expanded="false" style="padding: 10px 16px; font-size: 14px; font-weight: 600; border-radius: 12px;">
+							<span class="fw-bold text-primary">{{ Helper::getCurrencySymbol($currentCurrency) }}</span> 
+							<span>{{ $currentCurrency }}</span>
+						</a>
+						<ul class="dropdown-menu dropdown-menu-end animated-dropdown shadow border-0" style="border-radius: 16px; padding: 8px; min-width: 160px;">
+							@foreach($currencies as $cur)
+								<li>
+									<a class="dropdown-item d-flex align-items-center justify-content-between gap-3 py-2 px-3 rounded-3 {{ $currentCurrency == $cur->code ? 'active bg-primary text-white' : '' }}" href="{{ route('change.currency', $cur->code) }}">
+										<span>{{ $cur->code }}</span>
+										<span class="fw-bold opacity-75">{{ Helper::getCurrencySymbol($cur->code) }}</span>
+									</a>
+								</li>
+							@endforeach
+						</ul>
+					</div>
+
+					@if(Auth::check())
+						<div class="dropdown me-3">
+							<a href="javascript:void(0)" class="modern-btn modern-btn-outline dropdown-toggle" data-bs-toggle="dropdown">
+								{{Auth::user()->name}}
+							</a>
+							<ul class="dropdown-menu dropdown-menu-end animated-dropdown">
+								<li><a class="dropdown-item" href="{{ route('user') }}">{{ __('common.account') }}</a></li>
+								<li><a class="dropdown-item" href="{{ route('points.dashboard') }}">{{ __('common.points_dashboard') }}</a></li>
+								<li><hr class="dropdown-divider"></li>
+								<li><a class="dropdown-item" href="{{ route('user.logout') }}">{{ __('common.logout') }}</a></li>
+							</ul>
+						</div>
+					@else
+						<a href="{{ route('login.form') }}" class="modern-btn modern-btn-outline me-2">{{ __('common.login') }}</a>
+						<a href="{{ route('register.form') }}" class="modern-btn modern-btn-solid">{{ __('common.register') }}</a>
+					@endif
+					
+					<div class="ui-btn-outer ms-3">						
+						<a href="javascript:void(0)" class="ui-btn modern-cart-btn">
+							<i class="lnr-icon-cart1"></i>					  
+							<span class="cart-count">
+								{{ Helper::totalCartQuantity() }}
+							</span>
+						</a>
+					</div>
+
+
+				</div>
+			</div>
+		</div>
+		<!-- Mobile Menu  -->
+
+		<!-- Mobile Menu  -->
+		<div class="mobile-menu">
+			<div class="menu-backdrop"></div>
+
+			<!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
+			<nav class="menu-box">
+				<div class="upper-box">
+					<div class="nav-logo"><a href="{{route('home')}}"><img src="{{url('assets/images/logo.png')}}" alt="" title=""></a></div>
+					<div class="close-btn"><i class="icon fa fa-times"></i></div>
+				</div>
+
+				<ul class="navigation clearfix">
+					<!--Keep This Empty / Menu will come through Javascript-->
+				</ul>		
+			
+			</nav>
+		</div><!-- End Mobile Menu -->
+
+
+
+		<!-- Sticky Header  -->
+		<div class="sticky-header">
+			<div class="auto-container">
+				<div class="inner-container">
+					<!--Logo-->
+					<div class="logo">
+						<a href="{{route('home')}}" title=""><img src="{{url('assets/images/logo.png')}}" alt="" title=""></a>
+					</div>
+
+					<!--Right Col-->
+					<div class="nav-outer">
+						<!-- Main Menu -->
+						<nav class="main-menu">
+							<div class="navbar-collapse show collapse clearfix">
+								<ul class="navigation clearfix">
+									<!--Keep This Empty / Menu will come through Javascript-->
+								</ul>
+							</div>
+						</nav><!-- Main Menu End-->
+                        <div class="ui-btn-outer d-md-none d-xl-none d-lg-none">						
+						<a href="javascript:void(0)" class="ui-btn"><i class="lnr-icon-shopping-cart text-light"></i>
+					    
+                     <span class="cart-count">
+                                        @if(Helper::getAllProductFromCart())
+                    <span >{{ Helper::totalCartQuantity() }}</span>
+                                @else
+                                <span class="cart-count">0</span>
+                                @endif
+                            </span>       
+					 
+					</a>
+					</div>
+						<!--Mobile Navigation Toggler-->
+						<div class="mobile-nav-toggler"><span class="icon lnr-icon-bars"></span></div>
+					</div>
+				</div>
+			</div>
+		</div><!-- End Sticky Menu -->
+		  <!-- Offcanvas Area Start -->
+        <div class="cartfix-area modern-cart-drawer">
+            <div class="cartcanvas__info">
+                <div class="offcanvas__wrapper">
+                    <div class="cartcanvas__content p-4">
+                        <div class="mb-4 d-flex justify-content-between align-items-center border-bottom pb-4">
+                            <h4 class="fw-800 text-dark mb-0" style="font-weight: 800; letter-spacing: -0.5px;">{{ __('common.shopping_cart') }}</h4>
+                            <div class="cartcanvas__close rounded-circle bg-light d-flex align-items-center justify-content-center shadow-sm" style="width: 40px; height: 40px; cursor: pointer;">
+                                <i class="fas fa-times text-dark small"></i>
+                            </div>
+                        </div>
+
+                        <ul class="cart-list list-unstyled">
+                            @if(Helper::cartCount())
+                                @foreach(Helper::getAllProductFromCart() as $key=>$cart)
+                                    <li class="d-flex align-items-center mb-4 p-3 rounded-4 bg-white shadow-sm border border-light position-relative">
+                                        <a href="{{ route('cart-delete',$cart->id) }}" class="remove-item position-absolute top-0 end-0 m-2 text-danger opacity-50 hover-opacity-100" style="z-index: 5;">
+                                            <i class="fas fa-times-circle"></i>
+                                        </a>
+                                        @php
+                                            $item_photo = asset('assets/images/placeholder.jpg');
+                                            $item_title = "Points Top Up";
+                                            $item_link = "#";
+                                            if($cart->product) {
+                                                $photo_arr = explode(',', $cart->product->photo);
+                                                $item_photo = $photo_arr[0];
+                                                $item_title = $cart->product->title;
+                                                $item_link = route('product-detail', $cart->product->slug);
+                                            }
+                                        @endphp
+                                        <div class="rounded-3 overflow-hidden me-3 shadow-sm" style="width: 70px; height: 70px; flex-shrink: 0;">
+                                            <a href="{{ $item_link }}">
+                                                <img src="{{ url($item_photo) }}" class="w-100 h-100 object-fit-cover">
+                                            </a>
+                                        </div>
+                                        <div class="cart-info pe-4">
+                                            <a href="{{ $item_link }}" class="fw-bold text-dark text-decoration-none small d-block mb-1 line-clamp-1">{{ $item_title }}</a>
+                                            <p class="mb-0 small text-muted">
+                                                <span class="fw-bold text-primary">{{ $cart->quantity }}</span> x 
+                                                @if($cart->product_id < 1000 && $cart->points > 0)
+                                                    {{ number_format($cart->points) }} PTS
+                                                @elseif($cart->product_id >= 1000)
+                                                    {{ Helper::getCurrencySymbol(session('currency')) }}{{ number_format($cart['price'], session('currency')=='JPY' ? 0 : 2) }}
+                                                    <span class="text-primary small ms-1">({{ number_format($cart->points) }} PTS)</span>
+                                                @else
+                                                    {{ Helper::getCurrencySymbol(session('currency')) }}{{ number_format($cart['price'], session('currency')=='JPY' ? 0 : 2) }}
+                                                @endif
+                                            </p>
+                                        </div>
+                                    </li>
+                                @endforeach
+                            @else
+                                <li class="text-center py-5">
+                                    <div class="opacity-20 mb-3"><i class="fas fa-shopping-basket fa-4x"></i></div>
+                                    <p class="text-muted fw-bold">{{ __('common.no_cart_available') }}</p>
+                                    <a href="{{route('product-lists')}}" class="modern-btn modern-btn-outline small py-2">{{ __('common.catalog') }}</a>
+                                </li>
+                            @endif
+                        </ul>
+
+                        @if(Helper::cartCount())
+                            @php
+                                $total_amount = Helper::totalCartPrice();
+                                if(session()->has('coupon')) { $total_amount -= Session::get('coupon')['value']; }
+                            @endphp
+                            <div class="cart-footer border-top mt-5 pt-4">
+                                <div class="d-flex justify-content-between align-items-center mb-4">
+                                    <h5 class="fw-bold text-dark mb-0">{{ __('common.total') }}</h5>
+                                    <h4 class="fw-800 text-primary mb-0" style="font-weight: 800;">
+                                        @if(Helper::totalCartPoints() > 0)
+                                            <i class="fas fa-coins me-1"></i> {{ number_format(Helper::totalCartPoints()) }} PTS
+                                        @else
+                                            {{ Helper::getCurrencySymbol(session('currency')) }}{{ number_format($total_amount, session('currency')=='JPY' ? 0 : 2) }}
+                                        @endif
+                                    </h4>
+                                </div>
+                                <div class="cart-btn d-grid gap-3">
+                                    <a href="{{ route('cart') }}" class="modern-btn modern-btn-outline text-center py-3 w-100">{{ __('common.view_cart') }}</a>
+                                    <a href="{{ Auth::check() ? route('checkout') : route('login.form') }}" class="modern-btn modern-btn-solid text-center py-3 w-100 shadow-lg">{{ __('common.checkout') }}</a>
+                                </div>
+                            </div>
+                        @endif
+                    </div>
+                </div>
+            </div>
+        </div>
+             <!-- Offcanvas Area Start -->
+			 <div class="offcanvas__overlay"></div>
+	</header>
+@cookieconsentview		
+        @if (session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
+
+@if (session('error'))
+    <div class="alert alert-danger">
+        {{ session('error') }}
+    </div>
+@endif
+	<!--End Main Header -->

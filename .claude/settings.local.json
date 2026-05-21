@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git checkout *)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git push *)",
+      "Bash(git config *)",
+      "PowerShell(git credential *)",
+      "Bash(rm -rf .git)",
+      "Bash(git init *)",
+      "Bash(git remote *)"
+    ]
+  }
+}
