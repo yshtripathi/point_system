@@ -93,7 +93,7 @@
                 <p class="mb-5 text-muted" style="font-size: 15px; color: #666; font-weight: 500; line-height: 1.8;">{{ __('common.platform_overview') }}</p>
 
                 <div class="row g-4">
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         <div class="d-flex align-items-start gap-3 p-4 rounded-3" style="background: white; border: 1px solid rgba(21, 145, 220, 0.12); transition: all 0.3s ease;">
                             <div style="width: 44px; height: 44px; background: linear-gradient(135deg, #1591DC 0%, #2C5EAD 100%); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-size: 20px; flex-shrink: 0;">
                                 <i class="fas fa-graduation-cap"></i>
@@ -103,7 +103,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         <div class="d-flex align-items-start gap-3 p-4 rounded-3" style="background: white; border: 1px solid rgba(21, 145, 220, 0.12); transition: all 0.3s ease;">
                             <div style="width: 44px; height: 44px; background: linear-gradient(135deg, #1591DC 0%, #2C5EAD 100%); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-size: 20px; flex-shrink: 0;">
                                 <i class="fas fa-users"></i>
@@ -746,7 +746,7 @@
 
     .input-currency {
         position: absolute;
-        right: 0;
+        right: 8px;
         font-size: 24px;
         font-weight: 700;
         color: #1591DC;
@@ -833,11 +833,11 @@
 
     .points-unit {
         display: block;
-        font-size: 12px;
+        font-size: 11px;
         color: #666;
         font-weight: 700;
         text-transform: uppercase;
-        letter-spacing: 1px;
+        letter-spacing: 0.3px;
     }
 
     /* Benefits */
