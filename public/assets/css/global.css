@@ -681,8 +681,15 @@ a:hover {
 }
 
 /* Tier Table Styling */
+.table-responsive {
+  overflow-x: visible !important;
+  overflow-y: visible !important;
+}
+
 .modern-table {
   border-collapse: collapse;
+  width: 100%;
+  table-layout: auto;
 }
 
 .modern-table thead {
@@ -697,6 +704,17 @@ a:hover {
   font-size: 12px;
   letter-spacing: 0.5px;
   border: none;
+  white-space: nowrap;
+}
+
+.modern-table th:first-child {
+  width: 50%;
+  text-align: left;
+}
+
+.modern-table th:last-child {
+  width: 50%;
+  text-align: center;
 }
 
 .modern-table tbody tr {
@@ -712,6 +730,8 @@ a:hover {
   padding: 16px 20px;
   color: var(--text-dark);
   font-weight: 500;
+  word-break: break-word;
+  white-space: normal;
 }
 
 .modern-table .badge {
