@@ -2,17 +2,23 @@
 @section('title','Contact Us | '.env('APP_NAME'))
 @section('main-content')
 
-<div class="tl-breadcrumb about-banner pt-60 pb-60" style="background: linear-gradient(135deg, #f0f4ff 0%, #f8fafc 100%);">
+<div class="tl-breadcrumb contact-banner pt-60 pb-60">
+    <video autoplay muted loop playsinline>
+        <source src="{{ asset('images/breadcrumb.mp4') }}" type="video/mp4">
+    </video>
+    <div class="breadcrumb-float-element float-element-1"></div>
+    <div class="breadcrumb-float-element float-element-2"></div>
+    <div class="breadcrumb-float-element float-element-3"></div>
     <div class="container">
         <div class="row align-items-end">
             <div class="col-md-6">
-                <div class="banner-txt"><h1 class="tl-breadcrumb-title" style="font-size: 36px; font-weight: 900; color: #0a0e27;">{{ __('common.contact') }}</h1></div>
+                <div class="banner-txt"><h1 class="tl-breadcrumb-title">{{ __('common.contact') }}</h1></div>
             </div>
             <div class="col-md-6">
                 <ul class="tl-breadcrumb-nav d-flex justify-content-md-end">
-                    <li><a href="/" style="color: #0a0e27; font-weight: 600; text-decoration: none; transition: color 0.2s ease;">{{ __('common.home') }}</a></li>
-                    <li class="current-page" style="color: #0a0e27;">
-                        <span class="dvdr"><i class="fas fa-chevron-right mx-2" style="color: #1591DC;"></i></span>
+                    <li><a href="/">{{ __('common.home') }}</a></li>
+                    <li class="current-page">
+                        <span class="dvdr"><i class="fas fa-chevron-right mx-2"></i></span>
                         <span>{{ __('common.contact') }}</span>
                     </li>
                 </ul>
