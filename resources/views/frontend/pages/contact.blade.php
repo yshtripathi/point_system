@@ -2,7 +2,7 @@
 @section('title','Contact Us | '.env('APP_NAME'))
 @section('main-content')
 
-<div class="tl-breadcrumb contact-banner pt-120 pb-120">
+<div class="tl-breadcrumb contact-banner pt-60 pb-60">
     <video autoplay muted loop playsinline>
         <source src="{{ asset('images/breadcrumb.mp4') }}" type="video/mp4">
     </video>
