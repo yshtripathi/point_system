@@ -11,7 +11,7 @@ function smoothWheelScroll(event) {
   const deltaY = event.deltaY || -event.wheelDelta || event.detail;
 
   // Constant scroll speed (pixels per millisecond)
-  const pixelsPerMs = 1.5; // Fast, responsive scrolling
+  const pixelsPerMs = 1.2; // Fast, responsive scrolling
   targetScrollPosition = currentScrollPosition + (deltaY * 1);
 
   // Clamp target position to valid range
@@ -31,12 +31,19 @@ function animateScroll(currentPosition, pixelsPerMs) {
   const duration = Math.abs(difference) / pixelsPerMs; // milliseconds
   let startTime = null;
 
+  // Cubic ease-out function for smooth, natural scrolling
+  function easeOutCubic(t) {
+    return 1 - Math.pow(1 - t, 3);
+  }
+
   function scroll(timestamp) {
     if (!startTime) startTime = timestamp;
     const elapsed = timestamp - startTime;
     const progress = Math.min(elapsed / duration, 1);
 
-    const newPosition = currentPosition + (difference * progress);
+    // Apply easing function for smooth acceleration/deceleration
+    const easedProgress = easeOutCubic(progress);
+    const newPosition = currentPosition + (difference * easedProgress);
     window.scrollTo(0, newPosition);
 
     if (progress < 1) {
