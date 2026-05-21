@@ -1461,3 +1461,59 @@ a:hover {
     font-size: 18px;
   }
 }
+
+/* ========================================
+   CART DRAWER STYLING - Text Visibility Fix
+   ======================================== */
+
+.modern-cart-drawer,
+.cartcanvas__info,
+.offcanvas__info {
+  background: var(--white) !important;
+}
+
+.cartcanvas__content {
+  color: var(--text-dark);
+}
+
+.cartcanvas__content h4,
+.cartcanvas__content h5,
+.cartcanvas__content h6 {
+  color: var(--text-dark) !important;
+}
+
+.cartcanvas__content .cart-info a,
+.cartcanvas__content p {
+  color: var(--text-dark) !important;
+}
+
+.cartcanvas__content .text-muted {
+  color: var(--text-light) !important;
+}
+
+.cartcanvas__content .text-primary {
+  color: var(--primary) !important;
+}
+
+.cart-list li {
+  background: var(--white) !important;
+  color: var(--text-dark);
+}
+
+.cart-list li .cart-info a {
+  color: var(--text-dark) !important;
+}
+
+.cart-list li .text-muted {
+  color: var(--text-light) !important;
+}
+
+.cart-footer {
+  color: var(--text-dark) !important;
+}
+
+.cart-footer h5,
+.cart-footer h4 {
+  color: var(--text-dark) !important;
+}
+
