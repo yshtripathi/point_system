@@ -32,57 +32,86 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-xl-5 col-lg-6 col-md-8">
-                <div class="modern-card p-5 border-0 shadow-lg" style="background: rgba(255,255,255,0.8); backdrop-filter: blur(20px); border-radius: 40px;">
-                    <div class="text-center mb-5">
-                        <span class="modern-badge mb-3">Welcome Back</span>
-                        <h2 class="modern-h2" style="font-size: 32px;">{{ __('common.login') }}</h2>
+                <div class="modern-card auth-card border-0 shadow-xl overflow-hidden" style="background: rgba(255,255,255,0.95); backdrop-filter: blur(20px); border-radius: 20px;">
+                    <!-- Header Section with Gradient -->
+                    <div class="auth-card-header p-5 text-center" style="background: linear-gradient(135deg, var(--primary-10) 0%, var(--secondary-10) 100%);">
+                        <div class="mb-3">
+                            <i class="fas fa-lock-open text-primary" style="font-size: 48px; opacity: 0.8;"></i>
+                        </div>
+                        <span class="modern-badge mb-3">{{ __('common.welcome_back') }}</span>
+                        <h2 class="modern-h2 mb-0" style="font-size: 28px; color: var(--text-dark);">{{ __('common.login') }}</h2>
                     </div>
 
-                    @if (session('success'))
-                        <div class="alert alert-success border-0 shadow-sm rounded-4 mb-4">
-                            {{ session('success') }}
-                        </div>
-                    @endif
-
-                    @if (session('loginerror'))
-                        <div class="alert alert-danger border-0 shadow-sm rounded-4 mb-4">
-                            {{ session('loginerror') }}
-                        </div>
-                    @endif
-
-                    <form name="frmLogin" id="frmLogin" action="{{route('login.submit')}}" method="post">
-                        @csrf
-                        <div class="mb-4">
-                            <label class="small fw-bold text-uppercase opacity-50 mb-2">{{ __('common.email') }}</label>
-                            <input type="email" name="email" id="email" placeholder="{{ __('common.email') }}" value="{{old('email')}}" class="form-control bg-light border-0 py-3 px-4 rounded-4 @error('email') is-invalid @enderror">
-                            @error('email')
-                                <span class="text-danger small mt-2 d-block">{{$message}}</span>
-                            @enderror
-                        </div>
-
-                        <div class="mb-4">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <label class="small fw-bold text-uppercase opacity-50 mb-2">{{ __('common.password') }}</label>
-                                <a href="{{route('forgetpwd.form')}}" class="small text-primary fw-bold mb-2">{{ __('common.lost_password_text') }}</a>
+                    <!-- Content Section -->
+                    <div class="p-5">
+                        @if (session('success'))
+                            <div class="alert alert-success border-0 shadow-sm rounded-4 mb-4 d-flex align-items-center">
+                                <i class="fas fa-check-circle text-success me-3"></i>
+                                {{ session('success') }}
                             </div>
-                            <input type="password" name="password" id="password" placeholder="{{ __('common.password') }}" class="form-control bg-light border-0 py-3 px-4 rounded-4 @error('password') is-invalid @enderror">
-                            @error('password')
-                                <span class="text-danger small mt-2 d-block">{{$message}}</span>
-                            @enderror
+                        @endif
+
+                        @if (session('loginerror'))
+                            <div class="alert alert-danger border-0 shadow-sm rounded-4 mb-4 d-flex align-items-center">
+                                <i class="fas fa-exclamation-circle text-danger me-3"></i>
+                                {{ session('loginerror') }}
+                            </div>
+                        @endif
+
+                        <form name="frmLogin" id="frmLogin" action="{{route('login.submit')}}" method="post">
+                            @csrf
+
+                            <!-- Email Field -->
+                            <div class="mb-4">
+                                <label class="small fw-bold text-uppercase opacity-75 mb-2 d-flex align-items-center">
+                                    <i class="fas fa-envelope text-primary me-2" style="font-size: 12px;"></i>
+                                    {{ __('common.email') }}
+                                </label>
+                                <input type="email" name="email" id="email" placeholder="{{ __('common.email') }}" value="{{old('email')}}" class="form-control form-control-lg bg-light border-1 py-3 px-4 rounded-3 @error('email') is-invalid @enderror" style="border-color: var(--border-light);">
+                                @error('email')
+                                    <span class="text-danger small mt-2 d-block"><i class="fas fa-info-circle me-1"></i>{{$message}}</span>
+                                @enderror
+                            </div>
+
+                            <!-- Password Field -->
+                            <div class="mb-2">
+                                <label class="small fw-bold text-uppercase opacity-75 mb-2 d-flex align-items-center">
+                                    <i class="fas fa-lock text-primary me-2" style="font-size: 12px;"></i>
+                                    {{ __('common.password') }}
+                                </label>
+                                <input type="password" name="password" id="password" placeholder="{{ __('common.password') }}" class="form-control form-control-lg bg-light border-1 py-3 px-4 rounded-3 @error('password') is-invalid @enderror" style="border-color: var(--border-light);">
+                                @error('password')
+                                    <span class="text-danger small mt-2 d-block"><i class="fas fa-info-circle me-1"></i>{{$message}}</span>
+                                @enderror
+                            </div>
+
+                            <!-- Forgot Password Link -->
+                            <div class="text-end mb-4">
+                                <a href="{{route('forgetpwd.form')}}" class="small text-primary fw-bold text-decoration-none hover-underline">{{ __('common.lost_password_text') }}?</a>
+                            </div>
+
+                            <!-- Login Button -->
+                            <div class="mt-5">
+                                <button class="modern-btn modern-btn-solid w-100 py-3 fw-bold shadow-lg rounded-3" type="submit" name="submit-form" style="font-size: 15px; letter-spacing: 0.5px;">
+                                    <i class="fas fa-sign-in-alt me-2"></i> {{ __('common.login') }}
+                                </button>
+                            </div>
+                        </form>
+
+                        <!-- Divider -->
+                        <div class="my-4 d-flex align-items-center">
+                            <div style="flex: 1; height: 1px; background: var(--border-light);"></div>
+                            <span class="mx-3 small text-muted">{{ __('common.or') }}</span>
+                            <div style="flex: 1; height: 1px; background: var(--border-light);"></div>
                         </div>
 
-                        <div class="mt-5">
-                            <button class="modern-btn modern-btn-solid w-100 py-3 shadow-lg" type="submit" name="submit-form">
-                                {{ __('common.login') }} <i class="fas fa-sign-in-alt ms-2"></i>
-                            </button>
+                        <!-- Sign Up Link -->
+                        <div class="text-center">
+                            <p class="text-muted mb-0">
+                                {{ __('common.dont_have_account') }}
+                                <a href="{{route('register.form')}}" class="text-primary fw-bold text-decoration-none hover-underline">{{ __('common.sign_up_now') }}</a>
+                            </p>
                         </div>
-                    </form>
-
-                    <div class="text-center mt-5">
-                        <p class="text-muted mb-0">
-                            {{ __('common.dont_have_account') }} 
-                            <a href="{{route('register.form')}}" class="text-primary fw-bold">{{ __('common.sign_up') }}</a>
-                        </p>
                     </div>
                 </div>
             </div>
@@ -94,8 +123,81 @@
 
 @push('styles')
 <style>
-    .error { color: #dc3545 !important; font-size: 13px; margin-top: 5px; font-weight: 500; }
-    .form-control:focus { background-color: var(--white) !important; box-shadow: 0 0 0 4px var(--primary-10); }
+    .auth-card {
+        transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        animation: slideInUp 0.6s ease-out;
+    }
+
+    .auth-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 60px rgba(var(--primary-rgb), 0.25) !important;
+    }
+
+    .auth-card-header {
+        border-bottom: 1px solid rgba(var(--primary-rgb), 0.1);
+    }
+
+    .form-control {
+        font-size: 15px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        border: 1px solid var(--border-light) !important;
+    }
+
+    .form-control:focus {
+        background-color: var(--white) !important;
+        border-color: var(--primary) !important;
+        box-shadow: 0 0 0 4px rgba(var(--primary-rgb), 0.15) !important;
+    }
+
+    .form-control::placeholder {
+        color: #a0aec0;
+        font-weight: 400;
+    }
+
+    .form-control-lg {
+        border-radius: 12px;
+    }
+
+    .error {
+        color: #dc3545 !important;
+        font-size: 13px;
+        margin-top: 5px;
+        font-weight: 500;
+    }
+
+    .hover-underline:hover {
+        text-decoration: underline !important;
+    }
+
+    @keyframes slideInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .alert {
+        border-radius: 12px;
+        padding: 15px 20px;
+        font-weight: 500;
+    }
+
+    .alert-success {
+        background-color: rgba(75, 184, 250, 0.1) !important;
+        border-color: rgba(75, 184, 250, 0.3) !important;
+        color: var(--primary) !important;
+    }
+
+    .alert-danger {
+        background-color: rgba(239, 68, 68, 0.1) !important;
+        border-color: rgba(239, 68, 68, 0.3) !important;
+        color: #dc3545 !important;
+    }
 </style>
 @endpush
 

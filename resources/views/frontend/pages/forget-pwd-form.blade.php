@@ -32,49 +32,76 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-xl-5 col-lg-6 col-md-8">
-                <div class="modern-card p-5 border-0 shadow-lg" style="background: rgba(255,255,255,0.8); backdrop-filter: blur(20px); border-radius: 40px;">
-                    <div class="text-center mb-5">
-                        <span class="modern-badge mb-3">Security First</span>
-                        <h2 class="modern-h2" style="font-size: 32px;">Reset Password</h2>
-                        <p class="text-muted mt-3 small">Enter your email and we'll send you a link to reset your password.</p>
+                <div class="modern-card auth-card border-0 shadow-xl overflow-hidden" style="background: rgba(255,255,255,0.95); backdrop-filter: blur(20px); border-radius: 20px;">
+                    <!-- Header Section with Gradient -->
+                    <div class="auth-card-header p-5 text-center" style="background: linear-gradient(135deg, var(--primary-10) 0%, var(--secondary-10) 100%);">
+                        <div class="mb-3">
+                            <i class="fas fa-key text-primary" style="font-size: 48px; opacity: 0.8;"></i>
+                        </div>
+                        <span class="modern-badge mb-3">{{ __('common.security_first') }}</span>
+                        <h2 class="modern-h2 mb-0" style="font-size: 28px; color: var(--text-dark);">Reset Password</h2>
                     </div>
 
-                    <form name="frmLogin" id="frmLogin" action="{{route('password.email')}}" method="post">
-                        @csrf           
-                        <div class="mb-4">
-                            <label class="small fw-bold text-uppercase opacity-50 mb-2">{{ __('common.email') }}</label>
-                            <input type="email" name="email" id="email" placeholder="{{ __('common.email') }}" value="{{old('email')}}" class="form-control bg-light border-0 py-3 px-4 rounded-4 @error('email') is-invalid @enderror">
-                            @error('email')
-                                <span class="text-danger small mt-2 d-block">{{$message}}</span>
-                            @enderror
-                        </div>
-
-                        <div class="mb-4">
-                            <div class="row align-items-center g-3">
-                                <div class="col-md-8">
-                                    <input type="text" id="captcha" name="captcha" autocomplete="off" class="form-control bg-light border-0 py-3 px-4 rounded-4" placeholder="{{ __('common.fill_captcha') }}" required>
-                                </div>
-                                <div class="col-md-4 cpatcha-imgs text-center">
-                                    @captcha
-                                </div>
-                            </div>
-                            @error('captcha')
-                                <span class="text-danger small mt-2 d-block">{{ __('common.captcha_error') }}</span>
-                            @enderror 
-                        </div>
-
-                        <div class="mt-5">
-                            <button class="modern-btn modern-btn-solid w-100 py-3 shadow-lg" type="submit" name="submit-form">
-                                Send Reset Link <i class="fas fa-paper-plane ms-2"></i>
-                            </button>
-                        </div>
-                    </form>
-
-                    <div class="text-center mt-5">
-                        <p class="text-muted mb-0">
-                            Remember your password? 
-                            <a href="{{route('login.form')}}" class="text-primary fw-bold">{{ __('common.login') }}</a>
+                    <!-- Content Section -->
+                    <div class="p-5">
+                        <p class="text-muted text-center mb-5" style="font-size: 14px;">
+                            <i class="fas fa-info-circle text-primary me-2"></i>
+                            Enter your email and we'll send you a link to reset your password.
                         </p>
+
+                        <form name="frmLogin" id="frmLogin" action="{{route('password.email')}}" method="post">
+                            @csrf
+
+                            <!-- Email Field -->
+                            <div class="mb-4">
+                                <label class="small fw-bold text-uppercase opacity-75 mb-2 d-flex align-items-center">
+                                    <i class="fas fa-envelope text-primary me-2" style="font-size: 12px;"></i>
+                                    {{ __('common.email') }}
+                                </label>
+                                <input type="email" name="email" id="email" placeholder="{{ __('common.email') }}" value="{{old('email')}}" class="form-control form-control-lg bg-light border-1 py-3 px-4 rounded-3 @error('email') is-invalid @enderror" style="border-color: var(--border-light);">
+                                @error('email')
+                                    <span class="text-danger small mt-2 d-block"><i class="fas fa-info-circle me-1"></i>{{$message}}</span>
+                                @enderror
+                            </div>
+
+                            <!-- CAPTCHA Field -->
+                            <div class="mb-4">
+                                <label class="small fw-bold text-uppercase opacity-75 mb-2 d-block">{{ __('common.security_verification') }}</label>
+                                <div class="row align-items-center g-3">
+                                    <div class="col-md-8">
+                                        <input type="text" id="captcha" name="captcha" autocomplete="off" class="form-control form-control-lg bg-light border-1 py-3 px-4 rounded-3" placeholder="{{ __('common.fill_captcha') }}" required style="border-color: var(--border-light);">
+                                    </div>
+                                    <div class="col-md-4 cpatcha-imgs text-center">
+                                        @captcha
+                                    </div>
+                                </div>
+                                @error('captcha')
+                                    <span class="text-danger small mt-2 d-block"><i class="fas fa-info-circle me-1"></i>{{ __('common.captcha_error') }}</span>
+                                @enderror
+                            </div>
+
+                            <!-- Submit Button -->
+                            <div class="mt-5">
+                                <button class="modern-btn modern-btn-solid w-100 py-3 fw-bold shadow-lg rounded-3" type="submit" name="submit-form" style="font-size: 15px; letter-spacing: 0.5px;">
+                                    <i class="fas fa-paper-plane me-2"></i> Send Reset Link
+                                </button>
+                            </div>
+                        </form>
+
+                        <!-- Divider -->
+                        <div class="my-4 d-flex align-items-center">
+                            <div style="flex: 1; height: 1px; background: var(--border-light);"></div>
+                            <span class="mx-3 small text-muted">{{ __('common.or') }}</span>
+                            <div style="flex: 1; height: 1px; background: var(--border-light);"></div>
+                        </div>
+
+                        <!-- Back to Login Link -->
+                        <div class="text-center">
+                            <p class="text-muted mb-0">
+                                {{ __('common.remember_password') }}
+                                <a href="{{route('login.form')}}" class="text-primary fw-bold text-decoration-none hover-underline">{{ __('common.login') }}</a>
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -86,9 +113,68 @@
 
 @push('styles')
 <style>
-    .error { color: #dc3545 !important; font-size: 13px; margin-top: 5px; font-weight: 500; }
-    .form-control:focus { background-color: #fff !important; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-    .cpatcha-imgs img { border-radius: 12px; }
+    .auth-card {
+        transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        animation: slideInUp 0.6s ease-out;
+    }
+
+    .auth-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 60px rgba(var(--primary-rgb), 0.25) !important;
+    }
+
+    .auth-card-header {
+        border-bottom: 1px solid rgba(var(--primary-rgb), 0.1);
+    }
+
+    .form-control {
+        font-size: 15px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        border: 1px solid var(--border-light) !important;
+    }
+
+    .form-control:focus {
+        background-color: var(--white) !important;
+        border-color: var(--primary) !important;
+        box-shadow: 0 0 0 4px rgba(var(--primary-rgb), 0.15) !important;
+    }
+
+    .form-control::placeholder {
+        color: #a0aec0;
+        font-weight: 400;
+    }
+
+    .form-control-lg {
+        border-radius: 12px;
+    }
+
+    .error {
+        color: #dc3545 !important;
+        font-size: 13px;
+        margin-top: 5px;
+        font-weight: 500;
+    }
+
+    .cpatcha-imgs img {
+        border-radius: 12px;
+        border: 1px solid var(--border-light);
+    }
+
+    .hover-underline:hover {
+        text-decoration: underline !important;
+    }
+
+    @keyframes slideInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
 </style>
 @endpush
 
