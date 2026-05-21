@@ -13,6 +13,7 @@
 <link href="{{url('assets/plugins/revolution/css/layers.css')}}" rel="stylesheet" type="text/css">
 <link href="{{url('assets/plugins/revolution/css/navigation.css')}}" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
+<link href="{{url('assets/css/global.css')}}" rel="stylesheet">
 <link href="{{url('assets/css/style.css')}}" rel="stylesheet">
 <link href="{{url('assets/css/responsive.css')}}" rel="stylesheet">
 <link href="{{url('assets/css/color-utilities.css')}}" rel="stylesheet">

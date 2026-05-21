@@ -1,0 +1,466 @@
+/* ========================================
+   GLOBAL CSS - Color Palette & Theme
+   ======================================== */
+
+:root {
+  /* Primary Color Palette */
+  --color-deep-blue: #2C5EAD;
+  --color-bright-blue: #1591DC;
+  --color-soft-sky-blue: #4BB8FA;
+  --color-light-mist: #C4E2F5;
+
+  /* RGB Values for Transparency */
+  --rgb-deep-blue: 44, 94, 173;
+  --rgb-bright-blue: 21, 145, 220;
+  --rgb-soft-sky-blue: 75, 184, 250;
+  --rgb-light-mist: 196, 226, 245;
+
+  /* Semantic Color Variables */
+  --primary: var(--color-deep-blue);
+  --primary-rgb: var(--rgb-deep-blue);
+  --secondary: var(--color-bright-blue);
+  --secondary-rgb: var(--rgb-bright-blue);
+  --accent: var(--color-soft-sky-blue);
+  --accent-rgb: var(--rgb-soft-sky-blue);
+  --background-light: var(--color-light-mist);
+  --background-light-rgb: var(--rgb-light-mist);
+
+  /* Extended Colors */
+  --dark-blue: #1a3a6b;
+  --white: #ffffff;
+  --text-dark: #2d3748;
+  --text-light: #718096;
+  --border-light: #e2e8f0;
+  --bg-light: #f8fafc;
+
+  /* Opacity Variants */
+  --primary-10: rgba(var(--primary-rgb), 0.1);
+  --primary-20: rgba(var(--primary-rgb), 0.2);
+  --primary-30: rgba(var(--primary-rgb), 0.3);
+  --primary-50: rgba(var(--primary-rgb), 0.5);
+
+  --secondary-10: rgba(var(--secondary-rgb), 0.1);
+  --secondary-20: rgba(var(--secondary-rgb), 0.2);
+  --secondary-30: rgba(var(--secondary-rgb), 0.3);
+  --secondary-50: rgba(var(--secondary-rgb), 0.5);
+
+  --accent-10: rgba(var(--accent-rgb), 0.1);
+  --accent-20: rgba(var(--accent-rgb), 0.2);
+  --accent-30: rgba(var(--accent-rgb), 0.3);
+
+  /* Shadows */
+  --shadow-xs: 0 1px 2px rgba(var(--primary-rgb), 0.05);
+  --shadow-sm: 0 2px 4px rgba(var(--primary-rgb), 0.1);
+  --shadow-md: 0 4px 8px rgba(var(--primary-rgb), 0.12);
+  --shadow-lg: 0 8px 16px rgba(var(--primary-rgb), 0.15);
+  --shadow-xl: 0 12px 24px rgba(var(--primary-rgb), 0.2);
+
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, var(--color-deep-blue) 0%, var(--color-bright-blue) 100%);
+  --gradient-primary-light: linear-gradient(135deg, var(--color-light-mist) 0%, rgba(var(--secondary-rgb), 0.1) 100%);
+  --gradient-accent: linear-gradient(135deg, var(--color-bright-blue) 0%, var(--color-soft-sky-blue) 100%);
+
+  /* Typography */
+  --font-family-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  --font-family-heading: inherit;
+
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+  --spacing-3xl: 4rem;
+
+  /* Border Radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-2xl: 24px;
+  --radius-3xl: 32px;
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --transition-fast: all 0.15s ease-in-out;
+  --transition-base: all 0.3s ease-in-out;
+  --transition-slow: all 0.5s ease-in-out;
+
+  /* Z-index */
+  --z-dropdown: 1000;
+  --z-sticky: 1020;
+  --z-fixed: 1030;
+  --z-modal-backdrop: 1040;
+  --z-modal: 1050;
+  --z-popover: 1060;
+  --z-tooltip: 1070;
+}
+
+/* ========================================
+   GLOBAL RESET & BASE STYLES
+   ======================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-family-base);
+  color: var(--text-dark);
+  background-color: var(--white);
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+/* ========================================
+   UTILITY CLASSES - Colors
+   ======================================== */
+
+/* Background Colors */
+.bg-primary {
+  background-color: var(--primary);
+}
+
+.bg-primary-light {
+  background-color: var(--primary-10);
+}
+
+.bg-secondary {
+  background-color: var(--secondary);
+}
+
+.bg-secondary-light {
+  background-color: var(--secondary-10);
+}
+
+.bg-accent {
+  background-color: var(--accent);
+}
+
+.bg-accent-light {
+  background-color: var(--accent-10);
+}
+
+.bg-light-mist {
+  background-color: var(--background-light);
+}
+
+/* Text Colors */
+.text-primary {
+  color: var(--primary);
+}
+
+.text-secondary {
+  color: var(--secondary);
+}
+
+.text-accent {
+  color: var(--accent);
+}
+
+.text-dark {
+  color: var(--text-dark);
+}
+
+.text-light {
+  color: var(--text-light);
+}
+
+/* Border Colors */
+.border-primary {
+  border-color: var(--primary);
+}
+
+.border-secondary {
+  border-color: var(--secondary);
+}
+
+.border-light {
+  border-color: var(--border-light);
+}
+
+/* Shadow Colors */
+.shadow-primary {
+  box-shadow: var(--shadow-md);
+}
+
+.shadow-lg-primary {
+  box-shadow: var(--shadow-lg);
+}
+
+/* ========================================
+   UTILITY CLASSES - Gradients
+   ======================================== */
+
+.gradient-primary {
+  background: var(--gradient-primary);
+}
+
+.gradient-primary-light {
+  background: var(--gradient-primary-light);
+}
+
+.gradient-accent {
+  background: var(--gradient-accent);
+}
+
+/* ========================================
+   UTILITY CLASSES - Opacity Variants
+   ======================================== */
+
+.bg-primary-10 {
+  background-color: var(--primary-10);
+}
+
+.bg-primary-20 {
+  background-color: var(--primary-20);
+}
+
+.bg-secondary-10 {
+  background-color: var(--secondary-10);
+}
+
+.bg-secondary-20 {
+  background-color: var(--secondary-20);
+}
+
+.bg-accent-10 {
+  background-color: var(--accent-10);
+}
+
+.bg-accent-20 {
+  background-color: var(--accent-20);
+}
+
+/* ========================================
+   BUTTON STYLES - Primary Theme
+   ======================================== */
+
+.btn-primary,
+.modern-btn-solid {
+  background: var(--primary);
+  color: var(--white);
+  border: none;
+  padding: 12px 24px;
+  border-radius: var(--radius-lg);
+  font-weight: 600;
+  transition: var(--transition-base);
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+}
+
+.btn-primary:hover,
+.modern-btn-solid:hover {
+  background: var(--secondary);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+
+.btn-primary:active,
+.modern-btn-solid:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-md);
+}
+
+/* Outline Button */
+.btn-outline,
+.modern-btn-outline {
+  background: transparent;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+  padding: 10px 22px;
+  border-radius: var(--radius-lg);
+  font-weight: 600;
+  transition: var(--transition-base);
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+}
+
+.btn-outline:hover,
+.modern-btn-outline:hover {
+  background: var(--primary);
+  color: var(--white);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Ghost Button */
+.btn-ghost {
+  background: transparent;
+  color: var(--primary);
+  border: none;
+  padding: 12px 24px;
+  border-radius: var(--radius-lg);
+  font-weight: 600;
+  transition: var(--transition-base);
+  cursor: pointer;
+}
+
+.btn-ghost:hover {
+  background: var(--primary-10);
+  color: var(--secondary);
+}
+
+/* ========================================
+   CARD STYLES
+   ======================================== */
+
+.card,
+.modern-card {
+  background: var(--white);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-base);
+  overflow: hidden;
+}
+
+.card:hover,
+.modern-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
+}
+
+/* ========================================
+   FORM STYLES
+   ======================================== */
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="date"],
+select,
+textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  font-family: inherit;
+  font-size: 16px;
+  transition: var(--transition-fast);
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="number"]:focus,
+input[type="date"]:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-10);
+}
+
+/* ========================================
+   BADGE STYLES
+   ======================================== */
+
+.badge {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: var(--radius-full);
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.badge-primary {
+  background: var(--primary);
+  color: var(--white);
+}
+
+.badge-secondary {
+  background: var(--secondary);
+  color: var(--white);
+}
+
+.badge-accent {
+  background: var(--accent);
+  color: var(--white);
+}
+
+.badge-light {
+  background: var(--primary-10);
+  color: var(--primary);
+}
+
+/* ========================================
+   ALERT STYLES
+   ======================================== */
+
+.alert {
+  padding: 16px 20px;
+  border-radius: var(--radius-md);
+  margin-bottom: 16px;
+  border-left: 4px solid;
+}
+
+.alert-success {
+  background: rgba(34, 197, 94, 0.1);
+  color: #15803d;
+  border-color: #22c55e;
+}
+
+.alert-danger {
+  background: rgba(239, 68, 68, 0.1);
+  color: #991b1b;
+  border-color: #ef4444;
+}
+
+.alert-warning {
+  background: rgba(250, 204, 21, 0.1);
+  color: #92400e;
+  border-color: #facc15;
+}
+
+.alert-info {
+  background: var(--primary-10);
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+/* ========================================
+   LINKS
+   ======================================== */
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: var(--transition-fast);
+}
+
+a:hover {
+  color: var(--secondary);
+  text-decoration: underline;
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+
+@media (max-width: 768px) {
+  :root {
+    font-size: 14px;
+  }
+
+  .btn-primary,
+  .modern-btn-solid,
+  .btn-outline,
+  .modern-btn-outline {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}
