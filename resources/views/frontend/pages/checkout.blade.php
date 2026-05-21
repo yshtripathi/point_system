@@ -222,16 +222,16 @@
 
                 <!-- Right: Order & Payment -->
                 <div class="col-xl-4">
-                    <div class="modern-card p-5 border-0 shadow-sm bg-white mb-5 sticky-top" style="border-radius: 24px; border: 1px solid rgba(21, 145, 220, 0.1); top: 120px; z-index: 10;">
-                        <h5 class="fw-bold mb-4" style="color: #0a0e27; font-size: 18px;">{{ __('common.your_order') }}</h5>
+                    <div class="modern-card p-4 border-0 shadow-sm bg-white sticky-top" style="border-radius: 24px; border: 1px solid rgba(21, 145, 220, 0.1); top: 120px; z-index: 10;">
+                        <h5 class="fw-bold mb-3" style="color: #0a0e27; font-size: 18px;">{{ __('common.your_order') }}</h5>
 
-                        <div class="order-items-mini mb-4">
+                        <div class="order-items-mini mb-3">
                             @if(Helper::getAllProductFromCart())
                                 @foreach(Helper::getAllProductFromCart() as $key => $cart)
-                                    <div class="d-flex justify-content-between mb-3 pb-3 align-items-center" style="border-bottom: 1px solid rgba(21, 145, 220, 0.1);">
+                                    <div class="d-flex justify-content-between mb-2 pb-2 align-items-center" style="border-bottom: 1px solid rgba(21, 145, 220, 0.1);">
                                         <div class="small">
-                                            <div class="fw-bold" style="color: #0a0e27;">{{ ($cart->product) ? $cart->product->title : "Points Top Up" }}</div>
-                                            <div style="color: #999; font-size: 13px;">
+                                            <div class="fw-bold" style="color: #0a0e27; font-size: 14px;">{{ ($cart->product) ? $cart->product->title : "Points Top Up" }}</div>
+                                            <div style="color: #999; font-size: 12px;">
                                                 @if($cart->points > 0)
                                                     {{ $cart->quantity }} x {{ number_format($cart->points) }} PTS
                                                 @else
@@ -239,7 +239,7 @@
                                                 @endif
                                             </div>
                                         </div>
-                                        <div class="fw-bold" style="color: #0a0e27;">
+                                        <div class="fw-bold" style="color: #0a0e27; font-size: 14px;">
                                             @if($cart->points > 0)
                                                 <i class="fas fa-coins me-1" style="color: #1591DC;"></i> {{ number_format($cart->points * $cart->quantity) }} PTS
                                             @else
@@ -251,9 +251,9 @@
                             @endif
                         </div>
 
-                        <div class="d-flex justify-content-between align-items-center mb-5 pt-4" style="border-top: 2px solid rgba(21, 145, 220, 0.15);">
+                        <div class="d-flex justify-content-between align-items-center mb-4 pt-3" style="border-top: 2px solid rgba(21, 145, 220, 0.15);">
                             <h5 class="fw-bold mb-0" style="color: #0a0e27;">Total</h5>
-                            <h4 class="fw-800 mb-0" style="font-weight: 800; color: #1591DC;">
+                            <h4 class="fw-800 mb-0" style="font-weight: 800; color: #1591DC; font-size: 20px;">
                                 @if(Helper::totalCartPoints() > 0)
                                     <i class="fas fa-coins me-1"></i> {{ number_format(Helper::totalCartPoints()) }} PTS
                                 @else
@@ -263,12 +263,12 @@
                         </div>
 
                         <!-- Policy Checks -->
-                        <div class="policy-checks mb-0 p-4 rounded-3" style="background: rgba(21, 145, 220, 0.05); border: 1px solid rgba(21, 145, 220, 0.1);">
+                        <div class="policy-checks mb-0 p-3 rounded-3" style="background: rgba(21, 145, 220, 0.05); border: 1px solid rgba(21, 145, 220, 0.1);">
                             @php $policies = ['terms' => 'terms_policy', 'privacy' => 'privacy_policy', 'delivery' => 'delivery_policy', 'refund' => 'refund_policy']; @endphp
                             @foreach($policies as $id => $lang_key)
-                                <div class="form-check mb-3">
-                                    <input class="form-check-input" type="checkbox" id="{{$id}}" name="{{$id}}" style="border-color: rgba(21, 145, 220, 0.3); width: 18px; height: 18px;">
-                                    <label class="form-check-label small" for="{{$id}}" style="color: #666; margin-left: 8px;">
+                                <div class="d-flex align-items-start mb-2">
+                                    <input class="form-check-input" type="checkbox" id="{{$id}}" name="{{$id}}" style="border-color: rgba(21, 145, 220, 0.4); width: 16px; height: 16px; margin-top: 3px; flex-shrink: 0;">
+                                    <label class="form-check-label ms-2" for="{{$id}}" style="color: #666; font-size: 12px; line-height: 1.4; cursor: pointer;">
                                         {{ __('common.agree_terms_text') }} <a href="{{ route('pages', str_replace('_', '-', $id)) }}" target='_blank' style="color: #1591DC; text-decoration: none; font-weight: 600;">{{ __('common.' . $lang_key) }}</a>
                                     </label>
                                 </div>
