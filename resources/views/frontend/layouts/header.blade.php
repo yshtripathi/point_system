@@ -77,7 +77,7 @@
 				<!-- Right Actions -->
 				<div class="header-actions d-flex align-items-center">
 					<!-- Language Switcher -->
-					<div class="dropdown">
+					<div class="dropdown d-none d-md-block">
 						<a href="javascript:void(0)" class="modern-btn modern-btn-outline dropdown-toggle d-flex align-items-center gap-2" data-bs-toggle="dropdown" aria-expanded="false">
 							@if(session('app_locale') == 'ja' || app()->getLocale() == 'ja')
 								<span>🇯🇵</span> <span class="d-none d-sm-inline">日本語</span>
@@ -100,7 +100,7 @@
 					</div>
 
 					<!-- Currency Switcher -->
-					<div class="dropdown">
+					<div class="dropdown d-none d-lg-block">
 						@php
 							$currentCurrency = session('currency', 'USD');
 							$currencies = Helper::CurrenciesList();
