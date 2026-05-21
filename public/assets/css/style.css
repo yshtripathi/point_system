@@ -13578,6 +13578,10 @@ ul.tl-breadcrumb-nav.d-flex {
     background: rgba(255, 255, 255, 0.05); /* Subtle background for contrast */
 }
 
+.page-wrapper {
+    margin-top: 80px;
+}
+
 .modern-header.sticky {
     padding: 12px 0;
     background: rgba(255, 255, 255, 0.8) !important;
