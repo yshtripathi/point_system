@@ -2,7 +2,7 @@
 @section('title','About Us')
 @section('main-content')
 
-<div class="tl-breadcrumb pt-120 pb-120">
+<div class="tl-breadcrumb about-banner pt-120 pb-120">
     <div class="container">
         <div class="row align-items-end">
             <div class="col-md-6">
