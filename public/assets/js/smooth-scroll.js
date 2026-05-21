@@ -2,7 +2,6 @@
 
 // Smooth Wheel Scroll Implementation
 let isScrolling = false;
-let scrollVelocity = 0;
 let targetScrollPosition = 0;
 
 function smoothWheelScroll(event) {
@@ -11,9 +10,9 @@ function smoothWheelScroll(event) {
   const currentScrollPosition = window.pageYOffset || document.documentElement.scrollTop;
   const deltaY = event.deltaY || -event.wheelDelta || event.detail;
 
-  // Adjust scroll speed for smoother feel
-  const scrollSpeed = 1;
-  targetScrollPosition = currentScrollPosition + (deltaY * scrollSpeed);
+  // Constant scroll speed (pixels per millisecond)
+  const pixelsPerMs = 0.5; // Adjust this for faster/slower scroll
+  targetScrollPosition = currentScrollPosition + (deltaY * 1);
 
   // Clamp target position to valid range
   const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
@@ -21,15 +20,15 @@ function smoothWheelScroll(event) {
 
   if (!isScrolling) {
     isScrolling = true;
-    animateScroll(currentScrollPosition);
+    animateScroll(currentScrollPosition, pixelsPerMs);
   }
 }
 
-function animateScroll(currentPosition) {
+function animateScroll(currentPosition, pixelsPerMs) {
   const difference = targetScrollPosition - currentPosition;
 
-  // Linear scroll for smooth, continuous feel
-  const duration = 800; // milliseconds - longer duration for smoother feel
+  // Calculate duration based on distance and constant speed
+  const duration = Math.abs(difference) / pixelsPerMs; // milliseconds
   let startTime = null;
 
   function scroll(timestamp) {
