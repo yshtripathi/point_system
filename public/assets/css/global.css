@@ -305,18 +305,11 @@ body {
 }
 
 .modern-nav li.active a {
-  color: var(--primary);
-}
-
-.modern-nav li.active a::after {
-  content: '';
-  position: absolute;
-  bottom: -8px;
-  left: 0;
-  right: 0;
-  height: 2px;
+  color: var(--white);
   background: var(--primary);
-  border-radius: 1px;
+  border-radius: 8px;
+  padding: 8px 20px;
+  box-shadow: 0 4px 12px rgba(var(--primary-rgb), 0.25);
 }
 
 /* Header Actions */
