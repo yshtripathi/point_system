@@ -827,9 +827,8 @@ var THEMEMASCOT = {};
    When document is Scrollig, do
    ========================================================================== */
 	
-	$(window).on('scroll', function() {
-		headerStyle();
-	});
+	// Sticky header is now handled by CSS position: sticky
+	// headerStyle() call removed as it was causing conflicts
 	
 /* ==========================================================================
    When document is loading, do
@@ -892,25 +891,8 @@ $(function(){
   });
 }
 
-// Improved Sticky Header Logic
-function handleStickyHeader() {
-    if ($('.modern-header').length) {
-        var windowpos = $(window).scrollTop();
-        var header = $('.modern-header');
-        if (windowpos > 50) {
-            header.addClass("sticky");
-        } else {
-            header.removeClass("sticky");
-        }
-    }
-}
-
-$(window).on('scroll', function() {
-    handleStickyHeader();
-});
-
-// Run on load
-handleStickyHeader();
+// Sticky header is now handled purely by CSS (position: sticky)
+// No JavaScript needed - this prevents conflicts with CSS sticky positioning
 
 // Run on DOM load
 window.addEventListener('DOMContentLoaded', equalizeBoxHeights);

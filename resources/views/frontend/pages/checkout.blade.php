@@ -50,83 +50,86 @@
             <div class="row g-5">
                 <!-- Left: Billing Details -->
                 <div class="col-xl-8">
-                    <div class="modern-card p-5 border-0 shadow-sm bg-white mb-5" style="border-radius: 24px; border: 1px solid rgba(21, 145, 220, 0.1);">
-                        <div class="d-flex align-items-center justify-content-between mb-5">
-                            <h3 class="fw-bold mb-0" style="color: #0a0e27;">{{ __('common.billing_details')}}</h3>
+                    <div class="modern-card p-5 border-0 shadow-sm bg-white" style="border-radius: 24px; border: 1px solid rgba(21, 145, 220, 0.1); display: flex; flex-direction: column; max-height: calc(100vh - 200px);">
+                        <!-- Header - Always Visible -->
+                        <div class="d-flex align-items-center justify-content-between mb-5" style="flex-shrink: 0; border-bottom: 1px solid rgba(21, 145, 220, 0.1); padding-bottom: 16px;">
+                            <h3 class="fw-bold mb-0" style="color: #0a0e27; font-size: 20px;">{{ __('common.billing_details')}}</h3>
                             <i class="fas fa-id-card" style="color: #1591DC; font-size: 28px;"></i>
                         </div>
 
+                        <!-- Scrollable Content -->
+                        <div style="overflow-y: auto; flex: 1; overflow-x: hidden;">
                         <div class="row g-4">
                             <div class="col-md-6">
-                                <label class="small fw-bold text-uppercase opacity-75 mb-2 d-flex align-items-center">
-                                    <i class="fas fa-user" style="color: #1591DC; font-size: 12px; margin-right: 8px;"></i>
+                                <label class="fw-bold mb-2 d-flex align-items-center" style="color: #555; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px;">
+                                    <i class="fas fa-user" style="color: #1591DC; font-size: 13px; margin-right: 8px;"></i>
                                     {{ __('common.first_name') }}
                                 </label>
-                                <input type="text" name="first_name" value="" placeholder="e.g. John" class="form-control form-control-lg bg-light border-1 py-3 px-4 rounded-3" style="border-color: rgba(21, 145, 220, 0.15);">
+                                <input type="text" name="first_name" value="" placeholder="e.g. John" class="form-control form-control-lg bg-light border-1 py-3 px-4 rounded-3" style="border-color: rgba(21, 145, 220, 0.15); font-size: 15px;">
                                 @error('first_name') <span class='text-danger small mt-2 d-block'><i class="fas fa-info-circle me-1"></i>{{$message}}</span> @enderror
                             </div>
                             <div class="col-md-6">
-                                <label class="small fw-bold text-uppercase opacity-75 mb-2 d-flex align-items-center">
-                                    <i class="fas fa-user" style="color: #1591DC; font-size: 12px; margin-right: 8px;"></i>
+                                <label class="fw-bold mb-2 d-flex align-items-center" style="color: #555; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px;">
+                                    <i class="fas fa-user" style="color: #1591DC; font-size: 13px; margin-right: 8px;"></i>
                                     {{ __('common.last_name') }}
                                 </label>
-                                <input type="text" name="last_name" value="" placeholder="e.g. Doe" class="form-control form-control-lg bg-light border-1 py-3 px-4 rounded-3" style="border-color: rgba(21, 145, 220, 0.15);">
+                                <input type="text" name="last_name" value="" placeholder="e.g. Doe" class="form-control form-control-lg bg-light border-1 py-3 px-4 rounded-3" style="border-color: rgba(21, 145, 220, 0.15); font-size: 15px;">
                                 @error('last_name') <span class='text-danger small mt-2 d-block'><i class="fas fa-info-circle me-1"></i>{{$message}}</span> @enderror
                             </div>
                             <div class="col-md-6">
-                                <label class="small fw-bold text-uppercase opacity-75 mb-2 d-flex align-items-center">
-                                    <i class="fas fa-envelope" style="color: #1591DC; font-size: 12px; margin-right: 8px;"></i>
+                                <label class="fw-bold mb-2 d-flex align-items-center" style="color: #555; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px;">
+                                    <i class="fas fa-envelope" style="color: #1591DC; font-size: 13px; margin-right: 8px;"></i>
                                     {{ __('common.email') }}
                                 </label>
-                                <input name="email" type="email" value="{{ auth()->user() ? auth()->user()->email : '' }}" placeholder="email@example.com" class="form-control form-control-lg bg-light border-1 py-3 px-4 rounded-3" style="border-color: rgba(21, 145, 220, 0.15);">
+                                <input name="email" type="email" value="{{ auth()->user() ? auth()->user()->email : '' }}" placeholder="email@example.com" class="form-control form-control-lg bg-light border-1 py-3 px-4 rounded-3" style="border-color: rgba(21, 145, 220, 0.15); font-size: 15px;">
                                 @error('email') <span class='text-danger small mt-2 d-block'><i class="fas fa-info-circle me-1"></i>{{$message}}</span> @enderror
                             </div>
                             <div class="col-md-6">
-                                <label class="small fw-bold text-uppercase opacity-75 mb-2 d-flex align-items-center">
-                                    <i class="fas fa-phone" style="color: #1591DC; font-size: 12px; margin-right: 8px;"></i>
+                                <label class="fw-bold mb-2 d-flex align-items-center" style="color: #555; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px;">
+                                    <i class="fas fa-phone" style="color: #1591DC; font-size: 13px; margin-right: 8px;"></i>
                                     {{ __('common.phone') }}
                                 </label>
-                                <input type="tel" name="phone" placeholder="Phone Number" value="{{ auth()->user() ? auth()->user()->phone : '' }}" class="form-control form-control-lg bg-light border-1 py-3 px-4 rounded-3" style="border-color: rgba(21, 145, 220, 0.15);">
+                                <input type="tel" name="phone" placeholder="Phone Number" value="{{ auth()->user() ? auth()->user()->phone : '' }}" class="form-control form-control-lg bg-light border-1 py-3 px-4 rounded-3" style="border-color: rgba(21, 145, 220, 0.15); font-size: 15px;">
                                 @error('phone') <span class='text-danger small mt-2 d-block'><i class="fas fa-info-circle me-1"></i>{{$message}}</span> @enderror
                             </div>
                             <div class="col-12">
-                                <label class="small fw-bold text-uppercase opacity-75 mb-2 d-flex align-items-center">
-                                    <i class="fas fa-map-marker-alt" style="color: #1591DC; font-size: 12px; margin-right: 8px;"></i>
+                                <label class="fw-bold mb-2 d-flex align-items-center" style="color: #555; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px;">
+                                    <i class="fas fa-map-marker-alt" style="color: #1591DC; font-size: 13px; margin-right: 8px;"></i>
                                     {{ __('common.address') }}
                                 </label>
-                                <input type="text" name="address1" value="{{ auth()->user() ? auth()->user()->address : '' }}" placeholder="Street Address" class="form-control form-control-lg bg-light border-1 py-3 px-4 rounded-3" style="border-color: rgba(21, 145, 220, 0.15);">
+                                <input type="text" name="address1" value="{{ auth()->user() ? auth()->user()->address : '' }}" placeholder="Street Address" class="form-control form-control-lg bg-light border-1 py-3 px-4 rounded-3" style="border-color: rgba(21, 145, 220, 0.15); font-size: 15px;">
                                 @error('address') <span class='text-danger small mt-2 d-block'><i class="fas fa-info-circle me-1"></i>{{$message}}</span> @enderror
                             </div>
                             <div class="col-md-4">
-                                <label class="small fw-bold text-uppercase opacity-75 mb-2 d-flex align-items-center">
-                                    <i class="fas fa-city" style="color: #1591DC; font-size: 12px; margin-right: 8px;"></i>
+                                <label class="fw-bold mb-2 d-flex align-items-center" style="color: #555; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px;">
+                                    <i class="fas fa-city" style="color: #1591DC; font-size: 13px; margin-right: 8px;"></i>
                                     {{ __('common.town_city') }}
                                 </label>
-                                <input type="text" name="city" value="{{ auth()->user() ? auth()->user()->city : '' }}" placeholder="City" class="form-control form-control-lg bg-light border-1 py-3 px-4 rounded-3" style="border-color: rgba(21, 145, 220, 0.15);">
+                                <input type="text" name="city" value="{{ auth()->user() ? auth()->user()->city : '' }}" placeholder="City" class="form-control form-control-lg bg-light border-1 py-3 px-4 rounded-3" style="border-color: rgba(21, 145, 220, 0.15); font-size: 15px;">
                                 @error('city') <span class='text-danger small mt-2 d-block'><i class="fas fa-info-circle me-1"></i>{{$message}}</span> @enderror
                             </div>
                             <div class="col-md-4">
-                                <label class="small fw-bold text-uppercase opacity-75 mb-2 d-flex align-items-center">
-                                    <i class="fas fa-map" style="color: #1591DC; font-size: 12px; margin-right: 8px;"></i>
+                                <label class="fw-bold mb-2 d-flex align-items-center" style="color: #555; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px;">
+                                    <i class="fas fa-map" style="color: #1591DC; font-size: 13px; margin-right: 8px;"></i>
                                     {{ __('common.state') }}
                                 </label>
-                                <input type="text" name="state" value="{{ auth()->user() ? auth()->user()->state : '' }}" placeholder="State" class="form-control form-control-lg bg-light border-1 py-3 px-4 rounded-3" style="border-color: rgba(21, 145, 220, 0.15);">
+                                <input type="text" name="state" value="{{ auth()->user() ? auth()->user()->state : '' }}" placeholder="State" class="form-control form-control-lg bg-light border-1 py-3 px-4 rounded-3" style="border-color: rgba(21, 145, 220, 0.15); font-size: 15px;">
                                 @error('state') <span class='text-danger small mt-2 d-block'><i class="fas fa-info-circle me-1"></i>{{$message}}</span> @enderror
                             </div>
                             <div class="col-md-4">
-                                <label class="small fw-bold text-uppercase opacity-75 mb-2 d-flex align-items-center">
-                                    <i class="fas fa-mailbox" style="color: #1591DC; font-size: 12px; margin-right: 8px;"></i>
+                                <label class="fw-bold mb-2 d-flex align-items-center" style="color: #555; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px;">
+                                    <i class="fas fa-mailbox" style="color: #1591DC; font-size: 13px; margin-right: 8px;"></i>
                                     {{ __('common.zip_code') }}
                                 </label>
-                                <input type="text" name="post_code" placeholder="Zip Code" value="{{ auth()->user() ? auth()->user()->zip : '' }}" class="form-control form-control-lg bg-light border-1 py-3 px-4 rounded-3" style="border-color: rgba(21, 145, 220, 0.15);">
+                                <input type="text" name="post_code" placeholder="Zip Code" value="{{ auth()->user() ? auth()->user()->zip : '' }}" class="form-control form-control-lg bg-light border-1 py-3 px-4 rounded-3" style="border-color: rgba(21, 145, 220, 0.15); font-size: 15px;">
                                 @error('post_code') <span class='text-danger small mt-2 d-block'><i class="fas fa-info-circle me-1"></i>{{$message}}</span> @enderror
                             </div>
                             <div class="col-12">
-                                <label class="small fw-bold text-uppercase opacity-75 mb-2 d-flex align-items-center">
-                                    <i class="fas fa-globe" style="color: #1591DC; font-size: 12px; margin-right: 8px;"></i>
+                                <label class="fw-bold mb-2 d-flex align-items-center" style="color: #555; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px;">
+                                    <i class="fas fa-globe" style="color: #1591DC; font-size: 13px; margin-right: 8px;"></i>
                                     {{ __('common.country') }}
                                 </label>
-                                <select name="country" class="form-control form-control-lg bg-light border-1 py-3 px-4 rounded-3" style="border-color: rgba(21, 145, 220, 0.15);">
+                                <select name="country" class="form-control form-control-lg bg-light border-1 py-3 px-4 rounded-3" style="border-color: rgba(21, 145, 220, 0.15); font-size: 15px;">
                                     <option value="">{{ __('common.select_country') }}</option>
                                     <option value="AF">Afghanistan</option>
                                     <option value="US">United States</option>
@@ -145,15 +148,15 @@
                             <div class="points-payment-section mt-5">
                                 <div class="p-4 rounded-3 mb-4" style="background: rgba(21, 145, 220, 0.08); border: 1px solid rgba(21, 145, 220, 0.1);">
                                     <div class="d-flex justify-content-between mb-3">
-                                        <span class="small fw-bold" style="color: #666;">Balance</span>
-                                        <span class="small fw-800" style="color: #0a0e27;">{{ number_format(auth()->user() ? auth()->user()->points_balance : 0) }} <i class="fas fa-coins" style="color: #1591DC; margin-left: 4px;"></i> PTS</span>
+                                        <span class="fw-bold" style="color: #666; font-size: 14px;">Balance</span>
+                                        <span class="fw-800" style="color: #0a0e27; font-size: 14px;">{{ number_format(auth()->user() ? auth()->user()->points_balance : 0) }} <i class="fas fa-coins" style="color: #1591DC; margin-left: 4px;"></i> PTS</span>
                                     </div>
                                     @php
                                         $total_points_needed = Helper::totalCartPoints();
                                     @endphp
                                     <div class="d-flex justify-content-between">
-                                        <span class="small fw-bold" style="color: #666;">Required</span>
-                                        <span class="small fw-800" style="color: #1591DC;">{{ number_format($total_points_needed) }} PTS</span>
+                                        <span class="fw-bold" style="color: #666; font-size: 14px;">Required</span>
+                                        <span class="fw-800" style="color: #1591DC; font-size: 14px;">{{ number_format($total_points_needed) }} PTS</span>
                                     </div>
                                 </div>
 
@@ -175,36 +178,36 @@
                             <div class="card-payment-section mt-5">
                                 <div class="row g-3 mb-4">
                                     <div class="col-12">
-                                        <label class="small fw-bold text-uppercase opacity-75 mb-2 d-flex align-items-center">
-                                            <i class="fas fa-credit-card" style="color: #1591DC; font-size: 12px; margin-right: 8px;"></i>
+                                        <label class="fw-bold mb-2 d-flex align-items-center" style="color: #555; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px;">
+                                            <i class="fas fa-credit-card" style="color: #1591DC; font-size: 13px; margin-right: 8px;"></i>
                                             Card Holder
                                         </label>
-                                        <input type="text" id="name_on_card" name="name_on_card" class="form-control form-control-lg bg-light border-1 py-3 px-4 rounded-3" style="border-color: rgba(21, 145, 220, 0.15);" placeholder="Name on card">
+                                        <input type="text" id="name_on_card" name="name_on_card" class="form-control form-control-lg bg-light border-1 py-3 px-4 rounded-3" style="border-color: rgba(21, 145, 220, 0.15); font-size: 15px;" placeholder="Name on card">
                                     </div>
                                     <div class="col-12">
-                                        <label class="small fw-bold text-uppercase opacity-75 mb-2 d-flex align-items-center">
-                                            <i class="fas fa-credit-card" style="color: #1591DC; font-size: 12px; margin-right: 8px;"></i>
+                                        <label class="fw-bold mb-2 d-flex align-items-center" style="color: #555; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px;">
+                                            <i class="fas fa-credit-card" style="color: #1591DC; font-size: 13px; margin-right: 8px;"></i>
                                             Card Number
                                         </label>
-                                        <input type="text" id="card_number" name="card_number" class="form-control form-control-lg bg-light border-1 py-3 px-4 rounded-3" style="border-color: rgba(21, 145, 220, 0.15);" placeholder="•••• •••• •••• ••••">
+                                        <input type="text" id="card_number" name="card_number" class="form-control form-control-lg bg-light border-1 py-3 px-4 rounded-3" style="border-color: rgba(21, 145, 220, 0.15); font-size: 15px;" placeholder="•••• •••• •••• ••••">
                                     </div>
                                     <div class="col-6">
-                                        <label class="small fw-bold text-uppercase opacity-75 mb-2 d-flex align-items-center">
-                                            <i class="fas fa-calendar" style="color: #1591DC; font-size: 12px; margin-right: 8px;"></i>
+                                        <label class="fw-bold mb-2 d-flex align-items-center" style="color: #555; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px;">
+                                            <i class="fas fa-calendar" style="color: #1591DC; font-size: 13px; margin-right: 8px;"></i>
                                             Expiry
                                         </label>
                                         <div class="d-flex gap-2 align-items-center">
-                                            <input type="number" id="expiry_month" name="expiry_month" placeholder="MM" class="form-control form-control-lg bg-light border-1 py-3 px-4 rounded-3" style="border-color: rgba(21, 145, 220, 0.15);">
-                                            <span style="color: #0a0e27; font-weight: 600;">/</span>
-                                            <input type="number" id="expiry_year" name="expiry_year" placeholder="YYYY" class="form-control form-control-lg bg-light border-1 py-3 px-4 rounded-3" style="border-color: rgba(21, 145, 220, 0.15);">
+                                            <input type="number" id="expiry_month" name="expiry_month" placeholder="MM" class="form-control form-control-lg bg-light border-1 py-3 px-4 rounded-3" style="border-color: rgba(21, 145, 220, 0.15); font-size: 15px;">
+                                            <span style="color: #0a0e27; font-weight: 600; font-size: 16px;">/</span>
+                                            <input type="number" id="expiry_year" name="expiry_year" placeholder="YYYY" class="form-control form-control-lg bg-light border-1 py-3 px-4 rounded-3" style="border-color: rgba(21, 145, 220, 0.15); font-size: 15px;">
                                         </div>
                                     </div>
                                     <div class="col-6">
-                                        <label class="small fw-bold text-uppercase opacity-75 mb-2 d-flex align-items-center">
-                                            <i class="fas fa-lock" style="color: #1591DC; font-size: 12px; margin-right: 8px;"></i>
+                                        <label class="fw-bold mb-2 d-flex align-items-center" style="color: #555; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px;">
+                                            <i class="fas fa-lock" style="color: #1591DC; font-size: 13px; margin-right: 8px;"></i>
                                             CVC
                                         </label>
-                                        <input type="tel" id="cvv" name="cvv" placeholder="•••" class="form-control form-control-lg bg-light border-1 py-3 px-4 rounded-3" style="border-color: rgba(21, 145, 220, 0.15);">
+                                        <input type="tel" id="cvv" name="cvv" placeholder="•••" class="form-control form-control-lg bg-light border-1 py-3 px-4 rounded-3" style="border-color: rgba(21, 145, 220, 0.15); font-size: 15px;">
                                     </div>
                                 </div>
                                 <button type="button" class="w-100 py-3 rounded-3 fw-bold border-0 text-white" style="background: linear-gradient(135deg, #1591DC 0%, #2C5EAD 100%); box-shadow: 0 4px 12px rgba(21, 145, 220, 0.3); transition: all 0.3s ease;" id="button-confirm">
@@ -214,24 +217,26 @@
                         @endif
 
                         <div class="mt-5">
-                            <h5 class="fw-bold mb-3" style="color: #0a0e27;">{{ __('common.additional_information') }}</h5>
-                            <textarea name="notes" placeholder="{{ __('common.notes_about_order') }}" class="form-control form-control-lg bg-light border-1 py-3 px-4 rounded-3" style="border-color: rgba(21, 145, 220, 0.15);" rows="4"></textarea>
+                            <h5 class="fw-bold mb-3" style="color: #0a0e27; font-size: 16px;">{{ __('common.additional_information') }}</h5>
+                            <textarea name="notes" placeholder="{{ __('common.notes_about_order') }}" class="form-control form-control-lg bg-light border-1 py-3 px-4 rounded-3" style="border-color: rgba(21, 145, 220, 0.15); font-size: 15px;" rows="4"></textarea>
                         </div>
+                        </div>
+                        <!-- End Scrollable Content -->
                     </div>
                 </div>
 
                 <!-- Right: Order & Payment -->
                 <div class="col-xl-4">
-                    <div class="modern-card p-4 border-0 shadow-sm bg-white sticky-top" style="border-radius: 24px; border: 1px solid rgba(21, 145, 220, 0.1); top: 120px; z-index: 10;">
+                    <div class="modern-card p-4 border-0 shadow-sm bg-white sticky-top" style="border-radius: 24px; border: 1px solid rgba(21, 145, 220, 0.1); top: 120px; z-index: 10; height: fit-content;">
                         <h5 class="fw-bold mb-3" style="color: #0a0e27; font-size: 18px;">{{ __('common.your_order') }}</h5>
 
-                        <div class="order-items-mini mb-3">
+                        <div class="order-items-mini mb-4">
                             @if(Helper::getAllProductFromCart())
                                 @foreach(Helper::getAllProductFromCart() as $key => $cart)
-                                    <div class="d-flex justify-content-between mb-2 pb-2 align-items-center" style="border-bottom: 1px solid rgba(21, 145, 220, 0.1);">
-                                        <div class="small">
-                                            <div class="fw-bold" style="color: #0a0e27; font-size: 14px;">{{ ($cart->product) ? $cart->product->title : "Points Top Up" }}</div>
-                                            <div style="color: #999; font-size: 12px;">
+                                    <div class="d-flex justify-content-between mb-3 pb-3 align-items-center" style="border-bottom: 1px solid rgba(21, 145, 220, 0.1);">
+                                        <div>
+                                            <div class="fw-bold" style="color: #0a0e27; font-size: 15px; margin-bottom: 4px;">{{ ($cart->product) ? $cart->product->title : "Points Top Up" }}</div>
+                                            <div style="color: #999; font-size: 13px;">
                                                 @if($cart->points > 0)
                                                     {{ $cart->quantity }} x {{ number_format($cart->points) }} PTS
                                                 @else
@@ -239,7 +244,7 @@
                                                 @endif
                                             </div>
                                         </div>
-                                        <div class="fw-bold" style="color: #0a0e27; font-size: 14px;">
+                                        <div class="fw-bold text-end" style="color: #0a0e27; font-size: 15px; white-space: nowrap; margin-left: 16px;">
                                             @if($cart->points > 0)
                                                 <i class="fas fa-coins me-1" style="color: #1591DC;"></i> {{ number_format($cart->points * $cart->quantity) }} PTS
                                             @else
@@ -252,23 +257,23 @@
                         </div>
 
                         <div class="d-flex justify-content-between align-items-center mb-4 pt-3" style="border-top: 2px solid rgba(21, 145, 220, 0.15);">
-                            <h5 class="fw-bold mb-0" style="color: #0a0e27;">Total</h5>
-                            <h4 class="fw-800 mb-0" style="font-weight: 800; color: #1591DC; font-size: 20px;">
+                            <h6 class="fw-bold mb-0" style="color: #666; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px;">Total</h6>
+                            <h3 class="fw-800 mb-0" style="font-weight: 800; color: #1591DC; font-size: 22px;">
                                 @if(Helper::totalCartPoints() > 0)
                                     <i class="fas fa-coins me-1"></i> {{ number_format(Helper::totalCartPoints()) }} PTS
                                 @else
                                     {{ Helper::getCurrencySymbol(session('currency')) }}{{ number_format($total_amount, session('currency')=='JPY' ? 0 : 2) }}
                                 @endif
-                            </h4>
+                            </h3>
                         </div>
 
                         <!-- Policy Checks -->
-                        <div class="policy-checks mb-0 p-3 rounded-3" style="background: rgba(21, 145, 220, 0.05); border: 1px solid rgba(21, 145, 220, 0.1);">
+                        <div class="policy-checks mb-0 p-4 rounded-3" style="background: rgba(21, 145, 220, 0.05); border: 1px solid rgba(21, 145, 220, 0.1);">
                             @php $policies = ['terms' => 'terms_policy', 'privacy' => 'privacy_policy', 'delivery' => 'delivery_policy', 'refund' => 'refund_policy']; @endphp
                             @foreach($policies as $id => $lang_key)
-                                <div class="d-flex align-items-start mb-2">
-                                    <input class="form-check-input" type="checkbox" id="{{$id}}" name="{{$id}}" style="border-color: rgba(21, 145, 220, 0.4); width: 16px; height: 16px; margin-top: 3px; flex-shrink: 0;">
-                                    <label class="form-check-label ms-2" for="{{$id}}" style="color: #666; font-size: 12px; line-height: 1.4; cursor: pointer;">
+                                <div class="d-flex align-items-start mb-3" style="gap: 10px;">
+                                    <input class="form-check-input mt-1" type="checkbox" id="{{$id}}" name="{{$id}}" style="border-color: rgba(21, 145, 220, 0.4); width: 18px; height: 18px; flex-shrink: 0; cursor: pointer;">
+                                    <label class="form-check-label" for="{{$id}}" style="color: #555; font-size: 14px; line-height: 1.5; cursor: pointer; font-weight: 500;">
                                         {{ __('common.agree_terms_text') }} <a href="{{ route('pages', str_replace('_', '-', $id)) }}" target='_blank' style="color: #1591DC; text-decoration: none; font-weight: 600;">{{ __('common.' . $lang_key) }}</a>
                                     </label>
                                 </div>

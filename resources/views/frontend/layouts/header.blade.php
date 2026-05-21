@@ -44,20 +44,37 @@
             }
 
             /* Sticky Header Styling */
-            header.main-header.sticky-top {
+            header.main-header {
+                position: sticky !important;
+                top: 0 !important;
                 background: linear-gradient(135deg, #ffffff 0%, #f8fbff 100%);
                 backdrop-filter: blur(10px);
                 box-shadow: 0 4px 20px rgba(21, 145, 220, 0.1);
-                z-index: 1030;
+                z-index: 1030 !important;
                 transition: all 0.3s ease;
+                width: 100%;
+                left: 0;
+                right: 0;
             }
 
-            header.main-header.sticky-top:hover {
+            header.main-header:hover {
                 box-shadow: 0 8px 30px rgba(21, 145, 220, 0.15);
             }
 
-            header.main-header.sticky-top .auto-container {
-                padding: 12px 0;
+            header.main-header .auto-container {
+                padding: 12px 15px;
+            }
+
+            /* Mobile sticky header improvements */
+            @media (max-width: 767px) {
+                header.main-header {
+                    padding-top: 8px;
+                    padding-bottom: 8px;
+                }
+
+                header.main-header .auto-container {
+                    padding: 8px 10px;
+                }
             }
 
             /* Smooth scroll behavior */
