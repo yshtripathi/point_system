@@ -9,7 +9,7 @@
 @endif
 
 @section('main-content')
-<div class="tl-breadcrumb catalog-banner pt-120 pb-120">
+<div class="tl-breadcrumb catalog-banner pt-60 pb-60">
     <video autoplay muted loop playsinline>
         <source src="{{ asset('images/breadcrumb.mp4') }}" type="video/mp4">
     </video>
@@ -45,7 +45,7 @@
     </div>
 </div>
 
-<section class="catalog-section pt-120 pb-120 bg-light">   
+<section class="catalog-section pt-60 pb-80 bg-light">   
     <div class="container">
         <div class="row mb-5 align-items-center">
             <div class="col-md-6">
