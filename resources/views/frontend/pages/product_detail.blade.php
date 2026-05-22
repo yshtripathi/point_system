@@ -62,10 +62,17 @@
                         <!-- Tab Contents -->
                         <div class="tab-content" id="levelTabsContent">
                             @foreach($product_detail->levels as $key => $level)
-                                <div class="tab-pane fade @if($loop->first) show active @endif" 
-                                     id="level-content-{{ $level->id }}" 
+                                <div class="tab-pane fade @if($loop->first) show active @endif"
+                                     id="level-content-{{ $level->id }}"
                                      role="tabpanel">
-                                    
+
+                                    <!-- Level Badge -->
+                                    <div class="mb-4 d-flex align-items-center gap-2">
+                                        <span class="badge rounded-2 px-3 py-2" style="background: rgba(21, 145, 220, 0.1); color: #1591DC; font-size: 12px; font-weight: 600;">
+                                            <i class="fas fa-level-up-alt me-1"></i> Level: <strong>{{ $level->skill_level }}</strong>
+                                        </span>
+                                    </div>
+
                                     <div class="level-info-grid mb-4">
                                         <div class="row g-3">
                                             <div class="col-md-6">
@@ -89,10 +96,10 @@
                                             @php $items = explode('.', $level->learn_info); @endphp
                                             @foreach($items as $item)
                                                 @if(trim($item) != '')
-                                                    <div class="col-md-6">
-                                                        <div class="d-flex gap-2 align-items-start p-3 rounded-2" style="background: rgba(21, 145, 220, 0.04); border: 1px solid rgba(21, 145, 220, 0.08);">
-                                                            <i class="fas fa-check" style="color: #1591DC; font-size: 14px; margin-top: 2px; flex-shrink: 0;"></i>
-                                                            <span class="small text-muted" style="font-size: 13px;">{{ trim($item) }}</span>
+                                                    <div class="col-md-10">
+                                                        <div class="d-flex gap-2 align-items-start p-2" style="background: linear-gradient(135deg, rgba(21, 145, 220, 0.06) 0%, rgba(44, 94, 173, 0.03) 100%); border: 1px solid rgba(21, 145, 220, 0.12); border-radius: 8px; transition: all 0.3s ease;">
+                                                            <i class="fas fa-check" style="color: #1591DC; font-size: 12px; margin-top: 3px; flex-shrink: 0;"></i>
+                                                            <span class="text-dark fw-bold" style="font-size: 14px; line-height: 1.5;">{{ trim($item) }}</span>
                                                         </div>
                                                     </div>
                                                 @endif
