@@ -308,16 +308,35 @@
                                             $item_photo = asset('assets/images/placeholder.jpg');
                                             $item_title = "Points Top Up";
                                             $item_link = "#";
+                                            $is_course = false;
+                                            $level = null;
                                             if($cart->product) {
                                                 $photo_arr = explode(',', $cart->product->photo);
                                                 $item_photo = $photo_arr[0];
                                                 $item_title = $cart->product->title;
                                                 $item_link = route('product-detail', $cart->product->slug);
+
+                                                // Check if this is a course (product_id < 1000)
+                                                if($cart->product_id < 1000) {
+                                                    $is_course = true;
+                                                    // Look up level by matching course_id and price_in_points
+                                                    $level = \App\Models\ProductLevel::where('course_id', $cart->product_id)
+                                                                 ->where('price_in_points', $cart->points)
+                                                                 ->first();
+                                                }
                                             }
                                         @endphp
-                                        
+
                                         <div class="cart-info pe-4">
                                             <a href="{{ $item_link }}" class="fw-bold text-dark text-decoration-none small d-block mb-1 line-clamp-1">{{ $item_title }}</a>
+
+                                            <!-- Level Badge (for courses only) -->
+                                            @if($is_course && $level)
+                                                <span class="badge rounded-2 px-2 py-1 me-2" style="background: rgba(21, 145, 220, 0.1); color: #1591DC; font-size: 11px; font-weight: 600; display: inline-block; margin-bottom: 6px;">
+                                                    <i class="fas fa-level-up-alt me-1" style="font-size: 10px;"></i>{{ $level->skill_level }}
+                                                </span>
+                                            @endif
+
                                             <p class="mb-0 small text-muted">
                                                 <span class="fw-bold text-primary">{{ $cart->quantity }}</span> x 
                                                 @if($cart->product_id < 1000 && $cart->points > 0)
@@ -345,6 +364,17 @@
                             @php
                                 $total_amount = Helper::totalCartPrice();
                                 if(session()->has('coupon')) { $total_amount -= Session::get('coupon')['value']; }
+
+                                // Detect cart type
+                                $has_courses = false;
+                                $has_topups = false;
+                                foreach(Helper::getAllProductFromCart() as $item) {
+                                    if($item->product_id < 1000) {
+                                        $has_courses = true;
+                                    } else if($item->product_id >= 1000) {
+                                        $has_topups = true;
+                                    }
+                                }
                             @endphp
                             <div class="cart-footer border-top mt-5 pt-4" style="border-color: rgba(21, 145, 220, 0.1) !important;">
                                 <div class="d-flex justify-content-between align-items-center mb-4">
@@ -358,8 +388,23 @@
                                     </h4>
                                 </div>
                                 <div class="cart-btn d-flex gap-2">
-                                    <a href="{{ route('cart') }}" class="modern-btn modern-btn-outline text-center py-2 px-3 flex-grow-1" style="background: transparent; border: 2px solid #1591DC; color: #1591DC; border-radius: 10px; font-weight: 600; font-size: 13px; transition: all 0.3s ease;">{{ __('common.view_cart') }}</a>
-                                    <a href="{{ Auth::check() ? route('checkout') : route('login.form') }}" class="modern-btn modern-btn-solid text-center py-2 px-3 flex-grow-1" style="background: linear-gradient(135deg, #1591DC 0%, #2C5EAD 100%); color: white; border: none; border-radius: 10px; font-weight: 600; font-size: 13px; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(21, 145, 220, 0.3);">{{ __('common.checkout') }}</a>
+                                    @if($has_courses && !$has_topups)
+                                        <!-- Courses Only -->
+                                        <a href="{{ route('coursecart') }}" class="modern-btn modern-btn-outline text-center py-2 px-3 flex-grow-1" style="background: transparent; border: 2px solid #1591DC; color: #1591DC; border-radius: 10px; font-weight: 600; font-size: 13px; transition: all 0.3s ease;">{{ __('common.view_cart') }}</a>
+                                        <button type="button" onclick="document.getElementById('redeemPointsForm').submit();" class="modern-btn modern-btn-solid text-center py-2 px-3 flex-grow-1" style="background: linear-gradient(135deg, #1591DC 0%, #2C5EAD 100%); color: white; border: none; border-radius: 10px; font-weight: 600; font-size: 13px; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(21, 145, 220, 0.3); cursor: pointer;">
+                                            <i class="fas fa-lock me-1"></i>{{ __('common.redeem_points') ?? 'Redeem' }}
+                                        </button>
+                                        <form id="redeemPointsForm" action="{{ route('points.redeem') }}" method="POST" style="display:none;">
+                                            @csrf
+                                        </form>
+                                    @elseif($has_topups && !$has_courses)
+                                        <!-- Top-ups Only -->
+                                        <a href="{{ route('cart') }}" class="modern-btn modern-btn-outline text-center py-2 px-3 flex-grow-1" style="background: transparent; border: 2px solid #1591DC; color: #1591DC; border-radius: 10px; font-weight: 600; font-size: 13px; transition: all 0.3s ease;">{{ __('common.view_cart') }}</a>
+                                        <a href="{{ Auth::check() ? route('checkout') : route('login.form') }}" class="modern-btn modern-btn-solid text-center py-2 px-3 flex-grow-1" style="background: linear-gradient(135deg, #1591DC 0%, #2C5EAD 100%); color: white; border: none; border-radius: 10px; font-weight: 600; font-size: 13px; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(21, 145, 220, 0.3);">{{ __('common.checkout') }}</a>
+                                    @else
+                                        <!-- Mixed: Courses + Top-ups -->
+                                        <a href="{{ route('coursecart') }}" class="modern-btn modern-btn-outline text-center py-2 px-3 flex-grow-1" style="background: transparent; border: 2px solid #1591DC; color: #1591DC; border-radius: 10px; font-weight: 600; font-size: 13px; transition: all 0.3s ease;">{{ __('common.view_cart') }}</a>
+                                    @endif
                                 </div>
                             </div>
                         @endif
