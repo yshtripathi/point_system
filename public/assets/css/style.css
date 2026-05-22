@@ -13085,8 +13085,8 @@ section.chse_secton.abt-in-abts {
 .header-style-two .header-lower .main-box .outer-box .ui-btn-outer .ui-btn {
     width: 50px;
     height: 50px;
-    border-radius: 50% !important;
-    background: var(--hd-grad) !important;
+    border-radius: 10px !important;
+    background: linear-gradient(135deg, #1591DC 0%, #2C5EAD 100%) !important;
     color: #fff !important;
     display: inline-flex !important;
     align-items: center;
@@ -13094,7 +13094,7 @@ section.chse_secton.abt-in-abts {
     font-size: 18px;
     position: relative;
     transition: transform 0.3s var(--hd-bounce), box-shadow 0.3s var(--hd-ease) !important;
-    box-shadow: var(--hd-shadow-glow);
+    box-shadow: 0 4px 12px rgba(21, 145, 220, 0.3);
     border: none !important;
 }
 
@@ -13108,8 +13108,8 @@ section.chse_secton.abt-in-abts {
     content: "";
     position: absolute;
     inset: -4px;
-    border-radius: 50%;
-    border: 2px solid var(--hd-brand-glow);
+    border-radius: 10px;
+    border: 2px solid rgba(21, 145, 220, 0.3);
     opacity: 0;
     animation: hdCartPulse 2.4s ease-out infinite;
 }
