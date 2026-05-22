@@ -4,7 +4,7 @@
 
 <div class="tl-breadcrumb about-banner pt-60 pb-60">
     <video autoplay muted loop playsinline>
-        <source src="{{ asset('images/breadcrumb.mp4') }}" type="video/mp4">
+        <source src="{{ asset('assets/images/breadcrumb.mp4') }}" type="video/mp4">
     </video>
     <div class="breadcrumb-float-element float-element-1"></div>
     <div class="breadcrumb-float-element float-element-2"></div>
@@ -33,7 +33,7 @@
             <!-- Left: Images -->
             <div class="col-xl-6 col-lg-6">
                 <div class="modern-img-wrapper">
-                    <img src="{{ asset('assets/images/about-student.png') }}" alt="About Us" class="w-100 rounded-4 shadow-lg">
+                    <img src="{{ asset('assets/images/h-1.png') }}" alt="About Us" class="w-100 rounded-4 shadow-lg">
                 </div>
             </div>
 
@@ -119,3 +119,4 @@
 </section>
 
 @endsection
+

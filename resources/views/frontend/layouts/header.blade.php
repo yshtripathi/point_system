@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>@yield('title','RiseBeyondGrowth – Online Courses for Skills, Careers & Growth')</title>
-<meta name="title" content="RiseBeyondGrowth – Learn Skills That Accelerate Your Career">
-<meta name="description" content="RiseBeyondGrowth offers expert-led online courses to build in-demand skills, advance careers, and support lifelong learning.">
-<meta name="keywords" content="online courses, e-learning platform, skill development, career growth, professional courses, upskilling, certification programs">
-<meta name="author" content="RiseBeyondGrowth">
+<title>@yield('title','Grand Axis Learning – Online Courses for Skills & Career Growth')</title>
+<meta name="title" content="Grand Axis Learning – Professional Online Courses">
+<meta name="description" content="Grand Axis Learning offers expert-led online courses to build in-demand skills, advance careers, and support professional growth.">
+<meta name="keywords" content="online courses, e-learning platform, skill development, career growth, professional training, upskilling">
+<meta name="author" content="Grand Axis Learning">
 <!-- Stylesheets -->
 <link href="{{url('assets/css/bootstrap.min.css')}}" rel="stylesheet">
 <link href="{{url('assets/plugins/revolution/css/settings.css')}}" rel="stylesheet" type="text/css">
@@ -21,18 +21,14 @@
 <link rel="icon" href="{{url('assets/images/favicon.ico')}}" type="image/x-icon">
 <!-- Open Graph / Facebook Meta Tags -->
 <meta property="og:type" content="website">
-<meta property="og:title" content="@yield('title', 'RiseBeyondGrowth – Online Courses for Skill Development')">
-<meta property="og:description" content="Learn in-demand skills with industry-focused online courses designed for career and professional growth.">
-<meta property="og:image" content="@yield('og_image', url('assets/images/bg2.png'))">
+<meta property="og:title" content="@yield('title', 'Grand Axis Learning – Professional Online Courses')">
+<meta property="og:description" content="Expert-led online courses designed for professional skill development and career growth.">
+@if(isset($og_image))
+<meta property="og:image" content="{{ $og_image }}">
+@endif
 <meta property="og:url" content="{{ url()->current() }}">
-<meta property="og:site_name" content="RiseBeyondGrowth">
-<meta property="og:locale" content="en_US"> 
-<!-- Google tag (gtag.js) --> <script async src="https://www.googletagmanager.com/gtag/js?id=G-718PNX8SQ6"></script> 
- <script> window.dataLayer = window.dataLayer || []; 
- function gtag(){dataLayer.push(arguments);} gtag('js', new Date());
-  gtag('config', 'G-718PNX8SQ6'); 
-
-</script>
+<meta property="og:site_name" content="Grand Axis Learning">
+<meta property="og:locale" content="en_US">
  <!-- Responsive -->
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -126,7 +122,7 @@
 			<div class="header-inner d-flex align-items-center justify-content-between">
 				<!-- Logo -->
 				<div class="logo-box">
-					<a href="{{route('home')}}"><img src="{{url('assets/images/logo.png')}}" alt="header-logo" style="height: 32px;"></a>  
+					<a href="{{route('home')}}"><img src="{{url('assets/images/logo.png')}}" alt="header-logo" style="height: 44px;"></a>  
 				</div>
 
 				<!-- Centered Nav -->

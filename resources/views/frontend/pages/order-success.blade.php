@@ -1,5 +1,5 @@
 @extends('frontend.layouts.main')
-@section('title','Payment Success')
+@section('title','Order Success')
 @php
 use App\Models\Order;
 $order = Order::where('trans_id', $transaction_id)->first();
@@ -7,7 +7,7 @@ $order = Order::where('trans_id', $transaction_id)->first();
 @section('main-content')
 <div class="tl-breadcrumb about-banner pt-120 pb-120">
     <video autoplay muted loop playsinline>
-        <source src="{{ asset('images/breadcrumb.mp4') }}" type="video/mp4">
+        <source src="{{ asset('assets/images/breadcrumb.mp4') }}" type="video/mp4">
     </video>
     <div class="breadcrumb-float-element float-element-1"></div>
     <div class="breadcrumb-float-element float-element-2"></div>

@@ -23,7 +23,9 @@
       "Bash(mysql -u root --password=\"\" point_system -e \"DESCRIBE carts;\")",
       "Bash(C:\\\\xampp\\\\mysql\\\\bin\\\\mysql.exe *)",
       "Bash(php -l resources/views/frontend/user/dashboard.blade.php)",
-      "Bash(php -l resources/views/frontend/pages/coursecart.blade.php)"
+      "Bash(php -l resources/views/frontend/pages/coursecart.blade.php)",
+      "Bash(awk '{print $9, $5}')",
+      "PowerShell(Get-ChildItem \"C:\\\\xampp\\\\htdocs\\\\point_system\\\\public\\\\assets\\\\images\" -Recurse -File | Select-Object FullName, @{Name=\"Size\"; Expression={$_.Length}} | Format-Table -AutoSize)"
     ]
   }
 }

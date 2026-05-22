@@ -29,6 +29,6 @@ $admin = env('MAIL_FROM_ADDRESS');
         //Mail::to($data["email"])->send(new ContactMail($data));
          Mail::to($admin)->send(new ContactMail($data));
         
-        return redirect('contact')->with('success', 'Your message has been sent successfully!');
+        return redirect('contact')->with('success', __('common.message_sent_successfully'));
     }
 }

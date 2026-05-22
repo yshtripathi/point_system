@@ -5,7 +5,7 @@
     <!-- Page Breadcrumb -->
     <div class="tl-breadcrumb about-banner pt-60 pb-60">
         <video autoplay muted loop playsinline>
-            <source src="{{ asset('images/breadcrumb.mp4') }}" type="video/mp4">
+            <source src="{{ asset('assets/images/breadcrumb.mp4') }}" type="video/mp4">
         </video>
         <div class="breadcrumb-float-element float-element-1"></div>
         <div class="breadcrumb-float-element float-element-2"></div>
@@ -259,6 +259,11 @@
                                 <p style="color: rgba(255, 255, 255, 0.7); font-size: 0.95rem; margin-bottom: 15px;">
                                     {{__('common.card_bill_description')}}
                                 </p>
+                            </div>
+
+                            <!-- Payment Methods -->
+                            <div class="kv-payment-methods" style="margin-top: 25px; padding-top: 25px; border-top: 1px solid rgba(21, 145, 220, 0.3); text-align: center;">
+                                <img src="{{ asset('assets/images/payment.png') }}" alt="Payment Methods" class="img-fluid" style="max-height: 40px; opacity: 0.8;">
                             </div>
                         </div>
                     </div>
@@ -933,3 +938,4 @@
     }
 </style>
 @endpush
+

@@ -19,7 +19,7 @@ class CartController extends Controller
     public function addToCart(Request $request){
         // dd($request->all());
         if (empty($request->slug)) {
-            request()->session()->flash('error','Invalid Products');
+            request()->session()->flash('error',__('common.invalid_products'));
             return back();
         }
 
@@ -28,7 +28,7 @@ class CartController extends Controller
 
          //return $product;
         if (empty($product)) {
-            request()->session()->flash('error','Invalid Products');
+            request()->session()->flash('error',__('common.invalid_products'));
             return back();
         }
 
@@ -41,8 +41,8 @@ class CartController extends Controller
             $already_cart->amount_jp = $product->price_jp + $already_cart->amount_jp;
             $already_cart->amount_hk = $product->price_hk + $already_cart->amount_hk;
             // return $already_cart->quantity;
-            if ($already_cart->product->stock < $already_cart->quantity || $already_cart->product->stock <= 0) 
-                return back()->with('error','Stock not sufficient!.');
+            if ($already_cart->product->stock < $already_cart->quantity || $already_cart->product->stock <= 0)
+                return back()->with('error',__('common.stock_not_sufficient'));
             $already_cart->save();
             
         }
@@ -60,11 +60,11 @@ class CartController extends Controller
             $cart->amount = $cart->price * $cart->quantity;
             $cart->amount_jp = $cart->price_jp * $cart->quantity;
             $cart->amount_hk = $cart->price_hk * $cart->quantity;
-            if ($cart->product->stock < $cart->quantity || $cart->product->stock <= 0) return back()->with('error','Stock not sufficient!.');
+            if ($cart->product->stock < $cart->quantity || $cart->product->stock <= 0) return back()->with('error',__('common.stock_not_sufficient'));
             $cart->save();
             $wishlist=Wishlist::where('user_id',auth()->user()->id)->where('cart_id',null)->update(['cart_id'=>$cart->id]);
         }
-        request()->session()->flash('success','Product successfully added to cart');
+        request()->session()->flash('success',__('common.product_added_to_cart'));
         return redirect()->route('cart');       
     }  
 
@@ -93,10 +93,10 @@ class CartController extends Controller
         
  //return $product;
         if($product->stock <$request->quant[1]){
-            return back()->with('error','Out of stock, You can add other products.');
+            return back()->with('error',__('common.out_of_stock'));
         }
         if ( ($request->quant[1] < 1) || empty($product) ) {
-            request()->session()->flash('error','Invalid Products');
+            request()->session()->flash('error',__('common.invalid_products'));
             return back();
         }    
 if (Auth::check()) {
@@ -116,7 +116,7 @@ else {
 //$already_cart='';
 
         if($already_cart) {
-            return back()->with('error','This product is already in your cart.');
+            return back()->with('error',__('common.product_already_in_cart'));
             $already_cart->quantity = $already_cart->quantity + $request->quant[1];
             // $already_cart->price = ($product->price * $request->quant[1]) + $already_cart->price ;
             $already_cart->amount = ($true_price * $request->quant[1])+ $already_cart->amount;
@@ -201,14 +201,14 @@ else {
                     
 
                     //$cart->save();
-                    $success = 'Cart successfully updated!';
+                    $success = __('common.cart_successfully_updated');
                 }else{
-                    $error[] = 'Cart Invalid!';
+                    $error[] = __('common.cart_invalid');
                 }
             }
             return back()->with($error)->with('success', $success);
         }else{
-            return back()->with('Cart Invalid!');
+            return back()->with('error',__('common.cart_invalid'));
         }    
     }
 

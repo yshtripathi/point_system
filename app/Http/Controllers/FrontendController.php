@@ -663,16 +663,16 @@ $sub_cat = Category::whereNotNull('parent_id')->get();
         if(! Newsletter::isSubscribed($request->email)){
                 Newsletter::subscribePending($request->email);
                 if(Newsletter::lastActionSucceeded()){
-                    request()->session()->flash('success','Subscribed! Please check your email');
+                    request()->session()->flash('success',__('common.subscribed_check_email'));
                     return redirect()->route('home');
                 }
                 else{
                     Newsletter::getLastError();
-                    return back()->with('error','Something went wrong! please try again');
+                    return back()->with('error',__('common.something_went_wrong'));
                 }
             }
             else{
-                request()->session()->flash('error','Already Subscribed');
+                request()->session()->flash('error',__('common.already_subscribed'));
                 return back();
             }
     }

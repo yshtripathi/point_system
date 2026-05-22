@@ -32,7 +32,7 @@
             <!-- Main Video Card -->
             <div class="modern-video-card">
                 <div class="video-container">
-                    <img src="{{ asset('assets/images/about-student.png') }}" alt="Student Success Story">
+                    <img src="{{ asset('assets/images/h-2.png') }}" alt="Student Success Story">
                     
                     <!-- Top UI -->
                     <div class="video-ui-top-left">
@@ -67,7 +67,7 @@
             <!-- LEFT: Images -->
             <div class="col-xl-6 col-lg-6 col-md-12">
                 <div class="modern-img-wrapper" style="border-radius: 20px; overflow: hidden; box-shadow: 0 30px 80px rgba(21, 145, 220, 0.15); border: 2px solid rgba(21, 145, 220, 0.1);">
-                    <img src="{{ asset('assets/images/about-student.png') }}" alt="About" class="w-100" style="display: block; transition: transform 0.4s ease;">
+                    <img src="{{ asset('assets/images/h-3.png') }}" alt="About" class="w-100" style="display: block; transition: transform 0.4s ease;">
                 </div>
             </div>
 
@@ -121,7 +121,6 @@
                         <div class="course-img-container">
                             @php $photo = explode(',', $product->photo); @endphp
                             <img src="{{ $photo[0] }}" alt="{{ $product->title }}">
-                            <div class="course-badge">{{ $product->cat_info->title ?? 'Technical' }}</div>
                         </div>
                         
                         <div class="course-content">
@@ -203,7 +202,7 @@
 </section>
 
 <section class="tech-hero-section">
-    <video class="tech-hero-video" autoplay loop muted playsinline preload="auto" poster="{{ asset('assets/images/cta-bg-4.jpg') }}">
+    <video class="tech-hero-video" autoplay loop muted playsinline preload="auto" poster="{{ asset('assets/images/background/4.jpg') }}">
         <source src="{{ asset('assets/images/home-video.mp4') }}" type="video/mp4">
     </video>
     <div class="tech-hero-overlay"></div>

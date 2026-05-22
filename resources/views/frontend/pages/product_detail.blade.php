@@ -6,7 +6,7 @@
 @section('main-content')
 <div class="tl-breadcrumb catalog-banner pt-60 pb-60">
     <video autoplay muted loop playsinline>
-        <source src="{{ asset('images/breadcrumb.mp4') }}" type="video/mp4">
+        <source src="{{ asset('assets/images/breadcrumb.mp4') }}" type="video/mp4">
     </video>
     <div class="breadcrumb-float-element float-element-1"></div>
     <div class="breadcrumb-float-element float-element-2"></div>

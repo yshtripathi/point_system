@@ -1,9 +1,10 @@
 @extends('frontend.layouts.main')
+@section('title', 'Cart')
 @section('main-content')
 
 <div class="tl-breadcrumb about-banner pt-60 pb-60">
     <video autoplay muted loop playsinline>
-        <source src="{{ asset('images/breadcrumb.mp4') }}" type="video/mp4">
+        <source src="{{ asset('assets/images/breadcrumb.mp4') }}" type="video/mp4">
     </video>
     <div class="breadcrumb-float-element float-element-1"></div>
     <div class="breadcrumb-float-element float-element-2"></div>
@@ -133,7 +134,7 @@
                         </a>
 
                         <div class="text-center">
-                            <img src="{{ asset('assets/images/pay.png') }}" alt="Payments" class="img-fluid opacity-50" style="max-height: 30px;">
+                            <img src="{{ asset('assets/images/payment.png') }}" alt="Payments" class="img-fluid opacity-50" style="max-height: 30px;">
                         </div>
                     @else
                         <div class="border-0 rounded-3 p-4 text-center mb-0" style="background: rgba(21, 145, 220, 0.05); border: 1px solid rgba(21, 145, 220, 0.1);">
