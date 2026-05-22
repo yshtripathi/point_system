@@ -11973,11 +11973,13 @@ transform: translateY(0px);
   opacity: 0;
   visibility: hidden;
   right: 0;
+  pointer-events: none;
 }
 
 .offcanvas__overlay.overlay-open {
   opacity: 0.8;
   visibility: visible;
+  pointer-events: auto;
 }
 
 @media (max-width: 450px) {

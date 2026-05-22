@@ -32,10 +32,26 @@ class HomeController extends Controller
 
     public function index() {
         if(auth()->user()->role == "user") {
-            $orders=Order::orderBy('id','DESC')->where('user_id',auth()->user()->id)->paginate(10);
-        // return view('user.order.index')->with('orders',$orders);
-        
-            return view('frontend.user.dashboard')->with('orders',$orders);
+            // Get all orders with cart info
+            $allOrders = Order::with('cart_info')
+                ->orderBy('id', 'DESC')
+                ->where('user_id', auth()->user()->id)
+                ->get();
+
+            // Split into purchased (wallet top-ups) and redeemed (course enrollments)
+            $purchasedOrders = $allOrders->filter(function($order) {
+                $cartItem = $order->cart_info->first();
+                return $cartItem && $cartItem->product_id == 1000;
+            });
+
+            $redeemedOrders = $allOrders->filter(function($order) {
+                $cartItem = $order->cart_info->first();
+                return $cartItem && $cartItem->product_id < 1000;
+            });
+
+            return view('frontend.user.dashboard')
+                ->with('purchasedOrders', $purchasedOrders)
+                ->with('redeemedOrders', $redeemedOrders);
         }
         else {
             return view('user.index');

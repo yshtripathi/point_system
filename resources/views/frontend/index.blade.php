@@ -56,22 +56,7 @@
                 </div>
             </div>
 
-            <!-- Right Float -->
-            <div class="float-content-right d-none d-xl-block">
-                <div class="float-stat-box">
-                    <div class="mb-4">
-                        <div class="d-flex justify-content-center mb-3">
-                             <div class="video-avatar"><img src="{{ asset('assets/images/avatars.png') }}" style="object-fit: cover; object-position: 80% 0;"></div>
-                             <div class="video-avatar"><img src="{{ asset('assets/images/avatars.png') }}" style="object-fit: cover; object-position: 100% 0;"></div>
-                        </div>
-                        <h2 class="float-stat">25K</h2>
-                        <p class="float-stat-label">SATISFIED USERS</p>
-                    </div>
-                    <div class="pt-4 border-top">
-                        <p class="fw-bold text-dark small">We are chosen for our quality</p>
-                    </div>
-                </div>
-            </div>
+           
         </div>
     </div>
 </section>
@@ -1066,74 +1051,5 @@
         amountInput.addEventListener('change', calculatePoints);
     });
 </script>
-
-<section class="categ-winfo pt-120 pb-120">
-    <div class="auto-container">
-        <div class="text-center mb-5">
-            <span class="modern-badge">{{ __('common.browse_categories') }}</span>
-            <h2 class="modern-h2 mt-3">{{ __('common.top_learning_areas') }}</h2>
-            <p class="text-muted mx-auto mt-3" style="max-width: 600px;">{{ __('common.top_learning_areas_description') }}</p>
-        </div>
-
-        @php
-            $categories = Helper::productCategoryList("all");
-            $images = ['1.webp', '2.webp', '3.webp', '4.webp', '5.webp'];
-        @endphp
-
-        <div class="row g-4">
-            <!-- Left: Hero Category -->
-            @if(isset($categories[0]))
-            <div class="col-xl-6 col-lg-6">
-                <div class="modern-category-card h-100" style="min-height: 500px;">
-                    <a href="{{ route('product-cat', $categories[0]->slug) }}" class="d-block h-100">
-                        <img src="{{ asset('assets/images/' . ($images[0] ?? 'service-1.jpg')) }}" alt="{{ $categories[0]->title }}">
-                        <div class="category-overlay">
-                            <span class="category-count">Featured Path</span>
-                            <h4 class="category-name" style="font-size: 32px;">{{ $categories[0]->title }}</h4>
-                        </div>
-                        <div class="category-btn" style="width: 70px; height: 70px; font-size: 24px;">
-                            <i class="fas fa-arrow-right"></i>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            @endif
-
-            <!-- Right: Smaller Categories Grid -->
-            <div class="col-xl-6 col-lg-6">
-                <div class="row g-4">
-                    @foreach($categories->slice(1, 4) as $index => $cat_info)
-                        <div class="col-md-6">
-                            <div class="modern-category-card" style="height: 240px;">
-                                <a href="{{ route('product-cat', $cat_info->slug) }}" class="d-block h-100">
-                                    <img src="{{ asset('assets/images/' . ($images[$index+1] ?? 'service-1.jpg')) }}" alt="{{ $cat_info->title }}">
-                                    <div class="category-overlay p-3">
-                                        <h4 class="category-name" style="font-size: 18px;">{{ $cat_info->title }}</h4>
-                                    </div>
-                                    <div class="category-btn" style="width: 40px; height: 40px; font-size: 14px; top: 20px; right: 20px;">
-                                        <i class="fas fa-arrow-right"></i>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    @endforeach
-
-                    <!-- Explore More Tile -->
-                    <div class="col-md-6">
-                        <div class="modern-category-card d-flex align-items-center justify-content-center bg-dark text-white" style="height: 240px; background: linear-gradient(135deg, #2C5EAD 0%, #1591DC 100%);">
-                            <div class="text-center p-4">
-                                <h4 class="text-white mb-3">Many More</h4>
-                                <p class="small opacity-75 mb-4">Discover our full range of professional learning paths.</p>
-                                <a href="{{ route('product-lists') }}" class="modern-btn modern-btn-outline border-white text-white py-2 px-4" style="font-size: 12px;">
-                                    View All <i class="fas fa-arrow-right ms-2"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
 @endsection

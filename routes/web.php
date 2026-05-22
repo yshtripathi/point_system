@@ -100,11 +100,15 @@ Route::get('sync/{alYexLHxYSKYVjFvMosvdZDBvtLyjuil}',[CurrencyController::class,
     Route::get('/cart', function () {
         return view('frontend.pages.cart');
     })->name('cart');
+
+    Route::get('/coursecart', function () {
+        return view('frontend.pages.coursecart');
+    })->name('coursecart');
+
     Route::get('/checkout', [CartController::class, 'checkout'])->name('checkout')->middleware(['user', 'points.gate']);
 
     // Points System Routes
     Route::group(['middleware' => ['auth']], function() {
-        Route::get('/points/dashboard', [PointsController::class, 'dashboard'])->name('points.dashboard');
         Route::get('/points/topup', [PointsController::class, 'topup'])->name('points.topup');
         Route::post('/points/add-to-cart', [PointsController::class, 'addToCart'])->name('points.add-to-cart');
         Route::post('/points/redeem', [PointsController::class, 'redeem'])->name('points.redeem');

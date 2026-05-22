@@ -148,7 +148,7 @@ else {
             $cart->save();
         }
         request()->session()->flash('success',__('common.product_added_to_cart'));
-        return redirect()->route('cart');       
+        return redirect()->route('coursecart');       
     } 
     
     public function cartDelete(Request $request){

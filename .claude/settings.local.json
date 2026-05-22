@@ -2,9 +2,6 @@
   "permissions": {
     "allow": [
       "Bash(git checkout *)",
-      "Bash(git add *)",
-      "Bash(git commit *)",
-      "Bash(git push *)",
       "Bash(git config *)",
       "PowerShell(git credential *)",
       "Bash(rm -rf .git)",
@@ -22,7 +19,11 @@
       "Bash(start *)",
       "Bash(curl -s http://127.0.0.1:8000/user/login)",
       "Bash(curl -s http://127.0.0.1:8000/assets/css/global.css)",
-      "Bash(curl -s http://127.0.0.1:8000/checkout)"
+      "Bash(curl -s http://127.0.0.1:8000/checkout)",
+      "Bash(mysql -u root --password=\"\" point_system -e \"DESCRIBE carts;\")",
+      "Bash(C:\\\\xampp\\\\mysql\\\\bin\\\\mysql.exe *)",
+      "Bash(php -l resources/views/frontend/user/dashboard.blade.php)",
+      "Bash(php -l resources/views/frontend/pages/coursecart.blade.php)"
     ]
   }
 }

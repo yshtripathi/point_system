@@ -187,6 +187,14 @@
 					</div>
 
 					@if(Auth::check())
+						<!-- Available Points Display -->
+						<a href="{{ route('points.topup') }}" class="modern-btn modern-btn-outline d-flex align-items-center gap-2" style="background: linear-gradient(135deg, rgba(21, 145, 220, 0.05) 0%, rgba(44, 94, 173, 0.05) 100%); border: 1px solid rgba(21, 145, 220, 0.2); padding: 8px 14px; border-radius: 10px;">
+							<i class="fas fa-coins" style="color: #1591DC; font-size: 16px;"></i>
+							<span class="d-none d-md-inline fw-bold" style="color: #0a0e27; font-size: 14px;">{{ Auth::user()->points_balance ?? 0 }}</span>
+							<span class="d-none d-lg-inline" style="color: #1591DC; font-size: 12px; font-weight: 600;">PTS</span>
+						</a>
+
+						<!-- User Dropdown -->
 						<div class="dropdown">
 							<a href="javascript:void(0)" class="modern-btn modern-btn-outline dropdown-toggle" data-bs-toggle="dropdown">
 								<span class="d-none d-sm-inline">{{Auth::user()->name}}</span>
@@ -194,7 +202,7 @@
 							</a>
 							<ul class="dropdown-menu dropdown-menu-end animated-dropdown">
 								<li><a class="dropdown-item" href="{{ route('user') }}">{{ __('common.account') }}</a></li>
-								<li><a class="dropdown-item" href="{{ route('points.dashboard') }}">{{ __('common.points_dashboard') }}</a></li>
+								<li><a class="dropdown-item" href="{{ route('user') }}">{{ __('common.points_dashboard') }}</a></li>
 								<li><hr class="dropdown-divider"></li>
 								<li><a class="dropdown-item" href="{{ route('user.logout') }}">{{ __('common.logout') }}</a></li>
 							</ul>
