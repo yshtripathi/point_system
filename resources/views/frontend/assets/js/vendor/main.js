@@ -34,7 +34,7 @@
       eduJs.qtyBtn();
       eduJs.checkoutPage();
       eduJs.offCanvas();
-      eduJs.onePageNav();
+      // eduJs.onePageNav(); // Smooth scroll disabled
       eduJs.transparentHeader();
       eduJs.categoryMenuHover();
       eduJs.cartSidenav();
