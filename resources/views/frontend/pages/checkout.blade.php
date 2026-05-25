@@ -255,9 +255,11 @@
                                 @enderror
                             </div>
 
-                            <div class="kv-payment-description" style="margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(21, 145, 220, 0.3);">
-                                <p style="color: rgba(255, 255, 255, 0.7); font-size: 0.95rem; margin-bottom: 15px;">
-                                    {{__('common.card_bill_description')}}
+                            <!-- DBA Information -->
+                            <div style="margin-top: 25px; padding-top: 25px; border-top: 1px solid rgba(21, 145, 220, 0.3);">
+                                <p style="color: #333; font-size: 0.95rem; line-height: 1.6; margin: 0;">
+                                    {{__('common.dba_text')}}
+                                    <img src="{{ asset('assets/images/dba.jpg') }}" alt="DBA" style="max-width: 120px; height: auto; margin-left: 10px; vertical-align: middle; display: inline-block;">
                                 </p>
                             </div>
 
