@@ -130,9 +130,7 @@
                             <p class="course-summary">{{ Str::limit($product->summary, 85) }}</p>
 
                             <div class="course-footer">
-                                <div class="course-price">
-                                    {{ $product->getCurrencySymbol() }}{{ number_format($product->price, session('currency') == 'JPY' ? 0 : 2) }}
-                                </div>
+                               
                                 <a href="{{ route('product-detail', $product->slug) }}" class="course-enroll-link">
                                     {{ __('common.enroll_now') }} <i class="fas fa-chevron-right ms-2"></i>
                                 </a>
