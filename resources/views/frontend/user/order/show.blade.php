@@ -4,20 +4,30 @@
 @section('main-content')
 
   <main>
-  <section class="page-header page-header--bg-two" data-jarallax data-speed="0.3" data-imgPosition="50% -100%">
-            <div class="page-header__bg jarallax-img"></div><!-- /.page-header-bg -->
-            <div class="page-header__overlay"></div><!-- /.page-header-overlay -->
-            <div class="container text-center">
-                <h2 class="page-header__title">{{ __('common.order_detail') }}</h2><!-- /.page-title -->
-                <ul class="page-header__breadcrumb list-unstyled">
-                    <li><a href="{{route('home')}}">{{ __('common.home') }}</a></li>
-                    <li><span>{{ __('common.order_detail') }}</span></li>
-                </ul><!-- /.page-breadcrumb list-unstyled -->
-            </div><!-- /.container -->
-        </section><!-- /.page-header -->
-    <!-- hero-area-start -->
-    
-      <!-- hero-area-end -->
+  <div class="tl-breadcrumb about-banner pt-60 pb-60">
+    <video autoplay muted loop playsinline>
+        <source src="{{ asset('assets/images/breadcrumb.mp4') }}" type="video/mp4">
+    </video>
+    <div class="breadcrumb-float-element float-element-1"></div>
+    <div class="breadcrumb-float-element float-element-2"></div>
+    <div class="breadcrumb-float-element float-element-3"></div>
+    <div class="container">
+        <div class="row align-items-end">
+            <div class="col-md-6">
+                <div class="banner-txt"><h1 class="tl-breadcrumb-title">{{ __('common.order_detail') }}</h1></div>
+            </div>
+            <div class="col-md-6">
+                <ul class="tl-breadcrumb-nav d-flex justify-content-md-end">
+                    <li><a href="/">{{ __('common.home') }}</a></li>
+                    <li class="current-page">
+                        <span class="dvdr"><i class="fas fa-chevron-right mx-2"></i></span>
+                        <span>{{ __('common.order_detail') }}</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
 
       <section class="cart-area pt-100 pb-100">
 				<div class="container">
