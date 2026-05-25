@@ -1022,7 +1022,7 @@ Why Our UI/UX Design Stands Out:',
     'footer_tagline' => 'Empowering motivated learners to master high-value technical skills through structured, result-oriented courses. Join our community and master your future.',
     'platform' => 'Platform',
     'support' => 'Support',
-    'stay_updated' => 'Stay Updated',
+    'stay_updated' => 'Subscribe to our Newsletter',
     'your_email_address' => 'Your email address',
     'subscribe_description' => 'Subscribe to get the latest course updates and exclusive offers.',
 
@@ -1033,5 +1033,7 @@ Why Our UI/UX Design Stands Out:',
     'available_points' => 'Available Points',
     'no_past_orders' => 'No past orders found.',
     'status' => 'Status',
+    'date' => 'Date',
+    'view' => 'View',
 ];
 

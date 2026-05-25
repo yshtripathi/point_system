@@ -58,7 +58,7 @@
                             </form>
                             <p class="text-success suces_rinfo mt-3" style="display: none;">{{ __('common.thanks_for_subscribing') }}</p>
                         </div>
-                        <p class="small text-muted mt-4">{{ __('common.subscribe_description') }}</p>
+                        
                     </div>
                 </div>
             </div>

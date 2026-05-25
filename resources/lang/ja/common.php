@@ -1031,7 +1031,7 @@ return [
     'footer_tagline' => '意欲的な学習者が構造化され、結果志向のコースを通じて高価値の技術スキルを習得できるようにエンパワーする。コミュニティに参加して、あなたの未来をマスターしてください。',
     'platform' => 'プラットフォーム',
     'support' => 'サポート',
-    'stay_updated' => '最新情報を入手',
+    'stay_updated' => '私達の時事通信を予約購読しなさい',
     'your_email_address' => 'メールアドレス',
     'subscribe_description' => 'サブスクライブして、最新のコースアップデートと限定オファーを取得してください。',
 
@@ -1042,6 +1042,8 @@ return [
     'available_points' => '利用可能なポイント',
     'no_past_orders' => '過去の注文が見つかりません。',
     'status' => 'ステータス',
+    'date' => '日付',
+    'view' => '表示',
 
     // Category Section
     'gal_category_badge' => 'カテゴリを探索',
