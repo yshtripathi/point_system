@@ -129,7 +129,26 @@
 				<nav class="modern-nav-wrapper d-none d-lg-block">
 					<ul class="modern-nav list-unstyled mb-0 d-flex align-items-center">
 						<li class="{{ Route::is('home') ? 'active' : '' }}"><a href="{{route('home')}}">{{ __('common.home')}}</a></li>
-						<li class="{{ Route::is('product-lists') ? 'active' : '' }}"><a href="{{route('product-lists')}}">{{ __('common.catalog') }}</a></li>
+						<li class="dropdown">
+							<a href="{{route('product-lists')}}" class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="color: inherit; text-decoration: none; gap: 6px; display: inline-flex; align-items: center;">
+								{{ __('common.catalog') }}
+							</a>
+							<ul class="dropdown-menu dropdown-menu-end animated-dropdown">
+								@php
+									$categories = \App\Models\Category::where('status','active')->where('is_parent',1)->orderBy('title','ASC')->get();
+								@endphp
+								@forelse($categories as $cat)
+									<li>
+										<a class="dropdown-item d-flex align-items-center gap-2 py-2 px-3 rounded-3" href="{{ route('product-lists', $cat->slug) }}">
+											<i class="fas fa-book" style="font-size: 12px; color: #1591DC;"></i>
+											{{ $cat->title }}
+										</a>
+									</li>
+								@empty
+									<li><span class="dropdown-item text-muted small">No categories</span></li>
+								@endforelse
+							</ul>
+						</li>
 						<li class="{{ Route::is('about-us') ? 'active' : '' }}"><a href="{{route('about-us')}}">{{ __('common.about')}}</a></li>
 						<li class="{{ Route::is('contact') ? 'active' : '' }}"><a href="{{route('contact')}}">{{ __('common.contact') }}</a></li>
 					</ul>
