@@ -191,12 +191,14 @@
 						</a>
 						<ul class="dropdown-menu dropdown-menu-end animated-dropdown currency-dropdown" style="min-width: 160px;">
 							@foreach($currencies as $cur)
-								<li>
-									<a class="dropdown-item d-flex align-items-center justify-content-between gap-3 py-2 px-3 rounded-3 {{ $currentCurrency == $cur->code ? 'active bg-primary text-white' : '' }}" href="{{ route('change.currency', $cur->code) }}">
-										<span>{{ $cur->code }}</span>
-										<span class="fw-bold opacity-75">{{ Helper::getCurrencySymbol($cur->code) }}</span>
-									</a>
-								</li>
+								@if($cur->code != 'HKD')
+									<li>
+										<a class="dropdown-item d-flex align-items-center justify-content-between gap-3 py-2 px-3 rounded-3 {{ $currentCurrency == $cur->code ? 'active bg-primary text-white' : '' }}" href="{{ route('change.currency', $cur->code) }}">
+											<span>{{ $cur->code }}</span>
+											<span class="fw-bold opacity-75">{{ Helper::getCurrencySymbol($cur->code) }}</span>
+										</a>
+									</li>
+								@endif
 							@endforeach
 						</ul>
 					</div>
