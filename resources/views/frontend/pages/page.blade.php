@@ -60,12 +60,106 @@
     .policy-rich-text p {
         margin-bottom: 1.5rem;
     }
-    .policy-rich-text ul, .policy-rich-text ol {
-        margin-bottom: 1.5rem;
-        padding-left: 1.5rem;
+    .policy-rich-text ol {
+        margin-bottom: 1.5rem !important;
+        padding-left: 2.5rem !important;
+        list-style-type: decimal !important;
+        list-style-position: outside !important;
+        counter-reset: ol-counter !important;
+    }
+    .policy-rich-text ol li {
+        display: list-item !important;
+        list-style-type: decimal !important;
+        list-style-position: outside !important;
+        margin-bottom: 1.5rem !important;
+        color: #4a5568 !important;
+    }
+    .policy-rich-text ol li h3 {
+        margin-top: 0.5rem !important;
+        margin-bottom: 0.75rem !important;
+    }
+    .policy-rich-text ul {
+        margin: 1rem 0 1.5rem 2rem !important;
+        padding-left: 1.5rem !important;
+        list-style-type: disc !important;
+        list-style-position: outside !important;
+    }
+    .policy-rich-text ul li {
+        display: list-item !important;
+        list-style-type: disc !important;
+        list-style-position: outside !important;
+        margin-bottom: 0.5rem !important;
+        color: #4a5568 !important;
     }
     .policy-rich-text li {
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.75rem !important;
+        color: #4a5568 !important;
+    }
+
+    /* Table Styling */
+    .policy-rich-text table {
+        width: 100% !important;
+        margin: 2rem 0 !important;
+        border-collapse: collapse !important;
+        border: none !important;
+        box-shadow: 0 2px 8px rgba(21, 145, 220, 0.1) !important;
+        border-radius: 12px !important;
+        overflow: hidden !important;
+    }
+
+    .policy-rich-text table tr {
+        border: none !important;
+    }
+
+    .policy-rich-text table tr:nth-child(odd) {
+        background-color: #f8fafc !important;
+    }
+
+    .policy-rich-text table tr:nth-child(even) {
+        background-color: #ffffff !important;
+    }
+
+    .policy-rich-text table tr:hover {
+        background-color: rgba(21, 145, 220, 0.05) !important;
+        transition: background-color 0.3s ease !important;
+    }
+
+    .policy-rich-text table td {
+        padding: 16px 20px !important;
+        border: 1px solid rgba(21, 145, 220, 0.15) !important;
+        color: #4a5568 !important;
+        font-size: 15px !important;
+        line-height: 1.6 !important;
+    }
+
+    .policy-rich-text table td:first-child {
+        background-color: rgba(21, 145, 220, 0.08) !important;
+        font-weight: 700 !important;
+        color: #1591DC !important;
+        width: 30% !important;
+    }
+
+    .policy-rich-text table strong {
+        color: #1591DC !important;
+        font-weight: 700 !important;
+    }
+
+    .policy-rich-text table img {
+        max-width: 100% !important;
+        height: auto !important;
+        border-radius: 8px !important;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1) !important;
+    }
+
+    .policy-rich-text table th {
+        background: linear-gradient(135deg, #1591DC 0%, rgba(21, 145, 220, 0.8) 100%) !important;
+        color: white !important;
+        padding: 18px 20px !important;
+        font-weight: 700 !important;
+        text-align: left !important;
+        font-size: 15px !important;
+        letter-spacing: 0.5px !important;
+        border: none !important;
     }
 </style>
 @endpush
