@@ -1034,4 +1034,19 @@ return [
     'stay_updated' => '最新情報を入手',
     'your_email_address' => 'メールアドレス',
     'subscribe_description' => 'サブスクライブして、最新のコースアップデートと限定オファーを取得してください。',
+
+    // Contact Form
+    'email_configuration_error' => 'メール構成エラーです。サポートにお問い合わせください。',
+
+    // Dashboard Page
+    'available_points' => '利用可能なポイント',
+    'no_past_orders' => '過去の注文が見つかりません。',
+    'status' => 'ステータス',
+
+    // Category Section
+    'gal_category_badge' => 'カテゴリを探索',
+    'gal_category_title' => 'コースカテゴリを閲覧',
+    'gal_category_subtitle' => '専門的な技術ドメイン別に整理された幅広いプロフェッショナルコースを発見してください。今日あなたの完璧な学習パスを見つけてください。',
+    'gal_category_explore' => 'カテゴリを探索',
+    'gal_category_courses' => 'コース',
 ];

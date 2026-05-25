@@ -1042,4 +1042,246 @@
     });
 </script>
 
+<!-- CATEGORY SECTION -->
+<section class="category-section pt-120 pb-120" style="background: linear-gradient(135deg, #ffffff 0%, #f8fbff 100%);">
+    <div class="auto-container">
+        <div class="text-center mb-5">
+            <span class="modern-badge">{{ __('common.gal_category_badge') }}</span>
+            <h2 class="modern-h2 mt-3">{{ __('common.gal_category_title') }}</h2>
+            <p class="text-muted mx-auto mt-3" style="max-width: 600px;">
+                {{ __('common.gal_category_subtitle') }}
+            </p>
+        </div>
+
+        <div class="row g-4">
+            @if(isset($category_lists) && $category_lists->count() > 0)
+                @foreach($category_lists as $category)
+                    <div class="col-xl-3 col-lg-4 col-md-6">
+                        <div class="category-card-premium">
+                            <div class="category-card-image">
+                                @if($category->photo)
+                                    <img src="{{ $category->photo }}" alt="{{ $category->title }}" class="category-img">
+                                @else
+                                    <div class="category-img-placeholder">
+                                        <i class="fas fa-book"></i>
+                                    </div>
+                                @endif
+                                <div class="category-overlay">
+                                    <a href="{{ route('product-lists', ['category' => $category->slug]) }}" class="category-explore-btn">
+                                        {{ __('common.gal_category_explore') }}
+                                        <i class="fas fa-arrow-right ms-2"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="category-card-content">
+                                <h3 class="category-title">
+                                    <a href="{{ route('product-lists', ['category' => $category->slug]) }}">
+                                        {{ $category->title }}
+                                    </a>
+                                </h3>
+                                <p class="category-count">
+                                    <i class="fas fa-graduation-cap"></i>
+                                    {{ $category->products_count }} {{ __('common.gal_category_courses') }}
+                                </p>
+                                @if($category->summary)
+                                    <p class="category-description">
+                                        {{ Str::limit($category->summary, 80) }}
+                                    </p>
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            @endif
+        </div>
+    </div>
+</section>
+
+<style>
+    /* =========================================
+       PREMIUM CATEGORY CARDS
+       ========================================= */
+
+    .category-section {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .category-card-premium {
+        background: white;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 2px 8px rgba(21, 145, 220, 0.08);
+        border: 1px solid rgba(21, 145, 220, 0.1);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .category-card-premium:hover {
+        box-shadow: 0 12px 32px rgba(21, 145, 220, 0.15);
+        transform: translateY(-4px);
+        border-color: rgba(21, 145, 220, 0.2);
+    }
+
+    .category-card-image {
+        position: relative;
+        width: 100%;
+        height: 220px;
+        overflow: hidden;
+        background: linear-gradient(135deg, #f0f4ff 0%, #e8f1f9 100%);
+    }
+
+    .category-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+    }
+
+    .category-card-premium:hover .category-img {
+        transform: scale(1.05);
+    }
+
+    .category-img-placeholder {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 48px;
+        color: #1591DC;
+        background: linear-gradient(135deg, #f0f4ff 0%, #e8f1f9 100%);
+    }
+
+    .category-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(10, 14, 39, 0.7);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        backdrop-filter: blur(2px);
+    }
+
+    .category-card-premium:hover .category-overlay {
+        opacity: 1;
+    }
+
+    .category-explore-btn {
+        background: linear-gradient(135deg, #1591DC 0%, #2C5EAD 100%);
+        color: white;
+        padding: 10px 20px;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 14px;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 12px rgba(21, 145, 220, 0.3);
+    }
+
+    .category-explore-btn:hover {
+        background: linear-gradient(135deg, #0e7ab8 0%, #1f4a7f 100%);
+        box-shadow: 0 6px 16px rgba(21, 145, 220, 0.4);
+        transform: translateY(-2px);
+        color: white;
+    }
+
+    .category-card-content {
+        padding: 20px 16px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .category-title {
+        font-size: 16px;
+        font-weight: 700;
+        color: #0a0e27;
+        margin: 0 0 12px 0;
+    }
+
+    .category-title a {
+        color: #0a0e27;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    .category-title a:hover {
+        color: #1591DC;
+    }
+
+    .category-count {
+        font-size: 12px;
+        color: #1591DC;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        margin: 0 0 10px 0;
+    }
+
+    .category-count i {
+        font-size: 11px;
+    }
+
+    .category-description {
+        font-size: 13px;
+        color: #666;
+        margin: 0;
+        line-height: 1.5;
+    }
+
+    /* =========================================
+       RESPONSIVE DESIGN
+       ========================================= */
+
+    @media (max-width: 768px) {
+        .category-card-image {
+            height: 180px;
+        }
+
+        .category-card-content {
+            padding: 16px 14px;
+        }
+
+        .category-title {
+            font-size: 14px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .category-card-image {
+            height: 160px;
+        }
+
+        .category-card-content {
+            padding: 14px 12px;
+        }
+
+        .category-title {
+            font-size: 13px;
+        }
+
+        .category-count {
+            font-size: 11px;
+        }
+
+        .category-explore-btn {
+            padding: 8px 14px;
+            font-size: 12px;
+        }
+    }
+</style>
+
 @endsection

@@ -997,6 +997,13 @@ Why Our UI/UX Design Stands Out:',
     'bonus' => 'Bonus',
     'jpy_conversion_note' => '*160 JPY = 1 Credit',
     'usd_conversion_note' => '*1 USD = 1 Credit',
+
+    // Category Section
+    'gal_category_badge' => 'Explore Categories',
+    'gal_category_title' => 'Browse Our Course Categories',
+    'gal_category_subtitle' => 'Discover a wide range of professional courses organized by specialized technology domains. Find your perfect learning path today.',
+    'gal_category_explore' => 'Explore Category',
+    'gal_category_courses' => 'Courses',
     'instant_recharge' => 'Instant Recharge',
     'get_more_points_faster' => 'Get more points, faster',
     'how_much_would_you_like' => 'How much would you like?',
@@ -1015,5 +1022,13 @@ Why Our UI/UX Design Stands Out:',
     'stay_updated' => 'Stay Updated',
     'your_email_address' => 'Your email address',
     'subscribe_description' => 'Subscribe to get the latest course updates and exclusive offers.',
+
+    // Contact Form
+    'email_configuration_error' => 'Email configuration error. Please contact support.',
+
+    // Dashboard Page
+    'available_points' => 'Available Points',
+    'no_past_orders' => 'No past orders found.',
+    'status' => 'Status',
 ];
 

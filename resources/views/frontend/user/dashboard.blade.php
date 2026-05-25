@@ -43,7 +43,7 @@
                             <i class="fas fa-coins fa-2x" style="color: #1591DC; opacity: 0.8;"></i>
                             <span class="badge" style="background: rgba(21, 145, 220, 0.1); color: #1591DC; font-size: 10px; padding: 4px 8px;">{{ __('common.balance') }}</span>
                         </div>
-                        <p class="text-muted mb-2" style="font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">{{ __('common.available_credits') ?? 'Available Points' }}</p>
+                        <p class="text-muted mb-2" style="font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">{{ __('common.available_points') }}</p>
                         <h3 class="mb-0 fw-800" style="color: #0a0e27; font-size: 28px;">{{ Auth::user()->points_balance ?? 0 }} <span style="font-size: 18px; color: #1591DC; font-weight: 600;">PTS</span></h3>
                     </div>
                 </div>
@@ -164,8 +164,8 @@
                     @else
                         <div class="text-center py-5">
                             <i class="fas fa-inbox fa-4x mb-3" style="color: rgba(21, 145, 220, 0.2);"></i>
-                            <h5 class="text-muted mt-3">{{ __('common.no_wallet_topups') }}</h5>
-                            <p class="text-muted mb-4">{{ __('common.no_wallet_topups_message') }}</p>
+                            <h5 class="text-muted mt-3">{{ __('common.no_past_orders') }}</h5>
+                            
                         </div>
                     @endif
                 </div>
@@ -239,8 +239,7 @@
                     @else
                         <div class="text-center py-5">
                             <i class="fas fa-book fa-4x mb-3" style="color: rgba(21, 145, 220, 0.2);"></i>
-                            <h5 class="text-muted mt-3">{{ __('common.no_course_enrollments') }}</h5>
-                            <p class="text-muted mb-4">{{ __('common.no_course_enrollments_message') }} <a href="{{ route('coursecart') }}" class="text-primary fw-bold">{{ __('common.browse_enroll_courses') }}</a></p>
+                            <h5 class="text-muted mt-3">{{ __('common.no_past_orders') }}</h5>
                         </div>
                     @endif
                 </div>
