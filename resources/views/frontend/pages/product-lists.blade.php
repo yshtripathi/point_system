@@ -46,7 +46,61 @@
     </div>
 </div>
 
-<section class="catalog-section pt-60 pb-80 bg-light">   
+<!-- CATEGORY HEADER SECTION -->
+@if(isset($category->title) && $category->title)
+<section class="category-header-section pt-80 pb-80" style="background: linear-gradient(135deg, #f0f4ff 0%, #e8f1f9 100%);">
+    <div class="container">
+        <div class="row align-items-center g-5">
+            <!-- Category Image -->
+            @if($category->photo)
+            <div class="col-lg-4 col-md-5">
+                <div class="category-header-image" style="border-radius: 20px; overflow: hidden; box-shadow: 0 30px 80px rgba(21, 145, 220, 0.15); border: 2px solid rgba(21, 145, 220, 0.1);">
+                    <img src="{{ $category->photo }}" alt="{{ $category->title }}" class="w-100" style="display: block; transition: transform 0.4s ease;">
+                </div>
+            </div>
+            @endif
+
+            <!-- Category Info -->
+            <div class="col-lg-8 col-md-7">
+                <span class="modern-badge mb-3" style="font-size: 11px; font-weight: 700; color: #1591DC; background: rgba(21, 145, 220, 0.08); padding: 8px 14px; border-radius: 6px; text-transform: uppercase; letter-spacing: 0.5px; display: inline-block;">{{ __('common.gal_category_explore') }}</span>
+
+                <h1 class="modern-h2 mb-3" style="font-size: 42px; font-weight: 900; color: #0a0e27; line-height: 1.3;">
+                    {{ $category->title }}
+                </h1>
+
+                @if($category->summary)
+                <p class="mb-5 text-muted" style="font-size: 16px; color: #666; font-weight: 500; line-height: 1.8;">
+                    {{ $category->summary }}
+                </p>
+                @endif
+
+                <!-- Category Stats -->
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <div class="d-flex align-items-start gap-3 p-4 rounded-3" style="background: white; border: 1px solid rgba(21, 145, 220, 0.12); transition: all 0.3s ease;">
+                            <div style="width: 44px; height: 44px; background: linear-gradient(135deg, #1591DC 0%, #2C5EAD 100%); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-size: 20px; flex-shrink: 0;">
+                                <i class="fas fa-book-open"></i>
+                            </div>
+                            <div>
+                                <p class="mb-1" style="font-size: 11px; color: #666; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">{{ __('common.gal_category_courses') }}</p>
+                                <p class="mb-0 fw-bold" style="font-size: 24px; color: #0a0e27;">
+                                    @php
+                                        $totalCount = \App\Models\Product::where('cat_id', $category->id)->where('status', 'active')->count();
+                                    @endphp
+                                    {{ $totalCount }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@endif
+
+<section class="catalog-section pt-60 pb-80 bg-light">
     <div class="container">
         <div class="row mb-5 align-items-center">
             <div class="col-md-6">
@@ -74,23 +128,13 @@
                             <!-- Overlay Gradient -->
                             <div class="position-absolute bottom-0 start-0 w-100" style="height: 100px; background: linear-gradient(to top, rgba(10, 14, 39, 0.3) 0%, transparent 100%);"></div>
 
-                            <!-- Category Badge - Top Right -->
-                            <div class="position-absolute top-0 end-0 m-4">
-                                <span class="badge px-3 py-2 text-white fw-bold" style="backdrop-filter: blur(10px); background: rgba(0,0,0,0.5); border-radius: 10px; font-size: 11px; letter-spacing: 0.6px; border: 1px solid rgba(255,255,255,0.2);">
-                                    {{$course->condition ?? __('common.self_paced')}}
-                                </span>
-                            </div>
+                        
+                            
                         </div>
 
                         <!-- Content Container -->
                         <div class="p-6 d-flex flex-column" style="padding: 1.75rem !important;">
-                            <!-- Level Badge -->
-                            <div class="d-inline-flex align-items-center gap-2 mb-3" style="width: fit-content;">
-                                <div style="width: 28px; height: 28px; background: linear-gradient(135deg, #1591DC 0%, #2C5EAD 100%); border-radius: 8px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(21, 145, 220, 0.3);">
-                                    <i class="fas fa-graduation-cap text-white" style="font-size: 13px;"></i>
-                                </div>
-                                <span class="text-uppercase fw-bold" style="font-size: 12px; color: #1591DC; letter-spacing: 0.8px;">{{ $course->skill_level ?? __('common.professional') }}</span>
-                            </div>
+                           
 
                             <!-- Title -->
                             <h5 class="fw-900 text-dark line-clamp-2" style="font-size: 20px; line-height: 1.35; color: #0a0e27; margin-bottom: 0.75rem; font-weight: 900;">
@@ -123,6 +167,56 @@
             <div class="col-12 d-flex justify-content-center">
                 {{ $products->links() }}
             </div>
+        </div>
+    </div>
+</section>
+
+<!-- RELATED CATEGORIES SECTION -->
+<section class="related-categories-section pt-120 pb-120" style="background: linear-gradient(135deg, #ffffff 0%, #f8fbff 100%);">
+    <div class="container">
+        <div class="text-center mb-5">
+            <span class="modern-badge">{{ __('common.gal_category_badge') }}</span>
+            <h2 class="modern-h2 mt-3">{{ __('common.explore_more') }}</h2>
+            <p class="text-muted mx-auto mt-3" style="max-width: 600px;">
+                {{ __('common.explore_other_categories') }}
+            </p>
+        </div>
+
+        <div class="row g-4">
+            @php
+                $allCategories = \App\Models\Category::where('status','active')
+                    ->where('is_parent',1)
+                    ->orderBy('title','ASC')
+                    ->limit(6)
+                    ->get();
+            @endphp
+
+            @forelse($allCategories as $cat)
+                <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+                    <a href="{{ route('product-lists', $cat->slug) }}" class="category-link-card">
+                        <div class="category-link-item">
+                            <div class="category-link-icon">
+                                @if($cat->photo)
+                                    <img src="{{ $cat->photo }}" alt="{{ $cat->title }}" class="category-link-img">
+                                @else
+                                    <i class="fas fa-book"></i>
+                                @endif
+                            </div>
+                            <h5 class="category-link-title">{{ $cat->title }}</h5>
+                            <p class="category-link-count">
+                                @php
+                                    $count = \App\Models\Product::where('cat_id', $cat->id)->where('status', 'active')->count();
+                                @endphp
+                                {{ $count }} {{ __('common.gal_category_courses') }}
+                            </p>
+                        </div>
+                    </a>
+                </div>
+            @empty
+                <div class="col-12 text-center">
+                    <p class="text-muted">{{ __('common.no_categories') }}</p>
+                </div>
+            @endforelse
         </div>
     </div>
 </section>
@@ -210,9 +304,111 @@
         overflow: hidden;
     }
 
+    /* =========================================
+       RELATED CATEGORIES LINKS
+       ========================================= */
+
+    .category-link-card {
+        text-decoration: none;
+        display: block;
+        height: 100%;
+    }
+
+    .category-link-item {
+        background: white;
+        border-radius: 14px;
+        padding: 16px;
+        text-align: center;
+        box-shadow: 0 2px 8px rgba(21, 145, 220, 0.08);
+        border: 1px solid rgba(21, 145, 220, 0.1);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .category-link-card:hover .category-link-item {
+        box-shadow: 0 12px 32px rgba(21, 145, 220, 0.15);
+        transform: translateY(-4px);
+        border-color: rgba(21, 145, 220, 0.2);
+    }
+
+    .category-link-icon {
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(135deg, #f0f4ff 0%, #e8f1f9 100%);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 12px;
+        font-size: 24px;
+        color: #1591DC;
+        overflow: hidden;
+    }
+
+    .category-link-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+    }
+
+    .category-link-card:hover .category-link-img {
+        transform: scale(1.1);
+    }
+
+    .category-link-title {
+        font-size: 13px;
+        font-weight: 700;
+        color: #0a0e27;
+        margin: 0 0 6px 0;
+        line-height: 1.4;
+    }
+
+    .category-link-count {
+        font-size: 11px;
+        color: #1591DC;
+        font-weight: 600;
+        margin: 0;
+    }
+
+    /* =========================================
+       RESPONSIVE
+       ========================================= */
+
     @media (max-width: 768px) {
         .catalog-card:hover {
             transform: translateY(-8px);
+        }
+
+        .related-category-image {
+            height: 120px;
+        }
+
+        .category-header-section {
+            padding-top: 40px !important;
+            padding-bottom: 40px !important;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .related-category-card {
+            border-radius: 12px;
+        }
+
+        .related-category-image {
+            height: 100px;
+        }
+
+        .related-category-content {
+            padding: 10px;
+        }
+
+        .related-category-title {
+            font-size: 12px;
         }
     }
 </style>

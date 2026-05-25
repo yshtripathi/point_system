@@ -1067,7 +1067,7 @@
                                     </div>
                                 @endif
                                 <div class="category-overlay">
-                                    <a href="{{ route('product-lists', ['category' => $category->slug]) }}" class="category-explore-btn">
+                                    <a href="{{ route('product-lists', $category->slug) }}" class="category-explore-btn">
                                         {{ __('common.gal_category_explore') }}
                                         <i class="fas fa-arrow-right ms-2"></i>
                                     </a>
@@ -1076,7 +1076,7 @@
 
                             <div class="category-card-content">
                                 <h3 class="category-title">
-                                    <a href="{{ route('product-lists', ['category' => $category->slug]) }}">
+                                    <a href="{{ route('product-lists', $category->slug) }}">
                                         {{ $category->title }}
                                     </a>
                                 </h3>

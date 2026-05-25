@@ -1049,4 +1049,7 @@ return [
     'gal_category_subtitle' => '専門的な技術ドメイン別に整理された幅広いプロフェッショナルコースを発見してください。今日あなたの完璧な学習パスを見つけてください。',
     'gal_category_explore' => 'カテゴリを探索',
     'gal_category_courses' => 'コース',
+    'explore_more' => 'さらに多くのカテゴリを探索',
+    'explore_other_categories' => '他のコースカテゴリを閲覧して、専門的な開発に最適な学習パスを見つけてください。',
+    'no_categories' => '現在利用可能なカテゴリはありません。',
 ];

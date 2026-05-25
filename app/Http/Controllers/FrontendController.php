@@ -111,7 +111,7 @@ class FrontendController extends Controller
       
         return view('frontend.pages.product-grids')->with('products',$products)->with('recent_products',$recent_products);
     }
-    public function productLists() {
+    public function productLists($slug = null) {
         //$products = Product::query();
 
         $currentLocale = App::getLocale();
@@ -271,13 +271,28 @@ class FrontendController extends Controller
             }
         }
         
-        if(!empty($_GET['category'])){
-            $slug=explode(',',$_GET['category']);
-            // dd($slug);
-            $cat_ids=Category::select('id')->whereIn('slug',$slug)->pluck('id')->toArray();
+        $category = null;
+
+        // Handle category slug from URL parameter
+        if(!empty($slug)){
+            $cat_ids = Category::select('id')->where('slug', $slug)->pluck('id')->toArray();
+            if(!empty($cat_ids)){
+                $products = $products->whereIn('cat_id', $cat_ids);
+                // Get category details for header
+                $category = Category::where('slug', $slug)->first();
+            }
+        }
+        // Handle category from query parameter (for backward compatibility)
+        elseif(!empty($_GET['category'])){
+            $slugArray = explode(',',$_GET['category']);
+            // dd($slugArray);
+            $cat_ids = Category::select('id')->whereIn('slug', $slugArray)->pluck('id')->toArray();
             // dd($cat_ids);
-            $products->whereIn('cat_id',$cat_ids)->paginate;
-            // return $products;
+            if(!empty($cat_ids)){
+                $products = $products->whereIn('cat_id', $cat_ids);
+                // Get category details for header
+                $category = Category::whereIn('slug', $slugArray)->first();
+            }
         }
         if(!empty($_GET['brand'])){
             $slugs=explode(',',$_GET['brand']);
@@ -322,7 +337,8 @@ $sub_cat = Category::whereNotNull('parent_id')->get();
         return view('frontend.pages.product-lists')
         ->with('products',$products)
         ->with('sub_cat',$sub_cat)
-        ->with('recent_products',$recent_products);
+        ->with('recent_products',$recent_products)
+        ->with('category',$category);
     }
     public function productFilter(Request $request){
             $data= $request->all();
