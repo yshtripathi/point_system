@@ -19,7 +19,7 @@
                     <li><a href="/">{{ __('common.home') }}</a></li>
                     <li class="current-page">
                         <span class="dvdr"><i class="fas fa-chevron-right mx-2"></i></span>
-                        <span>Failed</span>
+                        <span>{{ __('common.failed') }}</span>
                     </li>
                 </ul>
             </div>
@@ -52,7 +52,7 @@
 
                     <div class="d-flex flex-column flex-md-row gap-3 justify-content-center mb-5">
                         <a href="{{ route('checkout') }}" class="modern-btn modern-btn-solid px-5 py-3 shadow-lg">
-                            Try Again <i class="fas fa-redo ms-2"></i>
+                            {{ __('common.try_again') }} <i class="fas fa-redo ms-2"></i>
                         </a>
                         <a href="{{ route('home') }}" class="btn btn-light rounded-4 px-5 py-3 fw-bold">
                             {{ __('common.home') }}

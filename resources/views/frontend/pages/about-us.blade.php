@@ -39,35 +39,35 @@
 
             <!-- Right: Content -->
             <div class="col-xl-6 col-lg-6 ps-xl-5">
-                <span class="modern-badge mb-3">{{__('common.get_to_know_us')}}</span>
-                <h2 class="modern-h2 mb-4">{{__('common.build_skills_anywhere')}}</h2>
+                <span class="modern-badge mb-3">{{ __('common.gal_about_section_badge') }}</span>
+                <h2 class="modern-h2 mb-4">{{ __('common.gal_about_section_title') }}</h2>
                 <p class="text-muted lead mb-5">
-                    At {{ $misc['Company Name'] ?? __('common.company_name') }}, we are committed to bridging the gap between theory and practice. Our platform provides the tools and guidance needed to excel in today's competitive landscape.
+                    {{ __('common.gal_about_section_description') }}
                 </p>
 
                 <div class="row g-4">
                     <div class="col-md-6">
                         <div class="d-flex align-items-center gap-3">
                             <div class="modern-cart-btn bg-light text-primary border-0 shadow-sm"><i class="fas fa-graduation-cap"></i></div>
-                            <h6 class="mb-0 fw-bold">{{ __('common.built_for_modern_learning') }}</h6>
+                            <h6 class="mb-0 fw-bold">{{ __('common.gal_why_expert_title') }}</h6>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="d-flex align-items-center gap-3">
-                            <div class="modern-cart-btn bg-light text-primary border-0 shadow-sm"><i class="fas fa-user-tie"></i></div>
-                            <h6 class="mb-0 fw-bold">{{ __('common.expert_led_content') }}</h6>
+                            <div class="modern-cart-btn bg-light text-primary border-0 shadow-sm"><i class="fas fa-certificate"></i></div>
+                            <h6 class="mb-0 fw-bold">{{ __('common.gal_about_certifications') }}</h6>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="d-flex align-items-center gap-3">
                             <div class="modern-cart-btn bg-light text-primary border-0 shadow-sm"><i class="fas fa-laptop-code"></i></div>
-                            <h6 class="mb-0 fw-bold">{{ __('common.practical_skill_focused_courses') }}</h6>
+                            <h6 class="mb-0 fw-bold">{{ __('common.gal_why_industry_title') }}</h6>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="d-flex align-items-center gap-3">
-                            <div class="modern-cart-btn bg-light text-primary border-0 shadow-sm"><i class="fas fa-clock"></i></div>
-                            <h6 class="mb-0 fw-bold">{{ __('common.flexible_learning_access') }}</h6>
+                            <div class="modern-cart-btn bg-light text-primary border-0 shadow-sm"><i class="fas fa-project-diagram"></i></div>
+                            <h6 class="mb-0 fw-bold">{{ __('common.gal_why_projects_title') }}</h6>
                         </div>
                     </div>
                 </div>
@@ -79,39 +79,39 @@
 <section class="values-section pt-120 pb-120 bg-light">
     <div class="container">
         <div class="text-center mb-5">
-            <span class="modern-badge">{{ __('common.why_learn_with_us') }}</span>
-            <h2 class="modern-h2 mt-3">{{ __('common.structured_courses') }}</h2>
-            <p class="text-muted mx-auto mt-3" style="max-width: 600px;">{{ __('common.why_learn_description') }}</p>
+            <span class="modern-badge">{{ __('common.gal_why_badge') }}</span>
+            <h2 class="modern-h2 mt-3">{{ __('common.gal_why_title') }}</h2>
+            <p class="text-muted mx-auto mt-3" style="max-width: 600px;">{{ __('common.gal_topup_description') }}</p>
         </div>
 
         <div class="row g-4">
             <div class="col-xl-4 col-lg-4 col-md-6">
                 <div class="modern-card text-center p-5 h-100">
                     <div class="modern-cart-btn mx-auto mb-4 bg-primary text-white" style="width: 70px; height: 70px; font-size: 28px;">
-                        <i class="fas fa-book-open"></i>
+                        <i class="fas fa-chalkboard-user"></i>
                     </div>
-                    <h4>{{ __('common.structured_courses') }}</h4>
-                    <p class="text-muted mt-3 mb-0">{{ __('common.structured_courses_description') }}</p>
+                    <h4>{{ __('common.gal_why_expert_title') }}</h4>
+                    <p class="text-muted mt-3 mb-0">{{ __('common.gal_why_expert_desc') }}</p>
                 </div>
             </div>
 
             <div class="col-xl-4 col-lg-4 col-md-6">
                 <div class="modern-card text-center p-5 h-100">
                     <div class="modern-cart-btn mx-auto mb-4 bg-primary text-white" style="width: 70px; height: 70px; font-size: 28px;">
-                        <i class="fas fa-globe-americas"></i>
+                        <i class="fas fa-chart-line"></i>
                     </div>
-                    <h4>{{ __('common.industry_focused_content') }}</h4>
-                    <p class="text-muted mt-3 mb-0">{{ __('common.industry_focused_description') }}</p>
+                    <h4>{{ __('common.gal_why_industry_title') }}</h4>
+                    <p class="text-muted mt-3 mb-0">{{ __('common.gal_why_industry_desc') }}</p>
                 </div>
             </div>
 
             <div class="col-xl-4 col-lg-4 col-md-6">
                 <div class="modern-card text-center p-5 h-100">
                     <div class="modern-cart-btn mx-auto mb-4 bg-primary text-white" style="width: 70px; height: 70px; font-size: 28px;">
-                        <i class="fas fa-brain"></i>
+                        <i class="fas fa-project-diagram"></i>
                     </div>
-                    <h4>{{ __('common.practical_learning') }}</h4>
-                    <p class="text-muted mt-3 mb-0">{{ __('common.practical_learning_description') }}</p>
+                    <h4>{{ __('common.gal_why_projects_title') }}</h4>
+                    <p class="text-muted mt-3 mb-0">{{ __('common.gal_why_projects_desc') }}</p>
                 </div>
             </div>
         </div>

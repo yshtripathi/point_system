@@ -42,15 +42,12 @@
                             <i class="fas fa-key text-primary" style="font-size: 48px; opacity: 0.8;"></i>
                         </div>
                         <span class="modern-badge mb-3">{{ __('common.security_first') }}</span>
-                        <h2 class="modern-h2 mb-0" style="font-size: 28px; color: var(--text-dark);">Reset Password</h2>
+                        <h2 class="modern-h2 mb-0" style="font-size: 28px; color: var(--text-dark);">{{ __('common.reset_password') }}</h2>
                     </div>
 
                     <!-- Content Section -->
                     <div class="p-5">
-                        <p class="text-muted text-center mb-5" style="font-size: 14px;">
-                            <i class="fas fa-info-circle text-primary me-2"></i>
-                            Enter your email and we'll send you a link to reset your password.
-                        </p>
+                       
 
                         <form name="frmLogin" id="frmLogin" action="{{route('password.email')}}" method="post">
                             @csrf
@@ -86,7 +83,7 @@
                             <!-- Submit Button -->
                             <div class="mt-5">
                                 <button class="modern-btn modern-btn-solid w-100 py-3 fw-bold shadow-lg rounded-3" type="submit" name="submit-form" style="font-size: 15px; letter-spacing: 0.5px;">
-                                    <i class="fas fa-paper-plane me-2"></i> Send Reset Link
+                                    <i class="fas fa-paper-plane me-2"></i> {{ __('common.send_reset_link') }}
                                 </button>
                             </div>
                         </form>

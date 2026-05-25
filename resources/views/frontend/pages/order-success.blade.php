@@ -42,7 +42,7 @@ $order = Order::where('trans_id', $transaction_id)->first();
                     </div>
                     
                     <h2 class="fw-800 text-dark mb-3" style="font-weight: 800; letter-spacing: -1px;">{{ __('common.order_successful') }}</h2>
-                    <p class="text-muted mb-5 px-md-5">{{ __('common.thank_you_order') }} Your enrollment has been confirmed and is now active in your dashboard.</p>
+                    <p class="text-muted mb-5 px-md-5">{{ __('common.thank_you_order') }} {{ __('common.enrollment_confirmed') }}</p>
                     
                     <div class="bg-light p-4 rounded-4 mb-5 border border-white shadow-sm">
                         <div class="small fw-bold text-uppercase opacity-50 mb-1">{{ __('common.invoice_number') }}</div>
@@ -62,7 +62,7 @@ $order = Order::where('trans_id', $transaction_id)->first();
                         <div class="mt-5 pt-4 border-top">
                             <div class="alert bg-soft-warning border-0 rounded-4 text-start d-flex gap-3 align-items-center">
                                 <i class="fas fa-info-circle text-warning fs-4"></i>
-                                <span class="small text-dark">{{ __('common.high_traffic') }} <a href="{{route('order.pdf',$order->id)}}" class="fw-bold text-primary">Download PDF Invoice</a></span>
+                                <span class="small text-dark">{{ __('common.high_traffic') }} <a href="{{route('order.pdf',$order->id)}}" class="fw-bold text-primary">{{ __('common.download_pdf_invoice') }}</a></span>
                             </div>
                         </div>
                     @endif

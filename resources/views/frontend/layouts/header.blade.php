@@ -302,7 +302,7 @@
                                         </a>
                                         @php
                                             $item_photo = asset('assets/images/placeholder.jpg');
-                                            $item_title = "Points Top Up";
+                                            $item_title = __('common.points_top_up');
                                             $item_link = "#";
                                             $is_course = false;
                                             $level = null;

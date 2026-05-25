@@ -11,9 +11,7 @@
                                 <img src="{{url('assets/images/logo.png')}}" alt="Rise Beyond Growth">
                             </a>
                         </div>
-                        <div class="text">
-                            Empowering motivated learners to master high-value technical skills through structured, result-oriented courses. Join our community and master your future.
-                        </div>
+                       
                         <ul class="contact-info">
                             <li><i class="fas fa-envelope"></i> <a href="mailto:{{ $misc['Company Email'] ?? __('common.company_email') }}">{{ $misc['Company Email'] ?? __('common.company_email') }}</a></li>
                             <li><i class="fas fa-map-marker-alt"></i> <span>{{ $misc['Company Address'] ?? __('common.company_Address') }}</span></li>
@@ -24,7 +22,7 @@
                 <!-- Column 2: Quick Links -->
                 <div class="footer-column col-xl-2 col-lg-2 col-md-4 col-6">
                     <div class="footer-widget">
-                        <h4 class="widget-title">Platform</h4>
+                        <h4 class="widget-title">{{ __('common.platform') }}</h4>
                         <ul class="user-links">
                             <li><a href="{{route('home')}}">{{ __('common.home') }}</a></li>
                             <li><a href="{{route('product-lists')}}">{{ __('common.catalog') }}</a></li>
@@ -37,7 +35,7 @@
                 <!-- Column 3: Support -->
                 <div class="footer-column col-xl-2 col-lg-2 col-md-4 col-6">
                     <div class="footer-widget">
-                        <h4 class="widget-title">Support</h4>
+                        <h4 class="widget-title">{{ __('common.support') }}</h4>
                         <ul class="user-links">
                             <li><a href="{{route('pages','privacy-policy')}}">{{ __('common.privacy_policy') }}</a></li>
                             <li><a href="{{route('pages','terms-conditions')}}">{{ __('common.terms_policy') }}</a></li>
@@ -50,17 +48,17 @@
                 <!-- Column 4: Newsletter -->
                 <div class="footer-column col-xl-4 col-lg-4 col-md-12">
                     <div class="footer-widget">
-                        <h4 class="widget-title">Stay Updated</h4>
+                        <h4 class="widget-title">{{ __('common.stay_updated') }}</h4>
                         <div class="subscribe-form">
                             <form>
                                 <div class="form-group">
-                                    <input type="email" name="email" class="email" placeholder="Your email address" required>
+                                    <input type="email" name="email" class="email" placeholder="{{ __('common.your_email_address') }}" required>
                                     <button type="submit" class="theme-btn"><i class="fas fa-paper-plane"></i></button>
                                 </div>
                             </form>
                             <p class="text-success suces_rinfo mt-3" style="display: none;">{{ __('common.thanks_for_subscribing') }}</p>
                         </div>
-                        <p class="small text-muted mt-4">Subscribe to get the latest course updates and exclusive offers.</p>
+                        <p class="small text-muted mt-4">{{ __('common.subscribe_description') }}</p>
                     </div>
                 </div>
             </div>

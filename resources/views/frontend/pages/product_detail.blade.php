@@ -36,9 +36,9 @@
             <div class="col-xl-7">
                 <div class="p-0">
                     <div class="d-flex align-items-center gap-3 mb-5" style="margin-bottom: 2rem !important;">
-                        <h2 class="fw-900 text-dark mb-0" style="font-size: 28px; color: #0a0e27;">Select Your Level</h2>
+                        <h2 class="fw-900 text-dark mb-0" style="font-size: 28px; color: #0a0e27;">{{ __('common.select_level') }}</h2>
                         <div class="badge px-3 py-2 rounded-pill" style="background: linear-gradient(135deg, rgba(21, 145, 220, 0.1) 0%, rgba(44, 94, 173, 0.1) 100%); border: 1px solid rgba(21, 145, 220, 0.2); color: #1591DC;">
-                            <i class="fas fa-graduation-cap me-2" style="font-size: 12px;"></i> Professional
+                            <i class="fas fa-graduation-cap me-2" style="font-size: 12px;"></i> {{ __('common.professional') }}
                         </div>
                     </div>
 
@@ -69,7 +69,7 @@
                                     <!-- Level Badge -->
                                     <div class="mb-4 d-flex align-items-center gap-2">
                                         <span class="badge rounded-2 px-3 py-2" style="background: rgba(21, 145, 220, 0.1); color: #1591DC; font-size: 12px; font-weight: 600;">
-                                            <i class="fas fa-level-up-alt me-1"></i> Level: <strong>{{ $level->skill_level }}</strong>
+                                            <i class="fas fa-level-up-alt me-1"></i> {{ __('common.level') }}: <strong>{{ $level->skill_level }}</strong>
                                         </span>
                                     </div>
 
@@ -109,7 +109,7 @@
 
                                     <div class="enrollment-footer d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3 pt-4" style="border-top: 1.5px solid rgba(21, 145, 220, 0.1);">
                                         <div class="price-display">
-                                            <div class="text-muted small fw-bold text-uppercase mb-1" style="font-size: 11px; letter-spacing: 0.5px;">Points</div>
+                                            <div class="text-muted small fw-bold text-uppercase mb-1" style="font-size: 11px; letter-spacing: 0.5px;">{{ __('common.points') }}</div>
                                             <h3 class="fw-900 mb-0" style="color: #1591DC; font-size: 24px;">
                                                 {{ number_format($level->price_in_points) }} <span class="fs-6 opacity-60" style="font-weight: 600;">PTS</span>
                                             </h3>
@@ -124,7 +124,7 @@
                                             <input type="hidden" name="price_hk" value="{{$level->price_hk}}">
                                             <input type="hidden" name="level_id" value="{{$level->id}}">
                                             <button type="submit" class="btn w-100 px-4 py-3 fw-bold rounded-3" style="background: linear-gradient(135deg, #1591DC 0%, #2C5EAD 100%); color: white; border: none; font-size: 14px; transition: all 0.3s ease;">
-                                                Enroll Now <i class="fas fa-arrow-right ms-2"></i>
+                                                {{ __('common.enroll_now') }} <i class="fas fa-arrow-right ms-2"></i>
                                             </button>
                                         </form>
                                     </div>
@@ -144,7 +144,7 @@
                     </div>
 
                     <div class="bg-white p-4 rounded-3 mb-3" style="border: 1px solid rgba(21, 145, 220, 0.12); box-shadow: 0 4px 16px rgba(21, 145, 220, 0.06);">
-                        <h6 class="fw-bold text-dark mb-3" style="font-size: 16px;">Course Overview</h6>
+                        <h6 class="fw-bold text-dark mb-3" style="font-size: 16px;">{{ __('common.course_overview') }}</h6>
                         <p class="text-muted mb-0" style="font-size: 14px; line-height: 1.6;">{{$product_detail->description}}</p>
                     </div>
 
@@ -154,8 +154,8 @@
                                 <i class="fas fa-certificate" style="color: #1591DC; font-size: 20px;"></i>
                             </div>
                             <div>
-                                <div class="fw-bold small text-dark">Lifetime Access</div>
-                                <div class="text-muted tiny">Learn at your own pace</div>
+                                <div class="fw-bold small text-dark">{{ __('common.lifetime_access') }}</div>
+                                <div class="text-muted tiny">{{ __('common.learn_own_pace') }}</div>
                             </div>
                         </div>
                     </div>

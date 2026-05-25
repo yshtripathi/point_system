@@ -47,6 +47,8 @@
 
                     <!-- Content Section -->
                     <div class="p-5">
+                    
+
                         <form name="frmRegister" id="frmRegister" action="{{route('register.submit')}}" method="post">
                             @csrf
                             <div class="row g-4">
@@ -250,7 +252,7 @@
                 password_confirmation: {
                     required: "{{ __('common.password_confirmation_required') }}",
                     minlength: "{{ __('common.password_confirmation_min') }}",
-                    equalTo: "Passwords do not match."
+                    equalTo: "{{ __('common.password_confirmation_equal') }}"
                 },
                 email: "{{ __('common.email_required') }}",
                 @if(env('CAPTCHA_ENABLED', true))

@@ -37,7 +37,7 @@
             <!-- Left: Contact Details -->
             <div class="col-xl-4 col-lg-5 d-none d-lg-block">
                 <span class="modern-badge mb-3">{{ __('common.get_in_touch') }}</span>
-                <h3 class="modern-h2 mb-5" style="font-size: 24px; color: var(--text-dark);">We'd love to hear from you</h3>
+                <h3 class="modern-h2 mb-5" style="font-size: 24px; color: var(--text-dark);">{{ __('common.contact_header') }}</h3>
 
                 <div class="contact-info-cards">
                     <div class="modern-card p-4 mb-4 border-0 shadow-sm d-flex align-items-start gap-3">
@@ -88,7 +88,7 @@
                     <div class="p-5">
                         <p class="text-muted text-center mb-5" style="font-size: 14px;">
                             <i class="fas fa-info-circle text-primary me-2"></i>
-                            Send us a message and we'll respond as soon as possible.
+                            {{ __('common.contact_message') }}
                         </p>
 
                         <form method="POST" action="{{ route('contact.send') }}" id="contactform">

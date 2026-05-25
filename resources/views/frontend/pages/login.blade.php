@@ -76,7 +76,7 @@
 
                             <!-- Forgot Password Link -->
                             <div class="text-end mb-4">
-                                <a href="{{route('forgetpwd.form')}}" class="small text-primary fw-bold text-decoration-none hover-underline">{{ __('common.lost_password_text') }}?</a>
+                                <a href="{{route('forgetpwd.form')}}" class="small text-primary fw-bold text-decoration-none hover-underline">{{ __('common.lost_password_text') }}</a>
                             </div>
 
                             <!-- Login Button -->

@@ -4,8 +4,8 @@
     @section('title', $category->title)
     @section('description', $category->summary)
 @else
-    @section('title', __('common.all_courses_text'))
-    @section('description', __('common.all_courses_text'))
+    @section('title', __('common.explore_courses'))
+    @section('description', __('common.explore_courses'))
 @endif
 
 @section('main-content')
@@ -23,7 +23,7 @@
                     @if(isset($category->title) && $category->title)
                         {{$category->title}}
                     @else
-                        {{ __('common.products') }}
+                        {{ __('common.explore_courses') }}
                     @endif
                 </h1></div>
             </div>
@@ -36,7 +36,7 @@
                             @if(isset($category->title) && $category->title)
                                 {{$category->title}}
                             @else
-                                {{ __('common.products') }}
+                                {{ __('common.explore_courses') }}
                             @endif
                         </span>
                     </li>
@@ -51,7 +51,7 @@
         <div class="row mb-5 align-items-center">
             <div class="col-md-6">
                 <h4 class="fw-bold text-dark mb-0">
-                    <span class="text-primary">{{$products->count()}}</span> {{ __('common.courses') }} Available
+                    <span class="text-primary">{{$products->count()}}</span> {{ __('common.courses') }} {{ __('common.available') }}
                 </h4>
             </div>
             <div class="col-md-6 text-md-end">
@@ -77,7 +77,7 @@
                             <!-- Category Badge - Top Right -->
                             <div class="position-absolute top-0 end-0 m-4">
                                 <span class="badge px-3 py-2 text-white fw-bold" style="backdrop-filter: blur(10px); background: rgba(0,0,0,0.5); border-radius: 10px; font-size: 11px; letter-spacing: 0.6px; border: 1px solid rgba(255,255,255,0.2);">
-                                    {{$course->condition ?? 'SELF-PACED'}}
+                                    {{$course->condition ?? __('common.self_paced')}}
                                 </span>
                             </div>
                         </div>
@@ -89,7 +89,7 @@
                                 <div style="width: 28px; height: 28px; background: linear-gradient(135deg, #1591DC 0%, #2C5EAD 100%); border-radius: 8px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(21, 145, 220, 0.3);">
                                     <i class="fas fa-graduation-cap text-white" style="font-size: 13px;"></i>
                                 </div>
-                                <span class="text-uppercase fw-bold" style="font-size: 12px; color: #1591DC; letter-spacing: 0.8px;">Professional</span>
+                                <span class="text-uppercase fw-bold" style="font-size: 12px; color: #1591DC; letter-spacing: 0.8px;">{{ $course->skill_level ?? __('common.professional') }}</span>
                             </div>
 
                             <!-- Title -->
@@ -107,7 +107,7 @@
                             <!-- Footer Section -->
                             <div class="d-flex align-items-center gap-3 mt-auto" style="border-top: 1.5px solid rgba(21, 145, 220, 0.1); padding-top: 1rem;">
                                 <a href="{{route('product-detail',$course->slug)}}" class="btn btn-sm flex-grow-1" style="background: linear-gradient(135deg, #1591DC 0%, #2C5EAD 100%); color: white; border: none; border-radius: 10px; font-weight: 600; font-size: 14px; padding: 10px 16px; transition: all 0.3s ease; letter-spacing: 0.5px;">
-                                    View More
+                                    {{ __('common.view_more') }}
                                 </a>
                                 <a href="{{route('product-detail',$course->slug)}}" class="catalog-card-btn d-flex align-items-center justify-content-center" style="width: 44px; height: 44px; background: linear-gradient(135deg, rgba(21, 145, 220, 0.12) 0%, rgba(21, 145, 220, 0.06) 100%); border-radius: 12px; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); text-decoration: none;">
                                     <i class="fas fa-arrow-right" style="color: #1591DC; font-size: 18px; transition: transform 0.3s ease;"></i>

@@ -10,10 +10,10 @@
     <div class="auto-container">
         <!-- Hero Text -->
         <h1 class="modern-h1">
-            With a <span class="serif">strong</span> focus on building <span class="serif">practical</span> skills
+            {{ __('common.gal_hero_title') }}
         </h1>
         <p class="hero-subtitle">
-            Join thousands of motivated learners mastering high-value technical skills with our structured, result-oriented courses.
+            {{ __('common.gal_hero_subtitle') }}
         </p>
 
         <!-- Featured Component (Video/Image) -->
@@ -21,11 +21,11 @@
             <!-- Left Float -->
             <div class="float-content-left d-none d-xl-block">
                 <div class="float-quote-box">
-                    <p class="float-quote">" This an excellent platform for educators to monetize their skills "</p>
+                    <p class="float-quote">"{{ __('common.gal_hero_testimonial') }}"</p>
                     <div class="d-flex align-items-center gap-2 mb-3">
-                        <h6 class="mb-0 small fw-bold">Kaito Tanaka</h6>
+                        <h6 class="mb-0 small fw-bold">{{ __('common.gal_hero_testimonial_author') }}</h6>
                     </div>
-                    <a href="{{ route('product-lists') }}" class="modern-btn modern-btn-outline">Explore More</a>
+                    <a href="{{ route('product-lists') }}" class="modern-btn modern-btn-outline">{{ __('common.gal_hero_cta') }}</a>
                 </div>
             </div>
 
@@ -73,9 +73,9 @@
 
             <!-- RIGHT: Content -->
             <div class="col-xl-6 col-lg-6 col-md-12 ps-xl-5">
-                <span class="modern-badge mb-3" style="font-size: 11px; font-weight: 700; color: #1591DC; background: rgba(21, 145, 220, 0.08); padding: 8px 14px; border-radius: 6px; text-transform: uppercase; letter-spacing: 0.5px; display: inline-block;">{{ __('common.about_us') }}</span>
-                <h2 class="modern-h2 mb-4" style="font-size: 36px; font-weight: 900; color: #0a0e27; line-height: 1.3;">{{ __('common.building_practical_skills') }}</h2>
-                <p class="mb-5 text-muted" style="font-size: 15px; color: #666; font-weight: 500; line-height: 1.8;">{{ __('common.platform_overview') }}</p>
+                <span class="modern-badge mb-3" style="font-size: 11px; font-weight: 700; color: #1591DC; background: rgba(21, 145, 220, 0.08); padding: 8px 14px; border-radius: 6px; text-transform: uppercase; letter-spacing: 0.5px; display: inline-block;">{{ __('common.gal_about_section_badge') }}</span>
+                <h2 class="modern-h2 mb-4" style="font-size: 36px; font-weight: 900; color: #0a0e27; line-height: 1.3;">{{ __('common.gal_about_section_title') }}</h2>
+                <p class="mb-5 text-muted" style="font-size: 15px; color: #666; font-weight: 500; line-height: 1.8;">{{ __('common.gal_about_section_description') }}</p>
 
                 <div class="row g-4">
                     <div class="col-md-12">
@@ -84,17 +84,17 @@
                                 <i class="fas fa-graduation-cap"></i>
                             </div>
                             <div>
-                                <p class="mb-0 fw-bold" style="font-size: 14px; color: #0a0e27;">{{ __('common.course_structure_focus') }}</p>
+                                <p class="mb-0 fw-bold" style="font-size: 14px; color: #0a0e27;">{{ __('common.gal_about_expert_instruction') }}</p>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-12">
                         <div class="d-flex align-items-start gap-3 p-4 rounded-3" style="background: white; border: 1px solid rgba(21, 145, 220, 0.12); transition: all 0.3s ease;">
                             <div style="width: 44px; height: 44px; background: linear-gradient(135deg, #1591DC 0%, #2C5EAD 100%); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-size: 20px; flex-shrink: 0;">
-                                <i class="fas fa-users"></i>
+                                <i class="fas fa-certificate"></i>
                             </div>
                             <div>
-                                <p class="mb-0 fw-bold" style="font-size: 14px; color: #0a0e27;">{{ __('common.learner_support_all_levels') }}</p>
+                                <p class="mb-0 fw-bold" style="font-size: 14px; color: #0a0e27;">{{ __('common.gal_about_certifications') }}</p>
                             </div>
                         </div>
                     </div>
@@ -107,9 +107,9 @@
 <section class="prduct-info pt-120 pb-120" style="background: #E8F1F9;">
     <div class="auto-container">
         <div class="text-center mb-5">
-            <span class="modern-badge">{{ __('common.popular_courses') }}</span>
-            <h2 class="modern-h2 mt-3">{{ __('common.choose_course') }}</h2>
-            <p class="text-muted mx-auto mt-3" style="max-width: 600px;">{{ __('common.popular_courses_description') }}</p>
+            <span class="modern-badge">{{ __('common.gal_programs_badge') }}</span>
+            <h2 class="modern-h2 mt-3">{{ __('common.gal_programs_title') }}</h2>
+            <p class="text-muted mx-auto mt-3" style="max-width: 600px;">{{ __('common.gal_programs_subtitle') }}</p>
         </div>
 
         <div class="row g-4">
@@ -124,26 +124,17 @@
                         </div>
                         
                         <div class="course-content">
-                            <div class="d-flex align-items-center gap-2 mb-3">
-                                <div class="course-rating-stars">
-                                    <i class="fas fa-star text-warning small"></i>
-                                    <i class="fas fa-star text-warning small"></i>
-                                    <i class="fas fa-star text-warning small"></i>
-                                    <i class="fas fa-star text-warning small"></i>
-                                    <i class="fas fa-star text-warning small"></i>
-                                </div>
-                                <span class="small text-muted">(4.9)</span>
-                            </div>
+                           
 
                             <h4 class="course-title"><a href="{{ route('product-detail', $product->slug) }}">{{ $product->title }}</a></h4>
                             <p class="course-summary">{{ Str::limit($product->summary, 85) }}</p>
-                            
+
                             <div class="course-footer">
                                 <div class="course-price">
                                     {{ $product->getCurrencySymbol() }}{{ number_format($product->price, session('currency') == 'JPY' ? 0 : 2) }}
                                 </div>
                                 <a href="{{ route('product-detail', $product->slug) }}" class="course-enroll-link">
-                                    Enroll Now <i class="fas fa-chevron-right ms-2"></i>
+                                    {{ __('common.enroll_now') }} <i class="fas fa-chevron-right ms-2"></i>
                                 </a>
                             </div>
                         </div>
@@ -154,7 +145,7 @@
 
         <div class="text-center mt-5">
             <a href="{{ route('product-lists') }}" class="modern-btn modern-btn-outline">
-                View All Courses <i class="fas fa-arrow-right ms-2"></i>
+                {{ __('common.gal_programs_cta') }} <i class="fas fa-arrow-right ms-2"></i>
             </a>
         </div>
     </div>
@@ -163,38 +154,38 @@
 <section class="chse_secton pt-120 pb-120 bg-white">
     <div class="auto-container">
         <div class="text-center mb-5">
-            <span class="modern-badge">{{ __('common.why_learn_with_us') }}</span>
-            <h2 class="modern-h2">{{ __('common.structured_courses') }}</h2>
+            <span class="modern-badge">{{ __('common.gal_why_badge') }}</span>
+            <h2 class="modern-h2">{{ __('common.gal_why_title') }}</h2>
         </div>
 
         <div class="row g-4">
             <div class="col-xl-4 col-lg-4 col-md-6">
                 <div class="modern-card text-center">
                     <div class="modern-cart-btn mx-auto mb-4 bg-primary text-white" style="width: 60px; height: 60px; font-size: 24px;">
-                        <i class="fas fa-book"></i>
+                        <i class="fas fa-chalkboard-user"></i>
                     </div>
-                    <h3>{{ __('common.structured_courses') }}</h3>
-                    <p class="text-muted">{{ __('common.structured_courses_description') }}</p>
+                    <h3>{{ __('common.gal_why_expert_title') }}</h3>
+                    <p class="text-muted">{{ __('common.gal_why_expert_desc') }}</p>
                 </div>
             </div>
 
             <div class="col-xl-4 col-lg-4 col-md-6">
                 <div class="modern-card text-center">
                     <div class="modern-cart-btn mx-auto mb-4 bg-primary text-white" style="width: 60px; height: 60px; font-size: 24px;">
-                        <i class="fas fa-globe"></i>
+                        <i class="fas fa-chart-line"></i>
                     </div>
-                    <h3>{{ __('common.industry_focused_content') }}</h3>
-                    <p class="text-muted">{{ __('common.industry_focused_description') }}</p>
+                    <h3>{{ __('common.gal_why_industry_title') }}</h3>
+                    <p class="text-muted">{{ __('common.gal_why_industry_desc') }}</p>
                 </div>
             </div>
 
             <div class="col-xl-4 col-lg-4 col-md-6">
                 <div class="modern-card text-center">
                     <div class="modern-cart-btn mx-auto mb-4 bg-primary text-white" style="width: 60px; height: 60px; font-size: 24px;">
-                        <i class="fas fa-laptop-code"></i>
+                        <i class="fas fa-project-diagram"></i>
                     </div>
-                    <h3>{{ __('common.practical_learning') }}</h3>
-                    <p class="text-muted">{{ __('common.practical_learning_description') }}</p>
+                    <h3>{{ __('common.gal_why_projects_title') }}</h3>
+                    <p class="text-muted">{{ __('common.gal_why_projects_desc') }}</p>
                 </div>
             </div>
         </div>
@@ -209,10 +200,10 @@
     <div class="tech-hero-container">
         <div class="tech-hero-glass-card">
             <div class="tech-hero-content">
-                <h2>{{ __('common.unlimited_online_learning') }}</h2>
-                <p>{{ __('common.unlimited_online_learning_description') }}</p>
+                <h2>{{ __('common.gal_tech_hero_title') }}</h2>
+                <p>{{ __('common.gal_tech_hero_description') }}</p>
                 <a href="{{ route('product-lists') }}" class="modern-btn modern-btn-solid shadow-lg">
-                    {{ __('common.know_more') }} <i class="fas fa-chevron-right ms-2"></i>
+                    {{ __('common.gal_tech_hero_cta') }} <i class="fas fa-chevron-right ms-2"></i>
                 </a>
             </div>
         </div>
@@ -223,10 +214,10 @@
 <section class="points-topup-section pt-120 pb-120" id="topup">
     <div class="auto-container">
         <div class="text-center mb-5">
-            <span class="modern-badge">POINTS TOP UP</span>
-            <h2 class="modern-h2 mt-3">Maximize Your Value</h2>
+            <span class="modern-badge">{{ __('common.gal_topup_badge') }}</span>
+            <h2 class="modern-h2 mt-3">{{ __('common.gal_topup_title') }}</h2>
             <p class="text-muted mx-auto mt-3" style="max-width: 600px;">
-                Recharge your points and unlock exclusive bonuses instantly. Our tier-based system rewards you more as you grow.
+                {{ __('common.gal_topup_description') }}
             </p>
         </div>
 
@@ -248,8 +239,8 @@
                             </svg>
                         </div>
                         <div class="header-text">
-                            <h3 class="tier-title">Tier Rewards</h3>
-                            <p class="tier-subtitle">Bigger purchases = bigger bonuses</p>
+                            <h3 class="tier-title">{{ __('common.gal_tiers_title') }}</h3>
+                            <p class="tier-subtitle">{{ __('common.gal_tiers_subtitle') }}</p>
                         </div>
                     </div>
 
@@ -387,8 +378,8 @@
                         <!-- Header -->
                         <div class="calc-header-premium">
                             <div class="calc-header-top">
-                                <h2 class="calc-title-premium">Instant Recharge</h2>
-                                <p class="calc-tagline">Get more points, faster</p>
+                                <h2 class="calc-title-premium">{{ __('common.gal_calc_title') }}</h2>
+                                <p class="calc-tagline">{{ __('common.gal_calc_tagline') }}</p>
                             </div>
                             <div class="calc-currency-badge">{{ session('currency') == 'JPY' ? '¥' : '$' }}</div>
                         </div>
@@ -399,7 +390,7 @@
 
                             <!-- Amount Input with Premium Styling -->
                             <div class="premium-input-section">
-                                <label class="input-label-premium">How much would you like?</label>
+                                <label class="input-label-premium">{{ __('common.gal_calc_input_label') }}</label>
                                 <div class="premium-amount-input-wrapper">
                                     <input
                                         type="number"
@@ -417,16 +408,16 @@
                             <!-- Points Breakdown Card -->
                             <div class="points-breakdown-card">
                                 <div class="breakdown-row">
-                                    <span class="breakdown-label">Base Points</span>
+                                    <span class="breakdown-label">{{ __('common.gal_calc_base_points') }}</span>
                                     <span class="breakdown-value" id="base_points">0</span>
                                 </div>
                                 <div class="breakdown-row">
-                                    <span class="breakdown-label">Tier Bonus</span>
+                                    <span class="breakdown-label">{{ __('common.gal_calc_tier_bonus') }}</span>
                                     <span class="breakdown-value bonus-badge" id="multiplier_display">×1</span>
                                 </div>
                                 <div class="breakdown-divider"></div>
                                 <div class="breakdown-row breakdown-total">
-                                    <span class="breakdown-label">You'll Get</span>
+                                    <span class="breakdown-label">{{ __('common.gal_calc_youll_get') }}</span>
                                     <span class="breakdown-value-total" id="total_points">0</span>
                                 </div>
                             </div>
@@ -434,28 +425,28 @@
                             <!-- Large Points Display -->
                             <div class="points-display-premium">
                                 <span class="points-number" id="total_points_large">0</span>
-                                <span class="points-unit">Points</span>
+                                <span class="points-unit">{{ __('common.gal_calc_points_unit') }}</span>
                             </div>
 
                             <!-- Benefits Checklist -->
                             <div class="benefits-section">
                                 <div class="benefit-item">
                                     <i class="fas fa-bolt"></i>
-                                    <span>Instant Credit</span>
+                                    <span>{{ __('common.gal_calc_benefit_access') }}</span>
                                 </div>
                                 <div class="benefit-item">
                                     <i class="fas fa-shield-alt"></i>
-                                    <span>100% Secure</span>
+                                    <span>{{ __('common.gal_calc_benefit_payment') }}</span>
                                 </div>
                                 <div class="benefit-item">
                                     <i class="fas fa-infinity"></i>
-                                    <span>No Expiry</span>
+                                    <span>{{ __('common.gal_calc_benefit_lifetime') }}</span>
                                 </div>
                             </div>
 
                             <!-- Premium Button -->
                             <button type="submit" class="btn-premium-checkout">
-                                <span class="btn-label">Add to Cart</span>
+                                <span class="btn-label">{{ __('common.gal_calc_button') }}</span>
                                 <span class="btn-icon"><i class="fas fa-arrow-right"></i></span>
                                 <span class="btn-shine"></span>
                             </button>
@@ -464,7 +455,7 @@
                         <!-- Trust Badge -->
                         <div class="trust-indicator">
                             <i class="fas fa-check-circle"></i>
-                            <span>Trusted by thousands of users</span>
+                            <span>{{ __('common.gal_calc_trust_message') }}</span>
                         </div>
                     </div>
                 </div>

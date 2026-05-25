@@ -56,7 +56,7 @@
                 <div class="modern-card p-4 p-md-5 border-0 shadow-sm bg-white" style="border-radius: 24px; border: 1px solid rgba(21, 145, 220, 0.1);">
                     <h5 class="fw-bold text-dark mb-5 d-flex align-items-center gap-3" style="color: #0a0e27;">
                         <i class="fas fa-graduation-cap" style="color: #1591DC;"></i>
-                        {{ __('common.item') }} Summary
+                        {{ __('common.courses_in_cart') }}
                     </h5>
 
                     @if(Helper::cartCount())
@@ -110,7 +110,7 @@
                                         @else
                                             <div class="mb-3">
                                                 <span class="badge rounded-2 px-3 py-2" style="background: rgba(255, 193, 7, 0.1); color: #FFC107; font-size: 12px; font-weight: 600;">
-                                                    <i class="fas fa-wallet me-1"></i> Points Top Up
+                                                    <i class="fas fa-wallet me-1"></i> {{ __('common.points_top_up') }}
                                                 </span>
                                             </div>
                                         @endif
@@ -118,7 +118,7 @@
                                         <!-- Cost Display -->
                                         <div class="mt-4 pt-3 border-top" style="border-color: rgba(21, 145, 220, 0.15);">
                                             <div class="d-flex justify-content-between align-items-center">
-                                                <span class="text-muted" style="font-size: 13px;">{{ $is_course ? 'Points Cost' : 'Price' }}</span>
+                                                <span class="text-muted" style="font-size: 13px;">{{ $is_course ? __('common.points_cost') : __('common.price') }}</span>
                                                 <span class="fw-800" style="font-weight: 800; color: #1591DC; font-size: 18px;">
                                                     @if($is_course)
                                                         <i class="fas fa-coins me-1"></i>{{ number_format($cart->points) }} PTS
@@ -137,7 +137,7 @@
                         <div class="text-center py-5">
                             <i class="fas fa-shopping-basket fa-4x mb-4" style="color: rgba(21, 145, 220, 0.2);"></i>
                             <h4 class="text-dark fw-bold mb-3" style="color: #0a0e27;">{{ __('common.no_cart_available') }}</h4>
-                            <p class="text-muted mb-4">Your cart is empty. Browse our courses and add them to get started!</p>
+                            <p class="text-muted mb-4">{{ __('common.empty_cart_message') }}</p>
                             <a href="{{ route('product-lists') }}" class="modern-btn modern-btn-solid" style="background: linear-gradient(135deg, #1591DC 0%, #2C5EAD 100%); color: white; border: none; border-radius: 10px; padding: 12px 28px; font-weight: 600; display: inline-block; text-decoration: none;">
                                 <i class="fas fa-arrow-left me-2"></i>{{ __('common.continue_shopping') }}
                             </a>
@@ -150,7 +150,7 @@
             <div class="col-xl-4">
                 <div class="modern-card p-5 border-0 shadow-sm bg-white sticky-top" style="border-radius: 24px; border: 1px solid rgba(21, 145, 220, 0.1); top: 120px; z-index: 10;">
                     <h5 class="fw-bold mb-5" style="color: #0a0e27; font-size: 18px;">
-                        <i class="fas fa-receipt me-2" style="color: #1591DC;"></i>Order Summary
+                        <i class="fas fa-receipt me-2" style="color: #1591DC;"></i>{{ __('common.order_summary') }}
                     </h5>
 
                     @if(Helper::cartCount() && Helper::getAllProductFromCart()->where('order_id', null)->count() > 0)
@@ -161,14 +161,14 @@
                         <!-- Cart Items Count -->
                         <div class="mb-4 pb-4 border-bottom" style="border-color: rgba(21, 145, 220, 0.1) !important;">
                             <div class="d-flex justify-content-between align-items-center">
-                                <span class="text-muted" style="font-size: 14px;">Items in Cart</span>
+                                <span class="text-muted" style="font-size: 14px;">{{ __('common.item_count') }}</span>
                                 <span class="fw-bold" style="color: #0a0e27;">{{ Helper::getAllProductFromCart()->where('order_id', null)->count() }}</span>
                             </div>
                         </div>
 
                         <!-- Total Points -->
                         <div class="mb-5 d-flex justify-content-between align-items-center pb-4 border-bottom" style="border-color: rgba(21, 145, 220, 0.1) !important;">
-                            <h5 class="fw-bold mb-0" style="color: #0a0e27;">Total</h5>
+                            <h5 class="fw-bold mb-0" style="color: #0a0e27;">{{ __('common.total') }}</h5>
                             <h4 class="fw-800 mb-0" style="font-weight: 800; color: #1591DC;">
                                 <i class="fas fa-coins me-1"></i>{{ number_format($total_points) }} <span style="font-size: 14px;">PTS</span>
                             </h4>
@@ -189,7 +189,7 @@
 
                         <div class="text-center mt-4">
                             <p class="text-muted mb-0" style="font-size: 12px;">
-                                <i class="fas fa-shield-alt me-1"></i>Secure checkout
+                                <i class="fas fa-shield-alt me-1"></i>{{ __('common.secure_checkout') }}
                             </p>
                         </div>
                     @else
@@ -211,10 +211,10 @@
             <div class="col-12">
                 <div class="modern-card p-5 border-0 shadow-sm bg-white text-center" style="border-radius: 24px; border: 1px solid rgba(21, 145, 220, 0.1); min-height: 300px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
                     <i class="fas fa-lock fa-4x mb-4" style="color: rgba(21, 145, 220, 0.2);"></i>
-                    <h3 class="fw-bold mb-3" style="color: #0a0e27;">Sign In Required</h3>
-                    <p class="text-muted mb-4" style="font-size: 15px; max-width: 400px;">Please log in to your account to view and manage your course cart.</p>
+                    <h3 class="fw-bold mb-3" style="color: #0a0e27;">{{ __('common.sign_in_required') }}</h3>
+                    <p class="text-muted mb-4" style="font-size: 15px; max-width: 400px;">{{ __('common.sign_in_message') }}</p>
                     <a href="{{ route('login') }}" class="modern-btn modern-btn-solid" style="background: linear-gradient(135deg, #1591DC 0%, #2C5EAD 100%); color: white; border: none; border-radius: 10px; padding: 12px 32px; font-weight: 600; text-decoration: none; display: inline-block;">
-                        <i class="fas fa-sign-in-alt me-2"></i>Sign In
+                        <i class="fas fa-sign-in-alt me-2"></i>{{ __('common.sign_in') }}
                     </a>
                 </div>
             </div>

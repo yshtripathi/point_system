@@ -1,5 +1,5 @@
 @extends('frontend.layouts.main')
-@section('title', 'Dashboard')
+@section('title', __('common.dashboard'))
 @section('main-content')
 
 <div class="tl-breadcrumb about-banner pt-60 pb-60">
@@ -41,7 +41,7 @@
                     <div class="position-relative">
                         <div class="d-flex align-items-center justify-content-between mb-3">
                             <i class="fas fa-coins fa-2x" style="color: #1591DC; opacity: 0.8;"></i>
-                            <span class="badge" style="background: rgba(21, 145, 220, 0.1); color: #1591DC; font-size: 10px; padding: 4px 8px;">BALANCE</span>
+                            <span class="badge" style="background: rgba(21, 145, 220, 0.1); color: #1591DC; font-size: 10px; padding: 4px 8px;">{{ __('common.balance') }}</span>
                         </div>
                         <p class="text-muted mb-2" style="font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">{{ __('common.available_credits') ?? 'Available Points' }}</p>
                         <h3 class="mb-0 fw-800" style="color: #0a0e27; font-size: 28px;">{{ Auth::user()->points_balance ?? 0 }} <span style="font-size: 18px; color: #1591DC; font-weight: 600;">PTS</span></h3>
@@ -55,9 +55,9 @@
                     <div class="position-relative">
                         <div class="d-flex align-items-center justify-content-between mb-3">
                             <i class="fas fa-book-open fa-2x" style="color: #FFC107; opacity: 0.8;"></i>
-                            <span class="badge" style="background: rgba(255, 193, 7, 0.1); color: #FFC107; font-size: 10px; padding: 4px 8px;">COURSES</span>
+                            <span class="badge" style="background: rgba(255, 193, 7, 0.1); color: #FFC107; font-size: 10px; padding: 4px 8px;">{{ __('common.courses') }}</span>
                         </div>
-                        <p class="text-muted mb-2" style="font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">Courses Enrolled</p>
+                        <p class="text-muted mb-2" style="font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">{{ __('common.courses_enrolled') }}</p>
                         <h3 class="mb-0 fw-800" style="color: #0a0e27; font-size: 28px;">{{ isset($redeemedOrders) ? count($redeemedOrders) : 0 }}</h3>
                     </div>
                 </div>
@@ -69,9 +69,9 @@
                     <div class="position-relative">
                         <div class="d-flex align-items-center justify-content-between mb-3">
                             <i class="fas fa-check-circle fa-2x" style="color: #28a745; opacity: 0.8;"></i>
-                            <span class="badge" style="background: rgba(40, 167, 69, 0.1); color: #28a745; font-size: 10px; padding: 4px 8px;">STATS</span>
+                            <span class="badge" style="background: rgba(40, 167, 69, 0.1); color: #28a745; font-size: 10px; padding: 4px 8px;">{{ __('common.stats') }}</span>
                         </div>
-                        <p class="text-muted mb-2" style="font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">Completed</p>
+                        <p class="text-muted mb-2" style="font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">{{ __('common.completed') }}</p>
                         <h3 class="mb-0 fw-800" style="color: #0a0e27; font-size: 28px;">{{ isset($redeemedOrders) ? count($redeemedOrders->where('status', 'Completed')) : 0 }}</h3>
                     </div>
                 </div>
@@ -83,9 +83,9 @@
                     <div class="position-relative">
                         <div class="d-flex align-items-center justify-content-between mb-3">
                             <i class="fas fa-calendar-alt fa-2x" style="color: #6c757d; opacity: 0.8;"></i>
-                            <span class="badge" style="background: rgba(108, 117, 125, 0.1); color: #6c757d; font-size: 10px; padding: 4px 8px;">MEMBER</span>
+                            <span class="badge" style="background: rgba(108, 117, 125, 0.1); color: #6c757d; font-size: 10px; padding: 4px 8px;">{{ __('common.member') }}</span>
                         </div>
-                        <p class="text-muted mb-2" style="font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">Member Since</p>
+                        <p class="text-muted mb-2" style="font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">{{ __('common.member_since') }}</p>
                         <h3 class="mb-0 fw-800" style="color: #0a0e27; font-size: 28px;">{{ Auth::user()->created_at->format('M') }}<span style="font-size: 16px; color: #6c757d; font-weight: 600;"> {{ Auth::user()->created_at->format('Y') }}</span></h3>
                     </div>
                 </div>
@@ -96,17 +96,17 @@
         <ul class="nav nav-tabs mb-4 border-0 bg-white rounded-3 shadow-md p-3 p-md-4" id="dashboardTabs" role="tablist" style="border-radius: 16px;">
             <li class="nav-item" role="presentation">
                 <button class="nav-link active fw-bold" id="points-purchased-tab" data-bs-toggle="tab" data-bs-target="#points-purchased" type="button" role="tab" aria-controls="points-purchased" aria-selected="true" style="color: #666; font-size: 15px;">
-                    <i class="fas fa-wallet me-2"></i>Points Purchased
+                    <i class="fas fa-wallet me-2"></i>{{ __('common.points_purchased') }}
                 </button>
             </li>
             <li class="nav-item" role="presentation">
                 <button class="nav-link fw-bold" id="points-redeemed-tab" data-bs-toggle="tab" data-bs-target="#points-redeemed" type="button" role="tab" aria-controls="points-redeemed" aria-selected="false" style="color: #666; font-size: 15px;">
-                    <i class="fas fa-graduation-cap me-2"></i>Points Redeemed
+                    <i class="fas fa-graduation-cap me-2"></i>{{ __('common.points_redeemed') }}
                 </button>
             </li>
             <li class="ms-auto">
                 <a href="{{ route('user.logout') }}" class="nav-link fw-bold text-danger" style="font-size: 15px;">
-                    <i class="fas fa-sign-out-alt me-2"></i>Logout
+                    <i class="fas fa-sign-out-alt me-2"></i>{{ __('common.logout') }}
                 </a>
             </li>
         </ul>
@@ -117,7 +117,7 @@
             <div class="tab-pane fade show active" id="points-purchased" role="tabpanel" aria-labelledby="points-purchased-tab">
                 <div class="modern-card bg-white border-0 shadow-lg p-4 p-md-5" style="border-radius: 16px; border: 1px solid rgba(21, 145, 220, 0.1);">
                     <h3 class="mb-4 fw-bold" style="color: #0a0e27;">
-                        <i class="fas fa-wallet me-2" style="color: #FFC107;"></i>Points Purchased (Wallet Top-ups)
+                        <i class="fas fa-wallet me-2" style="color: #FFC107;"></i>{{ __('common.points_purchased_wallet') }}
                     </h3>
 
                     @if(isset($purchasedOrders) && count($purchasedOrders) > 0)
@@ -125,12 +125,12 @@
                             <table class="table table-hover align-middle">
                                 <thead style="background: rgba(21, 145, 220, 0.05); border-bottom: 2px solid rgba(21, 145, 220, 0.2);">
                                     <tr>
-                                        <th style="color: #1591DC; font-weight: 600;">Order Number</th>
-                                        <th style="color: #1591DC; font-weight: 600;">Points Bought</th>
-                                        <th style="color: #1591DC; font-weight: 600;">Price Paid</th>
-                                        <th style="color: #1591DC; font-weight: 600;">Payment Status</th>
-                                        <th style="color: #1591DC; font-weight: 600;">Date</th>
-                                        <th style="color: #1591DC; font-weight: 600;">Action</th>
+                                        <th style="color: #1591DC; font-weight: 600;">{{ __('common.order_number') }}</th>
+                                        <th style="color: #1591DC; font-weight: 600;">{{ __('common.points_bought') }}</th>
+                                        <th style="color: #1591DC; font-weight: 600;">{{ __('common.price_paid') }}</th>
+                                        <th style="color: #1591DC; font-weight: 600;">{{ __('common.payment_status') }}</th>
+                                        <th style="color: #1591DC; font-weight: 600;">{{ __('common.date') }}</th>
+                                        <th style="color: #1591DC; font-weight: 600;">{{ __('common.action') }}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -145,15 +145,15 @@
                                         <td>{{ Helper::getCurrencySymbol($order->currency) }}{{ number_format($order->total_amount, $order->currency=='JPY' ? 0 : 2) }}</td>
                                         <td>
                                             @if(strtolower($order->payment_status) === 'paid')
-                                                <span class="badge bg-success">Paid</span>
+                                                <span class="badge bg-success">{{ __('common.paid') }}</span>
                                             @else
-                                                <span class="badge bg-warning">Pending</span>
+                                                <span class="badge bg-warning">{{ __('common.pending') }}</span>
                                             @endif
                                         </td>
                                         <td>{{ $order->created_at->format('d M Y') }}</td>
                                         <td>
                                             <a href="{{route('user.order.show', $order->id)}}" class="btn btn-sm btn-outline-primary">
-                                                <i class="fas fa-eye me-1"></i>View
+                                                <i class="fas fa-eye me-1"></i>{{ __('common.view') }}
                                             </a>
                                         </td>
                                     </tr>
@@ -164,8 +164,8 @@
                     @else
                         <div class="text-center py-5">
                             <i class="fas fa-inbox fa-4x mb-3" style="color: rgba(21, 145, 220, 0.2);"></i>
-                            <h5 class="text-muted mt-3">No wallet top-ups yet</h5>
-                            <p class="text-muted mb-4">You haven't purchased any points yet. <a href="{{ route('product-lists') }}" class="text-primary fw-bold">Browse courses to get started</a></p>
+                            <h5 class="text-muted mt-3">{{ __('common.no_wallet_topups') }}</h5>
+                            <p class="text-muted mb-4">{{ __('common.no_wallet_topups_message') }}</p>
                         </div>
                     @endif
                 </div>
@@ -175,7 +175,7 @@
             <div class="tab-pane fade" id="points-redeemed" role="tabpanel" aria-labelledby="points-redeemed-tab">
                 <div class="modern-card bg-white border-0 shadow-lg p-4 p-md-5" style="border-radius: 16px; border: 1px solid rgba(21, 145, 220, 0.1);">
                     <h3 class="mb-4 fw-bold" style="color: #0a0e27;">
-                        <i class="fas fa-graduation-cap me-2" style="color: #1591DC;"></i>Points Redeemed (Course Enrollments)
+                        <i class="fas fa-graduation-cap me-2" style="color: #1591DC;"></i>{{ __('common.points_redeemed_courses') }}
                     </h3>
 
                     @if(isset($redeemedOrders) && count($redeemedOrders) > 0)
@@ -183,13 +183,13 @@
                             <table class="table table-hover align-middle">
                                 <thead style="background: rgba(21, 145, 220, 0.05); border-bottom: 2px solid rgba(21, 145, 220, 0.2);">
                                     <tr>
-                                        <th style="color: #1591DC; font-weight: 600;">Order Number</th>
-                                        <th style="color: #1591DC; font-weight: 600;">Course Name</th>
-                                        <th style="color: #1591DC; font-weight: 600;">Level</th>
-                                        <th style="color: #1591DC; font-weight: 600;">Points Used</th>
-                                        <th style="color: #1591DC; font-weight: 600;">Status</th>
-                                        <th style="color: #1591DC; font-weight: 600;">Date</th>
-                                        <th style="color: #1591DC; font-weight: 600;">Action</th>
+                                        <th style="color: #1591DC; font-weight: 600;">{{ __('common.order_number') }}</th>
+                                        <th style="color: #1591DC; font-weight: 600;">{{ __('common.course_name') }}</th>
+                                        <th style="color: #1591DC; font-weight: 600;">{{ __('common.level') }}</th>
+                                        <th style="color: #1591DC; font-weight: 600;">{{ __('common.points_used') }}</th>
+                                        <th style="color: #1591DC; font-weight: 600;">{{ __('common.status') }}</th>
+                                        <th style="color: #1591DC; font-weight: 600;">{{ __('common.date') }}</th>
+                                        <th style="color: #1591DC; font-weight: 600;">{{ __('common.action') }}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -220,7 +220,7 @@
                                         </td>
                                         <td>
                                             @if(strtolower($order->status) === 'completed')
-                                                <span class="badge bg-success">Redeemed</span>
+                                                <span class="badge bg-success">{{ __('common.redeemed') }}</span>
                                             @else
                                                 <span class="badge bg-warning">{{ $order->status }}</span>
                                             @endif
@@ -228,7 +228,7 @@
                                         <td>{{ $order->created_at->format('d M Y') }}</td>
                                         <td>
                                             <a href="{{route('user.order.show', $order->id)}}" class="btn btn-sm btn-outline-primary">
-                                                <i class="fas fa-eye me-1"></i>View
+                                                <i class="fas fa-eye me-1"></i>{{ __('common.view') }}
                                             </a>
                                         </td>
                                     </tr>
@@ -239,8 +239,8 @@
                     @else
                         <div class="text-center py-5">
                             <i class="fas fa-book fa-4x mb-3" style="color: rgba(21, 145, 220, 0.2);"></i>
-                            <h5 class="text-muted mt-3">No course enrollments yet</h5>
-                            <p class="text-muted mb-4">You haven't redeemed any points for courses yet. <a href="{{ route('coursecart') }}" class="text-primary fw-bold">Browse and enroll in courses</a></p>
+                            <h5 class="text-muted mt-3">{{ __('common.no_course_enrollments') }}</h5>
+                            <p class="text-muted mb-4">{{ __('common.no_course_enrollments_message') }} <a href="{{ route('coursecart') }}" class="text-primary fw-bold">{{ __('common.browse_enroll_courses') }}</a></p>
                         </div>
                     @endif
                 </div>

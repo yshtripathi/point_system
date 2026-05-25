@@ -1,6 +1,6 @@
 @extends('frontend.layouts.main')
 
-@section('title', 'Points Top Up')
+@section('title', __('common.points_top_up'))
 
 @section('main-content')
 <div class="tl-breadcrumb topup-banner pt-60 pb-60">
@@ -13,14 +13,14 @@
     <div class="container">
         <div class="row align-items-end">
             <div class="col-md-6">
-                <div class="banner-txt"><h1 class="tl-breadcrumb-title">{{ __('common.top_up_points') ?? 'Top Up Points' }}</h1></div>
+                <div class="banner-txt"><h1 class="tl-breadcrumb-title">{{ __('common.top_up_points') }}</h1></div>
             </div>
             <div class="col-md-6">
                 <ul class="tl-breadcrumb-nav d-flex justify-content-md-end">
                     <li><a href="/">{{ __('common.home') }}</a></li>
                     <li class="current-page">
                         <span class="dvdr"><i class="fas fa-chevron-right mx-2"></i></span>
-                        <span>{{ __('common.top_up_points') ?? 'Top Up Points' }}</span>
+                        <span>{{ __('common.top_up_points') }}</span>
                     </li>
                 </ul>
             </div>
@@ -32,10 +32,10 @@
 <section class="points-topup-section pt-120 pb-120" id="topup">
     <div class="auto-container">
         <div class="text-center mb-5">
-            <span class="modern-badge">POINTS TOP UP</span>
-            <h2 class="modern-h2 mt-3">Maximize Your Value</h2>
+            <span class="modern-badge">{{ __('common.points_top_up') }}</span>
+            <h2 class="modern-h2 mt-3">{{ __('common.maximize_value') }}</h2>
             <p class="text-muted mx-auto mt-3" style="max-width: 600px;">
-                Recharge your points and unlock exclusive bonuses instantly. Our tier-based system rewards you more as you grow.
+                {{ __('common.topup_description') }}
             </p>
         </div>
 
@@ -57,8 +57,8 @@
                             </svg>
                         </div>
                         <div class="header-text">
-                            <h3 class="tier-title">Tier Rewards</h3>
-                            <p class="tier-subtitle">Bigger purchases = bigger bonuses</p>
+                            <h3 class="tier-title">{{ __('common.tier_rewards') }}</h3>
+                            <p class="tier-subtitle">{{ __('common.bigger_purchases') }}</p>
                         </div>
                     </div>
 
@@ -69,11 +69,11 @@
                         <!-- Tier 1 -->
                         <div class="tier-card tier-card-1">
                             <div class="tier-badge-large">1</div>
-                            <h4 class="tier-card-label">Standard</h4>
+                            <h4 class="tier-card-label">{{ __('common.tier_standard') }}</h4>
                             <div class="tier-range-text">1 - 79,999 ¥</div>
                             <div class="tier-multiplier">
                                 <span class="multiplier-text">×1</span>
-                                <span class="multiplier-label">Bonus</span>
+                                <span class="multiplier-label">{{ __('common.bonus') }}</span>
                             </div>
                             <div class="tier-indicator-bar">
                                 <div class="tier-indicator-fill" style="width: 0%;"></div>
@@ -83,11 +83,11 @@
                         <!-- Tier 2 -->
                         <div class="tier-card tier-card-2">
                             <div class="tier-badge-large tier-badge-premium">2</div>
-                            <h4 class="tier-card-label">Premium</h4>
+                            <h4 class="tier-card-label">{{ __('common.tier_premium') }}</h4>
                             <div class="tier-range-text">80,000 - 159,999 ¥</div>
                             <div class="tier-multiplier">
                                 <span class="multiplier-text multiplier-active">×2</span>
-                                <span class="multiplier-label">Bonus</span>
+                                <span class="multiplier-label">{{ __('common.bonus') }}</span>
                             </div>
                             <div class="tier-indicator-bar">
                                 <div class="tier-indicator-fill" style="width: 50%;"></div>
@@ -97,11 +97,11 @@
                         <!-- Tier 3 -->
                         <div class="tier-card tier-card-3">
                             <div class="tier-badge-large tier-badge-elite">3</div>
-                            <h4 class="tier-card-label">Elite</h4>
+                            <h4 class="tier-card-label">{{ __('common.tier_elite') }}</h4>
                             <div class="tier-range-text">160,000 - 239,999 ¥</div>
                             <div class="tier-multiplier">
                                 <span class="multiplier-text multiplier-active">×2.5</span>
-                                <span class="multiplier-label">Bonus</span>
+                                <span class="multiplier-label">{{ __('common.bonus') }}</span>
                             </div>
                             <div class="tier-indicator-bar">
                                 <div class="tier-indicator-fill" style="width: 75%;"></div>
@@ -111,28 +111,28 @@
                         <!-- Tier 4 -->
                         <div class="tier-card tier-card-4">
                             <div class="tier-badge-large tier-badge-vip">4</div>
-                            <h4 class="tier-card-label">VIP</h4>
+                            <h4 class="tier-card-label">{{ __('common.tier_vip') }}</h4>
                             <div class="tier-range-text">240,000+ ¥</div>
                             <div class="tier-multiplier">
                                 <span class="multiplier-text multiplier-active">×3</span>
-                                <span class="multiplier-label">Bonus</span>
+                                <span class="multiplier-label">{{ __('common.bonus') }}</span>
                             </div>
                             <div class="tier-indicator-bar">
                                 <div class="tier-indicator-fill" style="width: 100%;"></div>
                             </div>
                         </div>
                     </div>
-                    <div class="currency-note">*160 JPY = 1 Credit</div>
+                    <div class="currency-note">{{ __('common.jpy_conversion_note') }}</div>
                     @else
                     <div class="tier-cards-grid">
                         <!-- Tier 1 -->
                         <div class="tier-card tier-card-1">
                             <div class="tier-badge-large">1</div>
-                            <h4 class="tier-card-label">Standard</h4>
+                            <h4 class="tier-card-label">{{ __('common.tier_standard') }}</h4>
                             <div class="tier-range-text">$1 - $499</div>
                             <div class="tier-multiplier">
                                 <span class="multiplier-text">×1</span>
-                                <span class="multiplier-label">Bonus</span>
+                                <span class="multiplier-label">{{ __('common.bonus') }}</span>
                             </div>
                             <div class="tier-indicator-bar">
                                 <div class="tier-indicator-fill" style="width: 0%;"></div>
@@ -142,11 +142,11 @@
                         <!-- Tier 2 -->
                         <div class="tier-card tier-card-2">
                             <div class="tier-badge-large tier-badge-premium">2</div>
-                            <h4 class="tier-card-label">Premium</h4>
+                            <h4 class="tier-card-label">{{ __('common.tier_premium') }}</h4>
                             <div class="tier-range-text">$500 - $999</div>
                             <div class="tier-multiplier">
                                 <span class="multiplier-text multiplier-active">×2</span>
-                                <span class="multiplier-label">Bonus</span>
+                                <span class="multiplier-label">{{ __('common.bonus') }}</span>
                             </div>
                             <div class="tier-indicator-bar">
                                 <div class="tier-indicator-fill" style="width: 50%;"></div>
@@ -156,11 +156,11 @@
                         <!-- Tier 3 -->
                         <div class="tier-card tier-card-3">
                             <div class="tier-badge-large tier-badge-elite">3</div>
-                            <h4 class="tier-card-label">Elite</h4>
+                            <h4 class="tier-card-label">{{ __('common.tier_elite') }}</h4>
                             <div class="tier-range-text">$1,000 - $1,499</div>
                             <div class="tier-multiplier">
                                 <span class="multiplier-text multiplier-active">×2.5</span>
-                                <span class="multiplier-label">Bonus</span>
+                                <span class="multiplier-label">{{ __('common.bonus') }}</span>
                             </div>
                             <div class="tier-indicator-bar">
                                 <div class="tier-indicator-fill" style="width: 75%;"></div>
@@ -170,18 +170,18 @@
                         <!-- Tier 4 -->
                         <div class="tier-card tier-card-4">
                             <div class="tier-badge-large tier-badge-vip">4</div>
-                            <h4 class="tier-card-label">VIP</h4>
+                            <h4 class="tier-card-label">{{ __('common.tier_vip') }}</h4>
                             <div class="tier-range-text">$1,500+</div>
                             <div class="tier-multiplier">
                                 <span class="multiplier-text multiplier-active">×3</span>
-                                <span class="multiplier-label">Bonus</span>
+                                <span class="multiplier-label">{{ __('common.bonus') }}</span>
                             </div>
                             <div class="tier-indicator-bar">
                                 <div class="tier-indicator-fill" style="width: 100%;"></div>
                             </div>
                         </div>
                     </div>
-                    <div class="currency-note">*1 USD = 1 Credit</div>
+                    <div class="currency-note">{{ __('common.usd_conversion_note') }}</div>
                     @endif
                 </div>
             </div>
@@ -197,8 +197,8 @@
                         <!-- Header -->
                         <div class="calc-header-premium">
                             <div class="calc-header-top">
-                                <h2 class="calc-title-premium">Instant Recharge</h2>
-                                <p class="calc-tagline">Get more points, faster</p>
+                                <h2 class="calc-title-premium">{{ __('common.instant_recharge') }}</h2>
+                                <p class="calc-tagline">{{ __('common.get_more_points_faster') }}</p>
                             </div>
                             <div class="calc-currency-badge">{{ session('currency') == 'JPY' ? '¥' : '$' }}</div>
                         </div>
@@ -209,7 +209,7 @@
 
                             <!-- Amount Input with Premium Styling -->
                             <div class="premium-input-section">
-                                <label class="input-label-premium">How much would you like?</label>
+                                <label class="input-label-premium">{{ __('common.how_much_would_you_like') }}</label>
                                 <div class="premium-amount-input-wrapper">
                                     <input
                                         type="number"
@@ -227,16 +227,16 @@
                             <!-- Points Breakdown Card -->
                             <div class="points-breakdown-card">
                                 <div class="breakdown-row">
-                                    <span class="breakdown-label">Base Points</span>
+                                    <span class="breakdown-label">{{ __('common.base_points') }}</span>
                                     <span class="breakdown-value" id="base_points">0</span>
                                 </div>
                                 <div class="breakdown-row">
-                                    <span class="breakdown-label">Tier Bonus</span>
+                                    <span class="breakdown-label">{{ __('common.tier_bonus') }}</span>
                                     <span class="breakdown-value bonus-badge" id="multiplier_display">×1</span>
                                 </div>
                                 <div class="breakdown-divider"></div>
                                 <div class="breakdown-row breakdown-total">
-                                    <span class="breakdown-label">You'll Get</span>
+                                    <span class="breakdown-label">{{ __('common.youll_get') }}</span>
                                     <span class="breakdown-value-total" id="total_points">0</span>
                                 </div>
                             </div>
@@ -244,28 +244,28 @@
                             <!-- Large Points Display -->
                             <div class="points-display-premium">
                                 <span class="points-number" id="total_points_large">0</span>
-                                <span class="points-unit">Points</span>
+                                <span class="points-unit">{{ __('common.points') }}</span>
                             </div>
 
                             <!-- Benefits Checklist -->
                             <div class="benefits-section">
                                 <div class="benefit-item">
                                     <i class="fas fa-bolt"></i>
-                                    <span>Instant Credit</span>
+                                    <span>{{ __('common.instant_credit') }}</span>
                                 </div>
                                 <div class="benefit-item">
                                     <i class="fas fa-shield-alt"></i>
-                                    <span>100% Secure</span>
+                                    <span>{{ __('common.secure_100percent') }}</span>
                                 </div>
                                 <div class="benefit-item">
                                     <i class="fas fa-infinity"></i>
-                                    <span>No Expiry</span>
+                                    <span>{{ __('common.no_expiry') }}</span>
                                 </div>
                             </div>
 
                             <!-- Premium Button -->
                             <button type="submit" class="btn-premium-checkout">
-                                <span class="btn-label">Add to Cart</span>
+                                <span class="btn-label">{{ __('common.add_to_cart') }}</span>
                                 <span class="btn-icon"><i class="fas fa-arrow-right"></i></span>
                                 <span class="btn-shine"></span>
                             </button>
@@ -274,7 +274,7 @@
                         <!-- Trust Badge -->
                         <div class="trust-indicator">
                             <i class="fas fa-check-circle"></i>
-                            <span>Trusted by thousands of users</span>
+                            <span>{{ __('common.trusted_by_thousands') }}</span>
                         </div>
                     </div>
                 </div>

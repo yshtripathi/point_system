@@ -35,14 +35,14 @@
                 <div class="modern-card p-4 p-md-5 border-0 shadow-sm bg-white" style="border-radius: 24px; border: 1px solid rgba(21, 145, 220, 0.1);">
                     <h5 class="fw-bold text-dark mb-5 d-flex align-items-center gap-3" style="color: #0a0e27;">
                         <i class="fas fa-shopping-cart" style="color: #1591DC;"></i>
-                        {{ __('common.item') }} Summary
+                        {{ __('common.item_summary') }}
                     </h5>
 
                     <div class="table-responsive">
                         <table class="table align-middle">
                             <thead>
                                 <tr class="text-uppercase small fw-bold" style="color: #1591DC; border-bottom: 2px solid rgba(21, 145, 220, 0.15);">
-                                    <th class="border-0 pb-4">Product</th>
+                                    <th class="border-0 pb-4">{{ __('common.product') }}</th>
                                     <th class="border-0 pb-4 text-center">{{ __('common.price') }}</th>
                                     <th class="border-0 pb-4 text-end">{{ __('common.remove') }}</th>
                                 </tr>
@@ -62,7 +62,7 @@
                                             <td class="py-4">
                                                 <div class="d-flex flex-column gap-2">
                                                     <a href="{{ $item_link }}" class="fw-bold text-decoration-none" style="color: #0a0e27; font-size: 15px;">{{ $item_title }}</a>
-                                                    <span class="badge rounded-2" style="background: rgba(21, 145, 220, 0.1); color: #1591DC; width: fit-content; font-size: 11px; font-weight: 600;">Learning Path</span>
+                                                    <span class="badge rounded-2" style="background: rgba(21, 145, 220, 0.1); color: #1591DC; width: fit-content; font-size: 11px; font-weight: 600;">{{ __('common.learning_path') }}</span>
                                                 </div>
                                             </td>
                                             <td class="py-4 text-center">
@@ -105,7 +105,7 @@
             <!-- Right: Order Summary -->
             <div class="col-xl-4">
                 <div class="modern-card p-5 border-0 shadow-sm bg-white sticky-top" style="border-radius: 24px; border: 1px solid rgba(21, 145, 220, 0.1); top: 120px; z-index: 10;">
-                    <h5 class="fw-bold mb-5" style="color: #0a0e27; font-size: 18px;">Order Summary</h5>
+                    <h5 class="fw-bold mb-5" style="color: #0a0e27; font-size: 18px;">{{ __('common.order_summary') }}</h5>
 
                     @if(Helper::cartCount())
                         @php
@@ -118,7 +118,7 @@
                         
 
                         <div class="mb-5 d-flex justify-content-between align-items-center pt-4 border-top" style="border-color: rgba(21, 145, 220, 0.1) !important;">
-                            <h5 class="fw-bold mb-0" style="color: #0a0e27;">Total</h5>
+                            <h5 class="fw-bold mb-0" style="color: #0a0e27;">{{ __('common.total') }}</h5>
                             <h4 class="fw-800 mb-0" style="font-weight: 800; color: #1591DC;">
                                 @if(Helper::totalCartPoints() > 0)
                                     <i class="fas fa-coins me-1"></i> {{ number_format(Helper::totalCartPoints()) }} PTS
@@ -138,7 +138,7 @@
                         </div>
                     @else
                         <div class="border-0 rounded-3 p-4 text-center mb-0" style="background: rgba(21, 145, 220, 0.05); border: 1px solid rgba(21, 145, 220, 0.1);">
-                            <p class="mb-0" style="color: #666; font-size: 14px;">Your summary will appear once you add items to the cart.</p>
+                            <p class="mb-0" style="color: #666; font-size: 14px;">{{ __('common.summary_empty') }}</p>
                         </div>
                     @endif
                 </div>
