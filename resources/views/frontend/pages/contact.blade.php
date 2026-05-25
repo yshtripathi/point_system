@@ -240,38 +240,46 @@
 @endpush
 
 @push('scripts')
-<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.js"></script>
 <script>
-    $(document).ready(function() {
-        $("#contactform").validate({
-            rules: {
-                name: "required",
-                subject: "required",                
-                phone: {
-                    required: true,
-                    digits: true,
-                    minlength: 10
-                },
-                email: {
-                    required: true,
-                    email: true
-                },
-                message: "required",
-                @if(env('CAPTCHA_ENABLED', true))
-                captcha: "required"
-                @endif
-            },
-            messages: {
-                name: "{{ __('common.name_required') }}",
-                subject: " {{ __('common.subject_required') }}",
-                email: "{{ __('common.email_required') }}",            
-                phone: {
-                    required: " {{ __('common.phone_required') }}",
-                    minlength: "{{ __('common.phone_min') }}"
-                },
-                message: " {{ __('common.message_required') }}"
-            }
-        });
-    });
+    function handleSubmit(event) {
+        event.preventDefault();
+
+        // Get form values
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const subject = document.getElementById('subject').value;
+        const message = document.getElementById('message').value;
+
+        // Simple validation
+        if (!name || !email || !subject || !message) {
+            alert('{{ __('common.all_fields_required') }}');
+            return false;
+        }
+
+        // Show success message
+        const successDiv = document.createElement('div');
+        successDiv.className = 'alert alert-success alert-dismissible fade show modern-alert modern-alert-success';
+        successDiv.setAttribute('role', 'alert');
+        successDiv.innerHTML = `
+            <div class="d-flex align-items-center gap-3">
+                <i class="fas fa-check-circle" style="font-size: 20px; flex-shrink: 0; color: #4BB8FA;"></i>
+                <div style="color: white;">{{ __('common.message_sent_successfully') }}</div>
+            </div>
+            <button type="button" class="btn-close modern-alert-close" data-bs-dismiss="alert" aria-label="Close" style="filter: brightness(0) invert(1);"></button>
+        `;
+
+        // Insert at top of page
+        document.body.insertBefore(successDiv, document.body.firstChild);
+
+        // Reset form
+        document.getElementById('contactform').reset();
+
+        // Auto-hide after 5 seconds
+        setTimeout(() => {
+            successDiv.remove();
+        }, 5000);
+
+        return false;
+    }
 </script>
 @endpush
